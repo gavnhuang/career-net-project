@@ -1,0 +1,22 @@
+intent_label,sub_intent,n,composite_mean,composite_se
+Explore Options,Explore Opportunities,3184,3.3331239530988275,0.01074454566811034
+Explore Options,Explore Skills,1617,3.3927025355596783,0.014654771764564837
+Explore Options,Understand Education Options,3427,3.373990856920533,0.010529298718282735
+Explore Options,Understand a Career Path,4895,3.4032005447735783,0.008627673655984618
+Take Action,Get Step-by-Step Advice,3367,3.417582417582418,0.00993603175506152
+Take Action,Make a Decision,1048,3.305979643765903,0.018753121832937175
+Take Action,Plan a Career Path,3013,3.3561234649850644,0.011259108596124912
+Validation / Support,Get Feedback or Reassurance,3535,3.4093352192362096,0.009968289625510112
+Validation / Support,Overcome Doubt or Fear,539,3.3852813852813854,0.02619569922938421
+Validation / Support,Seek Motivation or Encouragement,682,3.4237536656891496,0.02151458222989216
+Validation / Support,Validate a Choice or Path,1146,3.366201279813845,0.01829297520585278
+Find Resources,Community,281,3.3487544483985765,0.0358954059445911
+Find Resources,Find Opportunities or Programs,1583,3.364708359654664,0.015309970044707431
+Find Resources,Get Learning Resources,1299,3.3979984603541187,0.016334911308144583
+Find Resources,Mentors,121,3.37465564738292,0.05757180315153267
+Navigate Constraints,Discrimination / Marginalization Awareness,122,3.2841530054644807,0.05684718665502424
+Navigate Constraints,Financial Constraints / SES Barriers,160,3.2729166666666667,0.04953239371969699
+Navigate Constraints,Geographic or Transportation Limits,50,3.3466666666666667,0.07675977782708526
+Navigate Constraints,Work-Life Balance / Caregiving,192,3.3854166666666665,0.04523388000203813
+Compare Options,Compare Educational Paths,853,3.3243454474404066,0.02161663528495925
+Compare Options,Compare Roles or Paths,1119,3.3291629431039618,0.01889967675870482

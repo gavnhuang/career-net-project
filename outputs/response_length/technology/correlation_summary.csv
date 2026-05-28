@@ -1,0 +1,4 @@
+outcome,correlation_r,p_value,strength
+Completeness,0.36,< .001,Moderate
+Coherency,0.162,< .001,Weak
+Correctness,0.244,< .001,Weak

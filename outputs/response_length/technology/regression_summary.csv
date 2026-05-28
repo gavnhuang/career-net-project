@@ -1,0 +1,4 @@
+outcome,slope_per_word,slope_per_100_words,r_squared,p_value
+Completeness,0.00334,0.334,0.13,< .001
+Coherency,9.6e-4,0.096,0.026,< .001
+Correctness,0.00184,0.184,0.06,< .001

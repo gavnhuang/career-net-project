@@ -1,0 +1,9 @@
+.Rproj.user
+.Rhistory
+.RData
+.RDataTmp
+.Ruserdata
+
+# Claude Code (personal files — not project code)
+.claude/
+.DS_Store
