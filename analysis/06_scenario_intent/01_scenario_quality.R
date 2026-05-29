@@ -3,7 +3,7 @@
 # ============================================================
 # Which career scenario types receive the highest-rated responses?
 
-source("Scenario Intent Analysis/00_scenario_intent_helpers.R")
+source("analysis/06_scenario_intent/00_scenario_intent_helpers.R")
 
 dir.create("plots/scenario_intent",   recursive = TRUE, showWarnings = FALSE)
 dir.create("outputs/scenario_intent", recursive = TRUE, showWarnings = FALSE)

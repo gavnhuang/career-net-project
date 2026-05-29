@@ -1,4 +1,4 @@
-source("Prompt Length Analysis/00_prompt_length_helpers.R")
+source("analysis/02_prompt_length/00_prompt_length_helpers.R")
 
 health <- read_csv("data/health.csv", show_col_types = FALSE) %>%
   mutate(domain = "Healthcare")

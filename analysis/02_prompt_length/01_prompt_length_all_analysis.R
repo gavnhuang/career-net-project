@@ -1,4 +1,4 @@
-source("Prompt Length Analysis/00_prompt_length_helpers.R")
+source("analysis/02_prompt_length/00_prompt_length_helpers.R")
 
 domain_files <- c(
   General    = "data/general.csv",

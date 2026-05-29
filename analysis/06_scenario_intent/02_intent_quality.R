@@ -4,7 +4,7 @@
 # Do certain prompt intent types predict higher response quality?
 # Three views: presence/absence gap, sub-intent breakdown, dimension heatmap.
 
-source("Scenario Intent Analysis/00_scenario_intent_helpers.R")
+source("analysis/06_scenario_intent/00_scenario_intent_helpers.R")
 
 dir.create("plots/scenario_intent",   recursive = TRUE, showWarnings = FALSE)
 dir.create("outputs/scenario_intent", recursive = TRUE, showWarnings = FALSE)

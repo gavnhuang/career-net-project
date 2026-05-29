@@ -1,4 +1,4 @@
-source("Response Length Analysis/00_response_length_helpers.R")
+source("analysis/04_response_length/00_response_length_helpers.R")
 
 domain_files <- c(
   General    = "data/general.csv",

@@ -13,19 +13,16 @@ Project/
 │   ├── general.csv
 │   ├── health.csv
 │   └── technology.csv
-├── Data Exploration/
-│   ├── First Impressions.R       # Explore low/high completeness responses
-│   └── Response Generator.R
-├── Response Length Analysis/
-│   ├── 00_response_length_helpers.R   # Shared helper functions (sourced by others)
-│   ├── 01_response_length_all_analysis.R
-│   ├── 02_response_length_general_analysis.R
-│   ├── 03_response_length_healthcare_analysis.R
-│   └── 04_response_length_technology_analysis.R
+├── analysis/
+│   ├── 00_data_exploration/
+│   ├── 01_score_distribution/
+│   ├── 02_prompt_length/
+│   ├── 03_prompt_text/
+│   ├── 04_response_length/
+│   ├── 05_response_text/
+│   └── 06_scenario_intent/
 ├── outputs/
-│   └── response_length/
 └── plots/
-    └── response_length/
 ```
 
 ## Running R Scripts
@@ -33,13 +30,13 @@ Run scripts from the project root so relative paths resolve correctly:
 
 ```bash
 # Run a specific script
-Rscript "Response Length Analysis/01_response_length_all_analysis.R"
+Rscript "analysis/04_response_length/01_response_length_all_analysis.R"
 
 # Run all response length analyses
-Rscript "Response Length Analysis/01_response_length_all_analysis.R"
-Rscript "Response Length Analysis/02_response_length_general_analysis.R"
-Rscript "Response Length Analysis/03_response_length_healthcare_analysis.R"
-Rscript "Response Length Analysis/04_response_length_technology_analysis.R"
+Rscript "analysis/04_response_length/01_response_length_all_analysis.R"
+Rscript "analysis/04_response_length/02_response_length_general_analysis.R"
+Rscript "analysis/04_response_length/03_response_length_healthcare_analysis.R"
+Rscript "analysis/04_response_length/04_response_length_technology_analysis.R"
 
 # Interactive R session
 R --no-save --no-restore
