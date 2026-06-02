@@ -50,7 +50,10 @@ plots/             PDF plots produced by the scripts
 ### Getting oriented
 
 #### Data Exploration · `analysis/00_data_exploration/`
-The starting point. Displays the lowest and highest-rated responses side by side to build intuition for what separates a poor answer from an excellent one before any formal analysis.
+The starting point. Two scripts for building intuition before formal analysis:
+
+- **`First Impressions.R`** — prints the five lowest and five highest-rated responses (by completeness) from the General dataset so you can read concrete examples of what the rating scale means.
+- **`Response Generator.R`** — interactive explorer: choose a domain and target scores for each dimension, then randomly sample matching Q&A pairs one at a time.
 
 #### Score Distribution · `analysis/01_score_distribution/`
 Distributions of completeness, coherency, correctness, and the composite score across the full dataset. Establishes the baseline shape of quality ratings.
