@@ -4,13 +4,15 @@ Exploratory analysis of a CareerNet dataset containing career-advice Q&A pairs, 
 
 ## Dataset
 
-~144,000 Q&A pairs drawn from three career domains:
+~16,100 Q&A pairs drawn from three career domains:
 
-| File | Domain | Records |
-|------|--------|---------|
-| `data/general.csv` | General career advice | ~81,600 |
-| `data/health.csv` | Healthcare careers | ~31,600 |
-| `data/technology.csv` | Technology careers | ~30,800 |
+| File | Domain | Answers | Unique questions |
+|------|--------|---------|-----------------|
+| `data/general.csv` | General career advice | 7,984 | 3,000 |
+| `data/health.csv` | Healthcare careers | 4,069 | 1,500 |
+| `data/technology.csv` | Technology careers | 4,077 | 1,500 |
+
+Each question may have multiple answers (annotators rated each answer independently). Each file also includes a `Split` column marking rows as `Train` or `Test`. The current analyses use all rows — if a predictive model is built later, exploration should be repeated using only the `Train` rows.
 
 Each row is one answer to a career question, rated by a human annotator on a 1–4 scale across three dimensions:
 
@@ -33,7 +35,7 @@ install.packages(c("tidyverse", "tidytext", "stringr", "hexbin"))
 Always run scripts from the **project root** (`Project/`) so relative paths to `data/`, `outputs/`, and `plots/` resolve correctly:
 
 ```bash
-Rscript "analysis/04_response_length/01_response_length_all_analysis.R"
+Rscript "analysis/03_response_length/01_response_length_all_analysis.R"
 ```
 
 ## Project Structure
@@ -65,30 +67,25 @@ Output: `plots/score_distribution/score_distribution.pdf`
 ### Question-side analyses
 *What properties of the question predict answer quality?*
 
-#### Prompt Length · `analysis/02_prompt_length/`
+#### Question Length · `analysis/02_question_length/`
 Does a longer question attract a better answer? Runs correlation and regression for all domains combined and for each domain separately. Outliers removed before modelling.
 
-Outputs: `plots/prompt_length/`, `outputs/prompt_length/`
+Outputs: `plots/question_length/`, `outputs/question_length/`
 
 | Script | Scope |
 |--------|-------|
-| `01_prompt_length_all_analysis.R` | All domains |
-| `02_prompt_length_general_analysis.R` | General |
-| `03_prompt_length_healthcare_analysis.R` | Healthcare |
-| `04_prompt_length_technology_analysis.R` | Technology |
-
-#### Prompt Text · `analysis/03_prompt_text/`
-What words and phrases appear in high-quality vs. low-quality questions? Uses TF-IDF and log-odds ratio to surface the language that distinguishes each group. Two threshold variants: composite > 3.0 and composite > 3.5.
-
-Outputs: `plots/prompt_text/`, `outputs/prompt_text/`
+| `01_question_length_all_analysis.R` | All domains |
+| `02_question_length_general_analysis.R` | General |
+| `03_question_length_healthcare_analysis.R` | Healthcare |
+| `04_question_length_technology_analysis.R` | Technology |
 
 ---
 
 ### Answer-side analyses
 *What properties of the answer predict its quality rating?*
 
-#### Response Length · `analysis/04_response_length/`
-Same structure as prompt length but applied to answers. Examines whether longer responses score higher and whether that pattern holds across domains.
+#### Response Length · `analysis/03_response_length/`
+Same structure as question length but applied to answers. Examines whether longer responses score higher and whether that pattern holds across domains.
 
 Outputs: `plots/response_length/`, `outputs/response_length/`
 
@@ -99,23 +96,18 @@ Outputs: `plots/response_length/`, `outputs/response_length/`
 | `03_response_length_healthcare_analysis.R` | Healthcare |
 | `04_response_length_technology_analysis.R` | Technology |
 
-#### Response Text · `analysis/05_response_text/`
-Mirror of the prompt text analysis applied to answer content. Identifies words and phrases that characterise high-scoring vs. low-scoring answers. Two threshold variants: composite > 3.0 and composite > 3.5.
-
-Outputs: `plots/response_text/`, `outputs/response_text/`
-
 ---
 
 ### Contextual factors
 *Does the topic or intent of the question shape how well it gets answered?*
 
-#### Scenario & Intent · `analysis/06_scenario_intent/`
+#### Scenario & Intent · `analysis/04_scenario_intent/`
 Analyses scenario labels (e.g. job search, career change) and intent flags (e.g. `explore_options`, `take_action`) independently, then jointly, to see which question contexts systematically attract better answers.
 
 | Script | Question answered |
 |--------|------------------|
 | `01_scenario_quality.R` | Which career scenarios get the highest-quality answers? |
-| `02_intent_quality.R` | Which prompt intents predict better answers? |
+| `02_intent_quality.R` | Which question intents predict better answers? |
 | `03_scenario_intent_combined.R` | How do scenario and intent interact? |
 
 Outputs: `plots/scenario_intent/`, `outputs/scenario_intent/`

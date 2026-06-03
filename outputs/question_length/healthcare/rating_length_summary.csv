@@ -1,0 +1,13 @@
+outcome,rating,mean_words,median_words,responses
+Coherency,1,27.4,23,65
+Coherency,2,28.4,26,226
+Coherency,3,28,24,1064
+Coherency,4,24.2,19,2521
+Completeness,1,25.5,19,305
+Completeness,2,27,23,852
+Completeness,3,25,20,1123
+Completeness,4,25.2,20,1596
+Correctness,1,28,21,89
+Correctness,2,26.2,23,320
+Correctness,3,26.9,22,1193
+Correctness,4,24.6,20,2274

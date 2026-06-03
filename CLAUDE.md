@@ -16,11 +16,9 @@ Project/
 ├── analysis/
 │   ├── 00_data_exploration/
 │   ├── 01_score_distribution/
-│   ├── 02_prompt_length/
-│   ├── 03_prompt_text/
-│   ├── 04_response_length/
-│   ├── 05_response_text/
-│   └── 06_scenario_intent/
+│   ├── 02_question_length/
+│   ├── 03_response_length/
+│   └── 04_scenario_intent/
 ├── outputs/
 └── plots/
 ```
@@ -30,13 +28,13 @@ Run scripts from the project root so relative paths resolve correctly:
 
 ```bash
 # Run a specific script
-Rscript "analysis/04_response_length/01_response_length_all_analysis.R"
+Rscript "analysis/03_response_length/01_response_length_all_analysis.R"
 
 # Run all response length analyses
-Rscript "analysis/04_response_length/01_response_length_all_analysis.R"
-Rscript "analysis/04_response_length/02_response_length_general_analysis.R"
-Rscript "analysis/04_response_length/03_response_length_healthcare_analysis.R"
-Rscript "analysis/04_response_length/04_response_length_technology_analysis.R"
+Rscript "analysis/03_response_length/01_response_length_all_analysis.R"
+Rscript "analysis/03_response_length/02_response_length_general_analysis.R"
+Rscript "analysis/03_response_length/03_response_length_healthcare_analysis.R"
+Rscript "analysis/03_response_length/04_response_length_technology_analysis.R"
 
 # Interactive R session
 R --no-save --no-restore
