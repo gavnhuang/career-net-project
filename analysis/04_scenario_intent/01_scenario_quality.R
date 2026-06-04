@@ -3,7 +3,7 @@
 # ============================================================
 # Which career scenario types receive the highest-rated responses?
 
-source("analysis/05_scenario_intent/00_scenario_intent_helpers.R")
+source("analysis/04_scenario_intent/00_scenario_intent_helpers.R")
 
 dir.create("plots/scenario_intent",   recursive = TRUE, showWarnings = FALSE)
 dir.create("outputs/scenario_intent", recursive = TRUE, showWarnings = FALSE)
@@ -107,18 +107,62 @@ p2 <- scenario_long %>%
   theme(panel.grid = element_blank())
 
 # ============================================================
-# 5. SAVE
+# 5. PLOT 3 — Zoomed dot plot for at-a-glance comparison
+# ============================================================
+
+overall_mean <- weighted.mean(scenario_summary$composite_mean, scenario_summary$n)
+
+x_lo <- min(scenario_summary$composite_mean) - 0.05
+x_hi <- max(scenario_summary$composite_mean) + 0.12
+
+p3 <- scenario_summary %>%
+  mutate(primary_scenario = factor(primary_scenario, levels = scenario_levels)) %>%
+  ggplot(aes(x = composite_mean, y = primary_scenario)) +
+  geom_vline(
+    xintercept = overall_mean,
+    linetype   = "dashed",
+    color      = "gray60",
+    linewidth  = 0.6
+  ) +
+  geom_segment(
+    aes(x = overall_mean, xend = composite_mean, yend = primary_scenario),
+    color     = "gray75",
+    linewidth = 0.8
+  ) +
+  geom_point(aes(color = composite_mean), size = 4) +
+  geom_text(
+    aes(label = sprintf("%.3f", composite_mean)),
+    hjust = -0.4,
+    size  = 3,
+    color = "gray20"
+  ) +
+  scale_color_gradient(low = "#FEE090", high = "#2C7BB6", guide = "none") +
+  scale_x_continuous(
+    breaks = seq(round(x_lo, 1), round(x_hi, 1), 0.05)
+  ) +
+  coord_cartesian(xlim = c(x_lo, x_hi)) +
+  labs(
+    title    = "Mean Composite Quality Score by Scenario",
+    subtitle = "Ranked low → high | Dashed line = weighted overall mean | 1–4 scale",
+    x        = "Mean Composite Quality Score",
+    y        = NULL
+  ) +
+  scenario_intent_theme()
+
+# ============================================================
+# 6. SAVE
 # ============================================================
 
 pdf("plots/scenario_intent/01_scenario_quality.pdf", width = 10, height = 7)
 print(p1)
 print(p2)
+print(p3)
 invisible(dev.off())
 
 write_csv(scenario_summary, "outputs/scenario_intent/01_scenario_quality_summary.csv")
 
 # ============================================================
-# 6. CONSOLE OUTPUT
+# 7. CONSOLE OUTPUT
 # ============================================================
 
 cat("\n====================================================\n")
