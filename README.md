@@ -107,7 +107,6 @@ Analyses scenario labels (e.g. job search, career change) and intent flags (e.g.
 | Script | Question answered |
 |--------|------------------|
 | `01_scenario_quality.R` | Which career scenarios get the highest-quality answers? |
-| `02_intent_quality.R` | Which question intents predict better answers? |
 | `03_scenario_intent_combined.R` | How do scenario and intent interact? |
 
 Outputs: `plots/scenario_intent/`, `outputs/scenario_intent/`
