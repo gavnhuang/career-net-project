@@ -50,7 +50,7 @@ out <- c(
   "The first set, drawn as the pilot set, is kept as spares: it is not used and not screened. The lab pilot runs on the 20 gold candidates.", "",
   glue("The other three sets were screened with the same exclusion rules 2–4 as the study sample (Section 5), from question text only. ",
        "{nrow(reserved_log)} item(s) were excluded and replaced ({paste0(names(table(reserved_log$set)), ': ', table(reserved_log$set), collapse = '; ')}) ",
-       "over {n_rounds_reserved} screening round(s); {sum(as.integer(reserved_log$round) > 1)} of these were replacements excluded in a later round. Each replacement is the next question in a seeded random ordering of the remaining frame ",
+       "over {n_rounds_reserved} screening round(s); {n_later <- sum(as.integer(reserved_log$round) > 1)} of these {if (n_later == 1) 'was a replacement' else 'were replacements'} excluded in a later round. Each replacement is the next question in a seeded random ordering of the remaining frame ",
        "(`derive_seed(master_seed, \"reserve_replacement\")`), skipping questions already used or excluded; it keeps the set, position and planned version, ",
        "and its human answer is chosen the usual seeded way (Section 4). Excluded items leave the frame: they are not available to the study draw."), "",
   glue("This leaves {nrow(fr)} questions as the sampling frame for the study draw."), "",
