@@ -1,0 +1,161 @@
+run_id: 20261027-124017-01
+script: 01_build_frame.R
+timestamp: 2026-10-27T12:40:26-0700
+frame_version: v1.1
+seeds:
+  master_seed: 20261027
+rng_kind:
+- Mersenne-Twister
+- Inversion
+- Rejection
+input_md5:
+  config: da17bad156a149813625bd8f6a6647cd
+  primary: 9c14a1bc0ea9bb0c0e8af04cada7a540
+  anchor_exclusions: d0649f60d3b77ce2914efdfbf3c4ccb8
+  manual_exclusions: 273fa4339d5c2d27c10971606fe5f5c9
+outputs:
+- study/data/01_frame/frame_questions.csv
+- study/data/01_frame/frame_questions.rds
+- study/data/01_frame/frame_answers.csv
+- study/data/01_frame/frame_answers.rds
+- study/data/01_frame/attrition.csv
+- study/reports/01_build_frame_20261027-124017-01.md
+r_version: R version 4.5.1 (2025-06-13)
+platform: aarch64-apple-darwin20
+packages:
+  readr: 2.1.5
+  dplyr: 1.2.1
+  tidyr: 1.3.2
+  stringr: 1.5.2
+  purrr: 1.2.2
+  lubridate: 1.9.5
+  yaml: 2.3.10
+  xml2: 1.5.2
+  digest: 0.6.37
+  glue: 1.8.0
+  testthat: 3.3.2
+git:
+  commit: 0bf8e42f1cd981b9fe3936dab1318dcaf2563246
+  uncommitted_changes: yes
+attrition:
+- step: all
+  rule: All questions in the release
+  n_questions: 3000
+  n_answers: 7984
+  expected: 3000
+- step: a
+  rule: Answer posted in 2021 or later
+  n_questions: 2396
+  n_answers: 5832
+  expected: 2396
+- step: b
+  rule: Answer 40-600 words
+  n_questions: 2352
+  n_answers: 5224
+  expected: 2352
+- step: c
+  rule: Question (title + body) 10+ words
+  n_questions: 2314
+  n_answers: 5141
+  expected: 2314
+- step: d
+  rule: unclear_goal missing
+  n_questions: 2250
+  n_answers: 4984
+  expected: 2250
+- step: e
+  rule: Anchor check questions removed
+  n_questions: 2214
+  n_answers: 4902
+  expected: 2214
+- step: f
+  rule: Manual exclusions (study/config/exclusions.csv) removed
+  n_questions: 2214
+  n_answers: 4902
+  expected: .na.integer
+config:
+  preregistration_posted: no
+  osf_url: ''
+  master_seed: 20261027
+  frame_version: v1.1
+  inputs:
+    primary: ../03 CareerNet Data/Datasets/v1.1/general_public_v1.1.csv
+    previous: ../03 CareerNet Data/Datasets/general_public.csv
+    previous_version: v1.0
+    documentation: ../03 CareerNet Data/Data-Details v1.1.pdf
+    anchor_exclusions: pilot/anchor_check_key.csv
+    manual_exclusions: study/config/exclusions.csv
+  paths:
+    frame_dir: study/data/01_frame
+    reserved_dir: study/data/02_reserved
+    sample_dir: study/data/03_sample
+    reports_dir: study/reports
+    logs_dir: study/logs
+  filters:
+    answer_min_year: 2021
+    answer_min_words: 40
+    answer_max_words: 600
+    question_min_words: 10
+  expected_attrition:
+  - 3000
+  - 2396
+  - 2352
+  - 2314
+  - 2250
+  - 2214
+  reading_sample_n: 45
+  reserved_sets:
+  - name: pilot
+    size: 16
+    n_human: 8
+    n_ai: 8
+  - name: warmups
+    size: 6
+    n_human: 3
+    n_ai: 3
+  - name: calibration
+    size: 15
+    n_human: 8
+    n_ai: 7
+  - name: gold_candidates
+    size: 20
+    n_human: 10
+    n_ai: 10
+  study_n: 90
+  floor: 3
+  inclusion_reps: 10000
+  target_words_tolerance: 0.2
+  guaranteed_labels:
+  - Industry-Specific Knowledge and Trends
+  - Career Decision-Making, Transitioning, and Exploration Resources
+  - College Queries
+  - Work-Life Balance and Personal Values Alignment
+  - Job Search Strategies and Infrastructure
+  - Skill Development
+  - Resume/CV/LinkedIn Optimization and Personal Branding
+  - Networking and Mentorship
+  - First Job Navigation
+  - Freelancing/Self-Employment/Entrepreneurship
+  - Interview Preparation
+  - Non-Degree Certifications/Credentials
+  - Workplace Dynamics
+  scenario_labels:
+  - Industry-Specific Knowledge and Trends
+  - Career Decision-Making, Transitioning, and Exploration Resources
+  - College Queries
+  - Job Search Strategies and Infrastructure
+  - Work-Life Balance and Personal Values Alignment
+  - Resume/CV/LinkedIn Optimization and Personal Branding
+  - Skill Development
+  - Networking and Mentorship
+  - First Job Navigation
+  - Freelancing/Self-Employment/Entrepreneurship
+  - Interview Preparation
+  - Non-Degree Certifications/Credentials
+  - Workplace Dynamics
+  - International Careers
+  - Barriers, Equity, and Resource Considerations
+  - Job Offers and Negotiations
+  - Career Advancement
+  - Mid-Career Pivots
+  config_path: study/config/study_config.yml

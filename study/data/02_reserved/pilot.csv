@@ -1,0 +1,403 @@
+question_id,set,draw_order,selection_stage,floor_label,inclusion_prob,weight,planned_version,seed,run_id,frame_version,question_title,question_body_raw,question_text_clean,question_word_count,question_added_at,question_score,question_views,question_tagnames,asker_location,scenario_labels,n_labels,label_industry_specific_knowledge_and_trends,label_career_decision_making_transitioning_and_exploration_resources,label_college_queries,label_job_search_strategies_and_infrastructure,label_work_life_balance_and_personal_values_alignment,label_resume_cv_linkedin_optimization_and_personal_branding,label_skill_development,label_networking_and_mentorship,label_first_job_navigation,label_freelancing_self_employment_entrepreneurship,label_interview_preparation,label_non_degree_certifications_credentials,label_workplace_dynamics,label_international_careers,label_barriers_equity_and_resource_considerations,label_job_offers_and_negotiations,label_career_advancement,label_mid_career_pivots,n_guaranteed_labels,explore_options,take_action,understanding_purpose,validation_support,find_resources,navigate_constraints,compare_options,unclear_goal,soc_code_raw,soc_flag,soc_major_groups,n_soc_major_groups,soc_detailed_codes,answer_id,answer_body_raw,answer_text_clean,answer_word_count,answer_added_at,answer_score,answerer_location,careernet_correctness,careernet_completeness,careernet_coherency,careernet_correctness_num,careernet_completeness_num,careernet_coherency_num,Split,n_eligible_answers,careernet_reasoning_label,n_reasoning_labels,target_words,target_min_words,target_max_words
+379517,pilot,1,reserve,,0.007226738934056007,1,ai,121779716,20261027-124027-03,v1.1,What is the best way to prepare you for the manufacturing field.,I am a middle school student and I took a quiz in class that told me manufacturing would be a good career choice. #career #school #careers #majors #manufacturing #career-counseling ,I am a middle school student and I took a quiz in class that told me manufacturing would be a good career choice. #career #school #careers #majors #manufacturing #career-counseling,41,2021-03-17T17:26:00Z,4,652,career-counseling school careers majors manufacturing,United States,Industry-Specific Knowledge and Trends,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,Understand a Career Path,Plan a Career Path,,,,,,,"41-0000 Sales and Related Occupations; 41-4000 Sales Representatives, Wholesale and Manufacturing; 41-4010 Sales Representatives, Wholesale and Manufacturing; 41-4011 Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",,Sales and Related Occupations,1,"41-4011 Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",390215,"Bethany's answer is right on. Concentrate on Math, Science and I would add communication skills. There are many well paying and interesting jobs in Manufacturing from research, design of products and the actual manufacturing of products. Read books on manufacturing and how things are made, taking tours of manufacturing companies is a good idea so you can see how things are made. There is a video serious on TV, called How things are Made will give you ideas. Good luck and whatever you do HAVE FUN.","Bethany's answer is right on. Concentrate on Math, Science and I would add communication skills. There are many well paying and interesting jobs in Manufacturing from research, design of products and the actual manufacturing of products. Read books on manufacturing and how things are made, taking tours of manufacturing companies is a good idea so you can see how things are made. There is a video serious on TV, called How things are Made will give you ideas. Good luck and whatever you do HAVE FUN.",86,2021-03-28T13:46:00Z,0,United States,4 - Fully Correct,3 - Mostly Complete,4 - Fully Coherent,4,3,4,Train,2,No reasoning - explanation only,1,86,69,103
+806862,pilot,2,reserve,,0.007226738934056007,1,human,121779716,20261027-124027-03,v1.1,How to narrow down my interest into one major?,I’m in highschool right now. I’m still not sure what I want to do. There’s so much that I am interested in. How do I narrow all of my interests down into one major?,I’m in highschool right now. I’m still not sure what I want to do. There’s so much that I am interested in. How do I narrow all of my interests down into one major?,43,2023-10-30T15:17:00Z,11,1281,career help career-choice education undecided toomanyinterests,United States,"Career Decision-Making, Transitioning, and Exploration Resources",1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,,Get Step-by-Step Advice,Understand Intersection of Interest and Careers,,,,,,No career mentioned in question,no_career_mentioned,,0,,808749,"Ask yourself, ""what am I trying to achieve with my major selection?"" 
+
+1. If it's ""getting into a certain school or program"", then research which majors are most likely to get you short-list those.
+2. If it's ""give me the most flexibility in career options long term"", then list out all of your interests in order of preference and cross-reference that with the majors available to you to create a short-list.
+3. etc
+
+Once you have your short-list, sit with the list for a few days and write down what your gut is telling you or how you FEEL about each one. You should consider the one that you have the most passion around, because even if the first option in your short-list is best at what you are trying to achieve, but you are MORE passionate about the second option, you'll likely be more successful pursuing the second option because people tend to be more successful about what they are passionate about.","Ask yourself, ""what am I trying to achieve with my major selection?""
+
+1. If it's ""getting into a certain school or program"", then research which majors are most likely to get you short-list those.
+2. If it's ""give me the most flexibility in career options long term"", then list out all of your interests in order of preference and cross-reference that with the majors available to you to create a short-list.
+3. etc
+
+Once you have your short-list, sit with the list for a few days and write down what your gut is telling you or how you FEEL about each one. You should consider the one that you have the most passion around, because even if the first option in your short-list is best at what you are trying to achieve, but you are MORE passionate about the second option, you'll likely be more successful pursuing the second option because people tend to be more successful about what they are passionate about.",163,2023-11-06T21:27:00Z,0,Canada,4 - Fully Correct,4 - Fully Complete,4 - Fully Coherent,4,4,4,Train,3,Predictive Causal Reasoning/Interventional Reasoning,1,163,130,196
+599080,pilot,3,reserve,,0.007226738934056007,1,human,121779716,20261027-124027-03,v1.1,How could I even be an actress or a singer?,"I know I either wanna be a fashion designer/singer/or actor, but I have stage freight. Is there any way I can get over it. I practice in front of my brother but I still get a bit nervous. I HAVE to get past it if I wanna be an actress or singer, right?","I know I either wanna be a fashion designer/singer/or actor, but I have stage freight. Is there any way I can get over it. I practice in front of my brother but I still get a bit nervous. I HAVE to get past it if I wanna be an actress or singer, right?",63,2022-08-09T16:47:00Z,4,1229,career-path career-advice acting singer actress,United States,Industry-Specific Knowledge and Trends; Work-Life Balance and Personal Values Alignment,2,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,Understand a Career Path,,,Validate a Choice or Path; Overcome Doubt or Fear,,,,,"27-0000 Arts, Design, Entertainment, Sports, and Media Occupations; 27-2000 Entertainers and Performers, Sports and Related Workers; 27-2010 Actors, Producers, and Directors; 27-2011 Actors; 27-0000 Arts, Design, Entertainment, Sports, and Media Occupations; 27-2000 Entertainers and Performers, Sports and Related Workers; 27-2040 Musicians, Singers, and Related Workers; 27-2042 Musicians and Singers",,"Arts, Design, Entertainment, Sports, and Media Occupations",1,27-2011 Actors; 27-2042 Musicians and Singers,599573,"Hi Jennifer, stage fright can certainly seem overwhelming when your passion lies in performing for others. However, you should first consider where this desire stems from. Is this passion budding for the right reasons? I know that social media's impact on our society makes becoming famous sound appealing, but we must remember that fame comes at a price. People often find themselves working multiple part time jobs, struggling to make ends meet just to pursue this lifestyle. Will your passion outweigh your struggle to make it in an oversaturated market? It takes a lot of passion, drive, and thick skin to pursue this lifestyle. 
+
+Now, after examining the above... if this is still something you truly wish to pursue, I would start with practice. As conflicting as this may sound, the best way to get over the fear of performing is to get more comfortable performing which only comes from the act of doing. Have you looked to see if there are any independent theatre companies near you? Have you tried signing up in the drama department at your school? Perhaps even tried a public speaking or debate class? While practicing in front of family is great, you need to build up your audience size. The more you practice the more natural it will begin to feel. Additionally, by joining an independent theatre company, drama class, etc, you will be gaining access to mentors who could help coach you through this struggle. I, myself, acted and performed in various theatre, music theatre, and drama companies for over 10 years throughout my youth. I too began with a fear of performing. Overtime, the more i worked with my coaches and mentors, started performing for larger and larger audiences, the more that fear began to slip away and I started to feel more natural on stage. 
+
+As for the part in regards to fashion design, taking art classes will certainly help. Some schools even offer design course. I would look to see what electives your school offers and evaluate which ones best fit your career goals. 
+
+Best of luck! ","Hi Jennifer, stage fright can certainly seem overwhelming when your passion lies in performing for others. However, you should first consider where this desire stems from. Is this passion budding for the right reasons? I know that social media's impact on our society makes becoming famous sound appealing, but we must remember that fame comes at a price. People often find themselves working multiple part time jobs, struggling to make ends meet just to pursue this lifestyle. Will your passion outweigh your struggle to make it in an oversaturated market? It takes a lot of passion, drive, and thick skin to pursue this lifestyle.
+
+Now, after examining the above... if this is still something you truly wish to pursue, I would start with practice. As conflicting as this may sound, the best way to get over the fear of performing is to get more comfortable performing which only comes from the act of doing. Have you looked to see if there are any independent theatre companies near you? Have you tried signing up in the drama department at your school? Perhaps even tried a public speaking or debate class? While practicing in front of family is great, you need to build up your audience size. The more you practice the more natural it will begin to feel. Additionally, by joining an independent theatre company, drama class, etc, you will be gaining access to mentors who could help coach you through this struggle. I, myself, acted and performed in various theatre, music theatre, and drama companies for over 10 years throughout my youth. I too began with a fear of performing. Overtime, the more i worked with my coaches and mentors, started performing for larger and larger audiences, the more that fear began to slip away and I started to feel more natural on stage.
+
+As for the part in regards to fashion design, taking art classes will certainly help. Some schools even offer design course. I would look to see what electives your school offers and evaluate which ones best fit your career goals.
+
+Best of luck!",347,2022-08-12T03:10:00Z,0,United States,4 - Fully Correct,4 - Fully Complete,3 - Mostly Coherent,4,4,3,Train,3,Analogy about current circumstances; Predictive Causal Reasoning/Interventional Reasoning; Necessary Conditions,3,347,278,416
+858262,pilot,4,reserve,,0.007226738934056007,1,ai,121779716,20261027-124027-03,v1.1,I am interested in becoming a programmer.?,"I value education, teamwork, and equality. Will this career path align with my values?","I value education, teamwork, and equality. Will this career path align with my values?",21,2024-03-06T17:38:00Z,7,807,career technology career-path programming,United States,Industry-Specific Knowledge and Trends; Work-Life Balance and Personal Values Alignment,2,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,Understand a Career Path,,,,,,,,"15-0000 Computer and Mathematical Occupations; 15-1200 Computer Occupations; 15-1250 Software and Web Developers, Programmers, and Testers; 15-1251 Computer Programmers",,Computer and Mathematical Occupations,1,15-1251 Computer Programmers,858562,"Hey Mike,
+I would say your values align great with a programmer role. Being a programmer requires continuous learning since technology is constantly evolving. Projects require a lot of collaboration and working with different teams and companies are constantly working to ensure equality and diversity. I highly suggest discussing your values with recruiters/interviewers when you are job hunting to ensure the company is a good fit for you! But overall, I would say this career path does align with your values.","Hey Mike,
+I would say your values align great with a programmer role. Being a programmer requires continuous learning since technology is constantly evolving. Projects require a lot of collaboration and working with different teams and companies are constantly working to ensure equality and diversity. I highly suggest discussing your values with recruiters/interviewers when you are job hunting to ensure the company is a good fit for you! But overall, I would say this career path does align with your values.",81,2024-03-06T18:56:00Z,0,United States,3 - Mostly Correct,3 - Mostly Complete,4 - Fully Coherent,3,3,4,Train,3,No reasoning - explanation only,1,81,65,97
+429454,pilot,5,reserve,,0.007226738934056007,1,ai,121779716,20261027-124027-03,v1.1,What college courses should I take to ensure I am ready for my career?,#career #career-paths #career-advice ,#career #career-paths #career-advice,17,2021-05-14T00:44:00Z,7,1244,career-advice career-paths,United States,College Queries,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,Understand Education Options; Explore Opportunities,,,,,,,,No career mentioned in question,no_career_mentioned,,0,,429910,"One of the best career-building tactics I used was to be diverse.  Throughout high school &amp; university I applied for jobs through recruiting agencies.  Every year I was given a job in a different industry.  In my opinion, if you can acquire multiple skills and/or understanding of different roles, this will allow you to become innovative in taking that experience and applying the learning to different situations.  If you can show that you are able to learn, understand, apply and innovative, those are the skills that allowed me to find the career of my choice.  As you find things you are passionate about, dig deeper and try to become a subject matter expert.  The other benefit to this is employment stability.  You're not relying on one sector to be successful in.  If one causes a roadblock, you have other avenues to tie you over if necessary should things go south with the economy.  As others mentioned, there are definitely skills that transcend positions and industries.","One of the best career-building tactics I used was to be diverse. Throughout high school & university I applied for jobs through recruiting agencies. Every year I was given a job in a different industry. In my opinion, if you can acquire multiple skills and/or understanding of different roles, this will allow you to become innovative in taking that experience and applying the learning to different situations. If you can show that you are able to learn, understand, apply and innovative, those are the skills that allowed me to find the career of my choice. As you find things you are passionate about, dig deeper and try to become a subject matter expert. The other benefit to this is employment stability. You're not relying on one sector to be successful in. If one causes a roadblock, you have other avenues to tie you over if necessary should things go south with the economy. As others mentioned, there are definitely skills that transcend positions and industries.",165,2021-05-14T15:48:00Z,0,Canada,4 - Fully Correct,2 - Somewhat Incomplete,4 - Fully Coherent,4,2,4,Train,3,Analogy about next steps; Predictive Causal Reasoning/Interventional Reasoning,2,165,132,198
+897399,pilot,6,reserve,,0.007226738934056007,1,human,121779716,20261027-124027-03,v1.1,What can I do as a physiologist?,Can I be allow to work in the surgery room for my IT even though I study physiology?,Can I be allow to work in the surgery room for my IT even though I study physiology?,25,2024-04-30T00:11:00Z,5,1081,career career-path career-counseling career-choice health surgeon physiology,United States,Industry-Specific Knowledge and Trends,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,Understand a Career Path,,,Get Feedback or Reassurance,,,,,29-0000 Healthcare Practitioners and Technical Occupations; 29-2000 Health Technologists and Technicians; 29-2050 Health Practitioner Support Technologists and Technicians; 29-2055 Surgical Technologists,,Healthcare Practitioners and Technical Occupations,1,29-2055 Surgical Technologists,898478,"Susan, as a physiologist, you possess a unique understanding of the intricate workings of living organisms, especially the harmonious interplay of various systems within the body that sustain health. Although your main role might not directly involve surgical procedures, your skills and knowledge have numerous applications in the medical field. 
+
+For instance, you can be instrumental in pre-operative assessments, using your expertise to evaluate patients' physiological states. This crucial task aids in making informed surgical decisions and optimizing patient outcomes. Your grasp of cardiovascular, respiratory, and neurological physiology, among others, can help pinpoint potential risks and customize treatment plans accordingly.
+
+Additionally, you can work hand in hand with surgical teams as a consultant, offering invaluable insights into physiological responses during and after surgery. Your expertise is key in monitoring patients' vital signs, interpreting physiological data, and spotting any deviations from normal function that might necessitate intervention. You can also contribute to research initiatives aimed at enhancing surgical techniques, anesthesia protocols, or perioperative management strategies. By applying your understanding of physiological principles, you can significantly improve patient care and safety.
+
+As for your question about working in the operating room for your IT, it's important to keep in mind the specific requirements and regulations of healthcare professions in your area. While your physiology background gives you a strong understanding of the body's responses to surgical interventions, the direct involvement in surgical procedures is usually the responsibility of surgical teams, which include surgeons, anesthesiologists, nurses, and other specialized personnel. Nonetheless, there might be opportunities for physiologists to gain experience in surgical settings through observation, research collaborations, or roles that support perioperative care.
+
+If you're keen on increasing your role in surgical settings, consider further education or training in related fields like surgical technology or perioperative nursing. These paths would provide you with the practical skills and knowledge needed to work directly with surgical teams, allowing for hands-on patient care during surgical procedures. Networking with professionals in surgical specialties and seeking mentorship can also offer valuable guidance and open up opportunities for career growth in this area.
+
+In conclusion, Susan, while physiologists might not typically work directly in operating rooms, there are countless ways your expertise can contribute to surgical care, from pre-operative assessment and consultation to research and collaboration with surgical teams. Pursuing further education and professional development can align your career goals with opportunities to make a significant difference in surgical settings, all while leveraging your background in physiology.","Susan, as a physiologist, you possess a unique understanding of the intricate workings of living organisms, especially the harmonious interplay of various systems within the body that sustain health. Although your main role might not directly involve surgical procedures, your skills and knowledge have numerous applications in the medical field.
+
+For instance, you can be instrumental in pre-operative assessments, using your expertise to evaluate patients' physiological states. This crucial task aids in making informed surgical decisions and optimizing patient outcomes. Your grasp of cardiovascular, respiratory, and neurological physiology, among others, can help pinpoint potential risks and customize treatment plans accordingly.
+
+Additionally, you can work hand in hand with surgical teams as a consultant, offering invaluable insights into physiological responses during and after surgery. Your expertise is key in monitoring patients' vital signs, interpreting physiological data, and spotting any deviations from normal function that might necessitate intervention. You can also contribute to research initiatives aimed at enhancing surgical techniques, anesthesia protocols, or perioperative management strategies. By applying your understanding of physiological principles, you can significantly improve patient care and safety.
+
+As for your question about working in the operating room for your IT, it's important to keep in mind the specific requirements and regulations of healthcare professions in your area. While your physiology background gives you a strong understanding of the body's responses to surgical interventions, the direct involvement in surgical procedures is usually the responsibility of surgical teams, which include surgeons, anesthesiologists, nurses, and other specialized personnel. Nonetheless, there might be opportunities for physiologists to gain experience in surgical settings through observation, research collaborations, or roles that support perioperative care.
+
+If you're keen on increasing your role in surgical settings, consider further education or training in related fields like surgical technology or perioperative nursing. These paths would provide you with the practical skills and knowledge needed to work directly with surgical teams, allowing for hands-on patient care during surgical procedures. Networking with professionals in surgical specialties and seeking mentorship can also offer valuable guidance and open up opportunities for career growth in this area.
+
+In conclusion, Susan, while physiologists might not typically work directly in operating rooms, there are countless ways your expertise can contribute to surgical care, from pre-operative assessment and consultation to research and collaboration with surgical teams. Pursuing further education and professional development can align your career goals with opportunities to make a significant difference in surgical settings, all while leveraging your background in physiology.",408,2024-05-01T11:38:00Z,0,United States,4 - Fully Correct,4 - Fully Complete,4 - Fully Coherent,4,4,4,Test,3,Predictive Causal Reasoning/Interventional Reasoning; Associational/Normative reasoning,2,408,326,490
+156694,pilot,7,reserve,,0.007226738934056007,1,human,121779716,20261027-124027-03,v1.1,"I would like to work in architecture, but i don't know how to start? What would be some suggestions","I would like to work in a architecture  industry but i don't know how to beginning, what would you suggest? #architecture #career-path","I would like to work in a architecture industry but i don't know how to beginning, what would you suggest? #architecture #career-path",41,2019-03-19T17:45:00Z,3,1140,career-path architecture,United States,"Industry-Specific Knowledge and Trends; Career Decision-Making, Transitioning, and Exploration Resources",2,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,Understand a Career Path,Get Step-by-Step Advice; Plan a Career Path,,,,,,,"17-0000 Architecture and Engineering Occupations; 17-1000 Architects, Surveyors, and Cartographers; 17-1010 Architects, Except Naval; 17-1011 Architects, Except Landscape and Naval; 17-0000 Architecture and Engineering Occupations; 17-1000 Architects, Surveyors, and Cartographers; 17-1010 Architects, Except Naval; 17-1012 Landscape Architects",,Architecture and Engineering Occupations,1,"17-1011 Architects, Except Landscape and Naval; 17-1012 Landscape Architects",798710,"No matter your age, a beneficial move is to engage in conversations with professionals in the field. This will not only expand your knowledge about the field but also provide you insights into the journey they undertook to reach their current position. 
+
+A key skill set for architecture involves a strong foundation in science and mathematics. Enrolling in science (specifically physics) and mathematics classes will equip you with the necessary tools for a successful career in architecture. Beyond math, it's a smart choice to pursue design-oriented architecture classes. Whether you're considering a conventional 4-year university or not, it's a good idea to either take architecture classes or choose architecture as your major. This will definitely set you on the right path towards a rewarding career in architecture.","No matter your age, a beneficial move is to engage in conversations with professionals in the field. This will not only expand your knowledge about the field but also provide you insights into the journey they undertook to reach their current position.
+
+A key skill set for architecture involves a strong foundation in science and mathematics. Enrolling in science (specifically physics) and mathematics classes will equip you with the necessary tools for a successful career in architecture. Beyond math, it's a smart choice to pursue design-oriented architecture classes. Whether you're considering a conventional 4-year university or not, it's a good idea to either take architecture classes or choose architecture as your major. This will definitely set you on the right path towards a rewarding career in architecture.",127,2023-10-11T18:01:00Z,0,United States,4 - Fully Correct,4 - Fully Complete,4 - Fully Coherent,4,4,4,Train,1,Predictive Causal Reasoning/Interventional Reasoning,1,127,102,152
+938929,pilot,8,reserve,,0.007226738934056007,1,human,121779716,20261027-124027-03,v1.1,i wan to find best free education rescources??,i wan to find best free education rescourcess??,i wan to find best free education rescourcess??,16,2024-07-08T12:03:00Z,6,1253,career college teaching education,United States,Skill Development,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,Understand Education Options,,,,Find Opportunities or Programs; Get Learning Resources,,,,No career mentioned in question,no_career_mentioned,,0,,938979,"Dear Ivaan,
+
+Prime Free Learning Tools
+
+The internet is teeming with free educational resources that can significantly boost your academic progress. Here's a curated list of top-notch free learning tools spread across various categories:
+
+1. Web-Based Courses:
+
+Coursera: Coursera presents a broad spectrum of courses from global universities and colleges at no cost. You can freely access course materials, lectures, and assignments, although obtaining a certificate might involve a fee.
+
+edX: Much like Coursera, edX offers complimentary online courses from leading institutions. Learn from field experts and obtain certificates at a nominal fee.
+
+2. Open Educational Resources (OER):
+
+OpenStax: OpenStax offers free, peer-reviewed textbooks for a variety of subjects typically taught at tertiary institutions. These textbooks can be downloaded in PDF format.
+
+Khan Academy: Khan Academy provides practice exercises, instructional videos, and a personalized learning dashboard that covers a broad spectrum of subjects from kindergarten to college level.
+
+3. Digital Libraries and Databases:
+
+Google Scholar: Google Scholar is a free web search engine that indexes scholarly articles across multiple disciplines. It's a valuable resource for research and academic papers.
+
+PubMed Central: PubMed Central is a complimentary digital archive of biomedical and life sciences journal literature. It offers access to an extensive collection of research articles and publications.
+
+4. Language Acquisition:
+
+Duolingo: Duolingo is a well-known platform for learning languages at no cost through interactive exercises and quizzes.
+
+BBC Languages: BBC Languages provides complimentary language learning resources, including audio, video, games, and vocabulary lists.
+
+5. Coding and Technology:
+
+Codecademy: Codecademy provides interactive coding lessons in various programming languages at no cost.
+
+MIT OpenCourseWare: MIT OpenCourseWare offers free lecture notes, exams, and videos from MIT's computer science and programming courses.
+
+6. Exam Preparation:
+
+Khan Academy SAT Prep: Khan Academy provides free SAT preparation materials, including practice tests and study guides.
+
+GMAT Club: GMAT Club offers complimentary resources for GMAT preparation, including practice questions, study plans, and discussion forums.
+
+These are just a handful of the top free educational resources available online across different categories. Depending on your unique needs and interests, you can delve into these platforms to enrich your learning experience at no expense.
+
+Top 3 Credible References Employed:
+
+Coursera
+OpenStax
+Google Scholar
+
+References Employed:
+
+Coursera stands as a leading platform offering online courses from universities globally.
+
+OpenStax is renowned for delivering high-quality open educational resources in textbook format.
+
+Google Scholar is universally acknowledged as a dependable source for accessing scholarly articles and research publications.
+
+Blessings,
+JC.","Dear Ivaan,
+
+Prime Free Learning Tools
+
+The internet is teeming with free educational resources that can significantly boost your academic progress. Here's a curated list of top-notch free learning tools spread across various categories:
+
+1. Web-Based Courses:
+
+Coursera: Coursera presents a broad spectrum of courses from global universities and colleges at no cost. You can freely access course materials, lectures, and assignments, although obtaining a certificate might involve a fee.
+
+edX: Much like Coursera, edX offers complimentary online courses from leading institutions. Learn from field experts and obtain certificates at a nominal fee.
+
+2. Open Educational Resources (OER):
+
+OpenStax: OpenStax offers free, peer-reviewed textbooks for a variety of subjects typically taught at tertiary institutions. These textbooks can be downloaded in PDF format.
+
+Khan Academy: Khan Academy provides practice exercises, instructional videos, and a personalized learning dashboard that covers a broad spectrum of subjects from kindergarten to college level.
+
+3. Digital Libraries and Databases:
+
+Google Scholar: Google Scholar is a free web search engine that indexes scholarly articles across multiple disciplines. It's a valuable resource for research and academic papers.
+
+PubMed Central: PubMed Central is a complimentary digital archive of biomedical and life sciences journal literature. It offers access to an extensive collection of research articles and publications.
+
+4. Language Acquisition:
+
+Duolingo: Duolingo is a well-known platform for learning languages at no cost through interactive exercises and quizzes.
+
+BBC Languages: BBC Languages provides complimentary language learning resources, including audio, video, games, and vocabulary lists.
+
+5. Coding and Technology:
+
+Codecademy: Codecademy provides interactive coding lessons in various programming languages at no cost.
+
+MIT OpenCourseWare: MIT OpenCourseWare offers free lecture notes, exams, and videos from MIT's computer science and programming courses.
+
+6. Exam Preparation:
+
+Khan Academy SAT Prep: Khan Academy provides free SAT preparation materials, including practice tests and study guides.
+
+GMAT Club: GMAT Club offers complimentary resources for GMAT preparation, including practice questions, study plans, and discussion forums.
+
+These are just a handful of the top free educational resources available online across different categories. Depending on your unique needs and interests, you can delve into these platforms to enrich your learning experience at no expense.
+
+Top 3 Credible References Employed:
+
+Coursera
+OpenStax
+Google Scholar
+
+References Employed:
+
+Coursera stands as a leading platform offering online courses from universities globally.
+
+OpenStax is renowned for delivering high-quality open educational resources in textbook format.
+
+Google Scholar is universally acknowledged as a dependable source for accessing scholarly articles and research publications.
+
+Blessings,
+JC.",406,2024-07-08T15:08:00Z,1,,4 - Fully Correct,4 - Fully Complete,4 - Fully Coherent,4,4,4,Test,3,Predictive Causal Reasoning/Interventional Reasoning,1,406,325,487
+1038948,pilot,9,reserve,,0.007226738934056007,1,ai,121779716,20261027-124027-03,v1.1,What suggestions do you have that can involve my love of crafts ?,"I love to do crafts, and I would like a career or job that involves crafting.","I love to do crafts, and I would like a career or job that involves crafting.",29,2025-02-24T15:22:00Z,8,857,career career-path career-counseling career-choice career-paths professional,United States,"Career Decision-Making, Transitioning, and Exploration Resources",1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,,,Understand Intersection of Interest and Careers,,,,,,"27-0000 Arts, Design, Entertainment, Sports, and Media Occupations; 27-1000 Art and Design Workers; 27-1010 Artists and Related Workers; 27-1012 Craft Artists",,"Arts, Design, Entertainment, Sports, and Media Occupations",1,27-1012 Craft Artists,1039272,"Hi Alexis, you have asked a terrific question. You didn't say a particular type of crafts, but it turns out that there are lots of opportunities. I put two links below with specific ideas (plus the last one with creatives' career journeys). 
+I see patterns that may help you:
+ - One path is making particular crafts that could be combined with other paths
+ - Another path is designing, which could be with the crafts or could be involving computers; this, too, could be combined with teaching
+ - Yet another path is working somewhere that sells crafts, which could be a commercial store but could also be a museum or arts council
+ - You could also be a curator in a museum / arts council or buyer of arts
+ - You could be a writer or editor of content about crafts
+ - You could teach crafts - combined with other paths - or on the side while doing something else
+Even if crafts are not your main occupation, they could be an important part of your life and a way to connect with others in your community. Good luck!","Hi Alexis, you have asked a terrific question. You didn't say a particular type of crafts, but it turns out that there are lots of opportunities. I put two links below with specific ideas (plus the last one with creatives' career journeys).
+I see patterns that may help you:
+- One path is making particular crafts that could be combined with other paths
+- Another path is designing, which could be with the crafts or could be involving computers; this, too, could be combined with teaching
+- Yet another path is working somewhere that sells crafts, which could be a commercial store but could also be a museum or arts council
+- You could also be a curator in a museum / arts council or buyer of arts
+- You could be a writer or editor of content about crafts
+- You could teach crafts - combined with other paths - or on the side while doing something else
+Even if crafts are not your main occupation, they could be an important part of your life and a way to connect with others in your community. Good luck!",188,2025-02-24T20:05:00Z,2,United States,4 - Fully Correct,3 - Mostly Complete,3 - Mostly Coherent,4,3,3,Train,3,No reasoning - explanation only,1,188,150,226
+802422,pilot,10,reserve,,0.007226738934056007,1,human,121779716,20261027-124027-03,v1.1,What is the best job for a cybersecurity bachelor's degree?,"I am currently considering a 4-year college major in cybersecurity and exploring the possibility of becoming an Information Security Analyst. However, upon conducting research, I have learned that this career path can be highly demanding and stressful and that opportunities for promotion may be limited.","I am currently considering a 4-year college major in cybersecurity and exploring the possibility of becoming an Information Security Analyst. However, upon conducting research, I have learned that this career path can be highly demanding and stressful and that opportunities for promotion may be limited.",55,2023-10-18T21:14:00Z,11,4745,career college-major career-path career-counseling job career-choice jobs,United States,Industry-Specific Knowledge and Trends; Work-Life Balance and Personal Values Alignment,2,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,Understand a Career Path,,,Validate a Choice or Path; Overcome Doubt or Fear,,,,,15-0000 Computer and Mathematical Occupations; 15-1200 Computer Occupations; 15-1210 Computer and Information Analysts; 15-1212 Information Security Analysts,,Computer and Mathematical Occupations,1,15-1212 Information Security Analysts,893698,"Dear Nada,
+
+Ideal Career Path for a Cybersecurity Bachelor’s Degree Holder
+
+As a cybersecurity bachelor’s degree holder, you'll find that becoming an Information Security Analyst is a rewarding and sought-after career path. These professionals are the guardians of an organization's computer systems and networks, defending against cyber threats, enforcing security protocols, detecting security breaches, and probing into security incidents. They are the linchpin in preserving confidential information and maintaining the overall cybersecurity health of an organization.
+
+Key Duties of an Information Security Analyst:
+
+- Conducting security evaluations to pinpoint vulnerabilities and risks.
+- Creating and enforcing security policies and guidelines.
+- Observing network traffic for unusual activities.
+- Addressing security incidents and carrying out forensic investigations.
+- Teaming up with IT departments to integrate security measures into systems and applications.
+- Staying current with the newest cybersecurity trends and technologies.
+
+Benefits of a Career as an Information Security Analyst:
+
+High Demand: The escalating rate and complexity of cyber attacks have led to a rising need for proficient cybersecurity professionals, including Information Security Analysts.
+Attractive Salary: The specialized nature of their work typically results in competitive pay for Information Security Analysts.
+Career Progression: While starting positions may offer limited advancement opportunities, seasoned Information Security Analysts can climb the ladder to roles such as Chief Information Security Officer (CISO) or cybersecurity consultant.
+Job Gratification: The satisfaction derived from shielding valuable data and systems from cyber threats is a unique aspect of working in cybersecurity.
+
+Challenges Faced by an Information Security Analyst:
+
+High Stress Levels: The ever-present need to remain alert against evolving threats can make cybersecurity work stressful.
+Extended Hours: Addressing security incidents or executing system upgrades may necessitate working beyond regular business hours.
+Ongoing Learning: The fast-paced nature of cybersecurity demands professionals to constantly upgrade their skills and knowledge.
+
+In summary, choosing a career as an Information Security Analyst can be a rewarding decision for cybersecurity bachelor’s degree holders, presenting growth opportunities, competitive pay, job satisfaction, but also challenges like high stress levels and the necessity for ongoing learning.
+
+Top 3 Credible Sources Used in Answering this Question:
+
+(ISC)² - International Information System Security Certification Consortium: (ISC)² is a prestigious body that provides respected certifications like the Certified Information Systems Security Professional (CISSP). Their research and insights offer valuable guidance on career trajectories within cybersecurity.
+
+Bureau of Labor Statistics (BLS): The BLS offers extensive data on various professions, including Information Security Analysts. Their reports provide insights into job prospects, salary details, educational prerequisites, and key duties of different roles in cybersecurity.
+
+CyberSeek: CyberSeek is a web-based platform that offers in-depth information on the current state of the cybersecurity job market in the U.S. It provides data on job vacancies, supply vs. demand for cybersecurity talent, skill prerequisites, and career paths within the sector.
+
+These sources played a key role in providing precise and current information on the best job choices for cybersecurity bachelor’s degree holders like yourself.
+
+MAY GOD BLESS YOU!
+JC.","Dear Nada,
+
+Ideal Career Path for a Cybersecurity Bachelor’s Degree Holder
+
+As a cybersecurity bachelor’s degree holder, you'll find that becoming an Information Security Analyst is a rewarding and sought-after career path. These professionals are the guardians of an organization's computer systems and networks, defending against cyber threats, enforcing security protocols, detecting security breaches, and probing into security incidents. They are the linchpin in preserving confidential information and maintaining the overall cybersecurity health of an organization.
+
+Key Duties of an Information Security Analyst:
+
+- Conducting security evaluations to pinpoint vulnerabilities and risks.
+- Creating and enforcing security policies and guidelines.
+- Observing network traffic for unusual activities.
+- Addressing security incidents and carrying out forensic investigations.
+- Teaming up with IT departments to integrate security measures into systems and applications.
+- Staying current with the newest cybersecurity trends and technologies.
+
+Benefits of a Career as an Information Security Analyst:
+
+High Demand: The escalating rate and complexity of cyber attacks have led to a rising need for proficient cybersecurity professionals, including Information Security Analysts.
+Attractive Salary: The specialized nature of their work typically results in competitive pay for Information Security Analysts.
+Career Progression: While starting positions may offer limited advancement opportunities, seasoned Information Security Analysts can climb the ladder to roles such as Chief Information Security Officer (CISO) or cybersecurity consultant.
+Job Gratification: The satisfaction derived from shielding valuable data and systems from cyber threats is a unique aspect of working in cybersecurity.
+
+Challenges Faced by an Information Security Analyst:
+
+High Stress Levels: The ever-present need to remain alert against evolving threats can make cybersecurity work stressful.
+Extended Hours: Addressing security incidents or executing system upgrades may necessitate working beyond regular business hours.
+Ongoing Learning: The fast-paced nature of cybersecurity demands professionals to constantly upgrade their skills and knowledge.
+
+In summary, choosing a career as an Information Security Analyst can be a rewarding decision for cybersecurity bachelor’s degree holders, presenting growth opportunities, competitive pay, job satisfaction, but also challenges like high stress levels and the necessity for ongoing learning.
+
+Top 3 Credible Sources Used in Answering this Question:
+
+(ISC)² - International Information System Security Certification Consortium: (ISC)² is a prestigious body that provides respected certifications like the Certified Information Systems Security Professional (CISSP). Their research and insights offer valuable guidance on career trajectories within cybersecurity.
+
+Bureau of Labor Statistics (BLS): The BLS offers extensive data on various professions, including Information Security Analysts. Their reports provide insights into job prospects, salary details, educational prerequisites, and key duties of different roles in cybersecurity.
+
+CyberSeek: CyberSeek is a web-based platform that offers in-depth information on the current state of the cybersecurity job market in the U.S. It provides data on job vacancies, supply vs. demand for cybersecurity talent, skill prerequisites, and career paths within the sector.
+
+These sources played a key role in providing precise and current information on the best job choices for cybersecurity bachelor’s degree holders like yourself.
+
+MAY GOD BLESS YOU!
+JC.",491,2024-04-26T05:19:00Z,0,,4 - Fully Correct,4 - Fully Complete,4 - Fully Coherent,4,4,4,Train,2,Predictive Causal Reasoning/Interventional Reasoning; Associational/Normative reasoning,2,491,393,589
+731492,pilot,11,reserve,,0.007226738934056007,1,ai,121779716,20261027-124027-03,v1.1,"What can be done about the hemorrhaging of teachers leaving the profession, and is teaching a dying profession?",I am interested in a #teaching career but worried about the future of the profession. #Spring23,I am interested in a #teaching career but worried about the future of the profession. #Spring23,34,2023-06-27T23:58:00Z,4,849,teaching education teacher,United States,Industry-Specific Knowledge and Trends,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,Understand a Career Path,,,Validate a Choice or Path; Overcome Doubt or Fear,,,,,"25-0000 Educational Instruction and Library Occupations; 25-3000 Other Teachers and Instructors; 25-3090 Miscellaneous Teachers and Instructors; 25-3099 Teachers and Instructors, All Other",,Educational Instruction and Library Occupations,1,"25-3099 Teachers and Instructors, All Other",939972,"Dear Shantelle,
+
+Tackling the Dilemma of Teachers Exiting the Profession
+
+The escalating issue of teachers exiting their profession, often termed as the ""teacher turnover crisis,"" poses a significant challenge in the education sector. Several factors fuel this trend, including inadequate compensation, insufficient support and resources, excessive workload and stress, limited career progression opportunities, difficult student behavior, and overall discontent with the current education systems.
+
+To curb the exodus of teachers from the profession, we can employ several strategies:
+
+Enhance Working Conditions: Schools and educational institutions should strive to cultivate a supportive and positive work atmosphere for teachers. This involves supplying sufficient resources, minimizing administrative tasks, providing opportunities for professional growth, and nurturing a culture of teamwork and respect.
+
+Boost Compensation: The low wages compared to the level of education and responsibility required for teaching is one of the main reasons teachers leave the profession. Raising teacher salaries and benefits can help lure and retain competent educators.
+
+Strengthen Teacher Support: Offering mentorship programs, mental health resources, and opportunities for professional development can make teachers feel valued in their roles. It's also crucial to tackle burnout through wellness initiatives to retain teachers.
+
+Encourage Work-Life Balance: Managing workload expectations and providing flexible scheduling options can help avert teacher burnout and enhance job satisfaction.
+
+Policy Revisions: Pushing for policy changes at local, state, and national levels to tackle systemic issues in education, such as pressures of standardized testing, curriculum restrictions, and lack of freedom in teaching practices.
+
+Is Teaching a Fading Profession?
+
+Despite the challenges that lead to high turnover rates among educators, it's vital to remember that teaching is not a fading profession. Education is a foundational pillar of society, with committed teachers playing a critical role in molding future generations.
+
+Despite the hurdles teachers face, there are continuous efforts to improve working conditions, amplify support for educators, boost professional development opportunities, and raise the status of teaching as a respected profession.
+
+By addressing the core issues causing teacher turnover and introducing effective strategies to support educators, teaching can continue to be a fulfilling and influential career choice for those passionate about molding young minds and making a societal difference.
+
+Top 3 Credible Sources Used:
+
+National Education Association (NEA): The NEA, one of the largest professional organizations representing teachers in the U.S., offers valuable insights into issues affecting educators and advocates for policies that support teachers' well-being.
+
+American Federation of Teachers (AFT): The AFT, another significant organization representing teachers' interests nationwide, conducts research on teacher retention issues and proposes solutions to enhance educators' working conditions.
+
+U.S. Department of Education: The Department of Education releases reports and data on teacher retention rates, workforce trends in education, and initiatives aimed at supporting teachers in their professional growth.
+
+God Bless You,
+JC.","Dear Shantelle,
+
+Tackling the Dilemma of Teachers Exiting the Profession
+
+The escalating issue of teachers exiting their profession, often termed as the ""teacher turnover crisis,"" poses a significant challenge in the education sector. Several factors fuel this trend, including inadequate compensation, insufficient support and resources, excessive workload and stress, limited career progression opportunities, difficult student behavior, and overall discontent with the current education systems.
+
+To curb the exodus of teachers from the profession, we can employ several strategies:
+
+Enhance Working Conditions: Schools and educational institutions should strive to cultivate a supportive and positive work atmosphere for teachers. This involves supplying sufficient resources, minimizing administrative tasks, providing opportunities for professional growth, and nurturing a culture of teamwork and respect.
+
+Boost Compensation: The low wages compared to the level of education and responsibility required for teaching is one of the main reasons teachers leave the profession. Raising teacher salaries and benefits can help lure and retain competent educators.
+
+Strengthen Teacher Support: Offering mentorship programs, mental health resources, and opportunities for professional development can make teachers feel valued in their roles. It's also crucial to tackle burnout through wellness initiatives to retain teachers.
+
+Encourage Work-Life Balance: Managing workload expectations and providing flexible scheduling options can help avert teacher burnout and enhance job satisfaction.
+
+Policy Revisions: Pushing for policy changes at local, state, and national levels to tackle systemic issues in education, such as pressures of standardized testing, curriculum restrictions, and lack of freedom in teaching practices.
+
+Is Teaching a Fading Profession?
+
+Despite the challenges that lead to high turnover rates among educators, it's vital to remember that teaching is not a fading profession. Education is a foundational pillar of society, with committed teachers playing a critical role in molding future generations.
+
+Despite the hurdles teachers face, there are continuous efforts to improve working conditions, amplify support for educators, boost professional development opportunities, and raise the status of teaching as a respected profession.
+
+By addressing the core issues causing teacher turnover and introducing effective strategies to support educators, teaching can continue to be a fulfilling and influential career choice for those passionate about molding young minds and making a societal difference.
+
+Top 3 Credible Sources Used:
+
+National Education Association (NEA): The NEA, one of the largest professional organizations representing teachers in the U.S., offers valuable insights into issues affecting educators and advocates for policies that support teachers' well-being.
+
+American Federation of Teachers (AFT): The AFT, another significant organization representing teachers' interests nationwide, conducts research on teacher retention issues and proposes solutions to enhance educators' working conditions.
+
+U.S. Department of Education: The Department of Education releases reports and data on teacher retention rates, workforce trends in education, and initiatives aimed at supporting teachers in their professional growth.
+
+God Bless You,
+JC.",456,2024-07-09T22:14:00Z,0,,4 - Fully Correct,4 - Fully Complete,4 - Fully Coherent,4,4,4,Test,3,Predictive Causal Reasoning/Interventional Reasoning; Associational/Normative reasoning,2,456,365,547
+1002005,pilot,12,reserve,,0.007226738934056007,1,ai,121779716,20261027-124027-03,v1.1,how do i know where the best place is to search for jobs?,Specifically in the social media field,Specifically in the social media field,19,2024-12-01T19:54:00Z,3,844,job-search,,Industry-Specific Knowledge and Trends; Job Search Strategies and Infrastructure,2,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,Explore Opportunities,Get Step-by-Step Advice,,,Find Opportunities or Programs,,,,"11-0000 Management Occupations; 11-2000 Advertising, Marketing, Promotions, Public Relations, and Sales Managers; 11-2010 Advertising and Promotions Managers; 11-2011 Advertising and Promotions Managers; 11-0000 Management Occupations; 11-2000 Advertising, Marketing, Promotions, Public Relations, and Sales Managers; 11-2020 Marketing and Sales Managers; 11-2021 Marketing Managers; 11-0000 Management Occupations; 11-2000 Advertising, Marketing, Promotions, Public Relations, and Sales Managers; 11-2030 Public Relations and Fundraising Managers; 11-2032 Public Relations Managers; 27-0000 Arts, Design, Entertainment, Sports, and Media Occupations; 27-3000 Media and Communication Workers; 27-3030 Public Relations Specialists; 27-3031 Public Relations Specialists; 13-0000 Business and Financial Operations Occupations; 13-1000 Business Operations Specialists; 13-1160 Market Research Analysts and Marketing Specialists; 13-1161 Market Research Analysts and Marketing Specialists",,"Management Occupations; Arts, Design, Entertainment, Sports, and Media Occupations; Business and Financial Operations Occupations",3,11-2011 Advertising and Promotions Managers; 11-2021 Marketing Managers; 11-2032 Public Relations Managers; 27-3031 Public Relations Specialists; 13-1161 Market Research Analysts and Marketing Specialists,1010843,"Nora, Depending on your age bracket, location, and the type of jobs you're interested in as well as compensation, there are a few options:
+
+1.) For Teens – You might want to explore nearby stores, malls, or even fast food restaurants. These are typically easy to get hired for, pay minimum wage, and often will hire teens to provide work experience. In most cases, you don't need a resume to apply for these positions.
+
+2.) For Young Adults – If you know someone who can refer you to their company for entry-level jobs, such as data entry or front desk administration, that can be a great option. You can also create a professional profile on LinkedIn, as well as other job platforms like Monster, Indeed, ZipRecruiter, and Glassdoor. For these platforms, you will need to have a resume prepared when you start applying for jobs.
+
+3.) For the Social Media Field – Depending on the specific role, you’ll most likely find job opportunities on LinkedIn and other job platforms. For these positions, you'll need to provide a resume that highlights your relevant skills and experience. 
+
+Even if you haven't held a position in social media in the past, you can still find commonalities between your previous roles and the tasks you've completed. By highlighting those transferable skills and using language that aligns with the social media field, you can create a resume tailored to this industry.","Nora, Depending on your age bracket, location, and the type of jobs you're interested in as well as compensation, there are a few options:
+
+1.) For Teens – You might want to explore nearby stores, malls, or even fast food restaurants. These are typically easy to get hired for, pay minimum wage, and often will hire teens to provide work experience. In most cases, you don't need a resume to apply for these positions.
+
+2.) For Young Adults – If you know someone who can refer you to their company for entry-level jobs, such as data entry or front desk administration, that can be a great option. You can also create a professional profile on LinkedIn, as well as other job platforms like Monster, Indeed, ZipRecruiter, and Glassdoor. For these platforms, you will need to have a resume prepared when you start applying for jobs.
+
+3.) For the Social Media Field – Depending on the specific role, you’ll most likely find job opportunities on LinkedIn and other job platforms. For these positions, you'll need to provide a resume that highlights your relevant skills and experience.
+
+Even if you haven't held a position in social media in the past, you can still find commonalities between your previous roles and the tasks you've completed. By highlighting those transferable skills and using language that aligns with the social media field, you can create a resume tailored to this industry.",236,2024-12-17T20:56:00Z,1,United States,4 - Fully Correct,3 - Mostly Complete,4 - Fully Coherent,4,3,4,Train,3,Associational/Normative reasoning; Necessary Conditions,2,236,189,283
+987903,pilot,13,reserve,,0.007226738934056007,1,human,121779716,20261027-124027-03,v1.1,What are ways to network and create relationships after college graduation?,"Digital Marketing, Sports Media, Avertising","Digital Marketing, Sports Media, Avertising",16,2024-10-30T13:50:00Z,4,472,college networking,United States,Networking and Mentorship,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,Explore Opportunities,Get Step-by-Step Advice,,,,,,,"41-0000 Sales and Related Occupations; 41-3000 Sales Representatives, Services; 41-3010 Advertising Sales Agents; 41-3011 Advertising Sales Agents; 13-0000 Business and Financial Operations Occupations; 13-1000 Business Operations Specialists; 13-1160 Market Research Analysts and Marketing Specialists; 13-1161 Market Research Analysts and Marketing Specialists; 27-0000 Arts, Design, Entertainment, Sports, and Media Occupations; 27-2000 Entertainers and Performers, Sports and Related Workers; 27-2020 Athletes, Coaches, Umpires, and Related Workers; 27-2023 Umpires, Referees, and Other Sports Officials",,"Sales and Related Occupations; Business and Financial Operations Occupations; Arts, Design, Entertainment, Sports, and Media Occupations",3,"41-3011 Advertising Sales Agents; 13-1161 Market Research Analysts and Marketing Specialists; 27-2023 Umpires, Referees, and Other Sports Officials",1039228,"Connect with alumni, LinkedIn, connect with former professors for real world contacts. Consider every job (part-time or internships) and opportunity to build your brand. Find groups in your local area with common interest and put yourself out there. Don’t wait until after college!","Connect with alumni, LinkedIn, connect with former professors for real world contacts. Consider every job (part-time or internships) and opportunity to build your brand. Find groups in your local area with common interest and put yourself out there. Don’t wait until after college!",43,2025-02-24T19:21:00Z,0,United States,4 - Fully Correct,3 - Mostly Complete,3 - Mostly Coherent,4,3,3,Test,3,No reasoning - explanation only,1,43,34,52
+648306,pilot,14,reserve,,0.007226738934056007,1,human,121779716,20261027-124027-03,v1.1,How did you know your career was the right one for you?,How did you know the job you were working was going to be your ultimate career? ,How did you know the job you were working was going to be your ultimate career?,28,2023-01-13T19:45:00Z,74,4038,career business career-path small-business administration,United States,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,Understand a Career Path,,,,,,,,No career mentioned in question,no_career_mentioned,,0,,650089,"That's the best part. Start with what draws you in and remember to be flexible. Always seek to learn something new and be ready to self educate. When the pandemic hit, a lot of professionals switched to different careers for many different reasons. Some people wanted to make more money. Others lost their jobs unexpectedly. I'm sure there are plenty of other reasons why people shifted careers. None of us can see the future, so don't be afraid of what could happen. Simply remain open and prepare accordingly.","That's the best part. Start with what draws you in and remember to be flexible. Always seek to learn something new and be ready to self educate. When the pandemic hit, a lot of professionals switched to different careers for many different reasons. Some people wanted to make more money. Others lost their jobs unexpectedly. I'm sure there are plenty of other reasons why people shifted careers. None of us can see the future, so don't be afraid of what could happen. Simply remain open and prepare accordingly.",88,2023-01-20T19:30:00Z,1,United States,2 - Mostly Incorrect,1 - Very Incomplete,3 - Mostly Coherent,2,1,3,Train,2,Associational/Normative reasoning,1,88,70,106
+704467,pilot,15,reserve,,0.007226738934056007,1,ai,121779716,20261027-124027-03,v1.1,What are the key factors that employers look for when hiring people?,Junior in high school.,Junior in high school.,16,2023-05-21T20:05:00Z,9,1173,hiring recruiting job-applications,United States,Industry-Specific Knowledge and Trends,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,Explore Skills,Get Step-by-Step Advice,,,,,,,No career mentioned in question,no_career_mentioned,,0,,704541,"When employers are searching for the ideal candidate, they're excited to find someone with these exceptional qualities: 
+
+1. Long-Term Potential: Someone who demonstrates growth and a bright future with the company.
+2. Ability to Produce Results: A driven individual who consistently achieves set goals and exceeds expectations.
+3. Enthusiasm and Passion: A person who brings infectious energy and love for their work, inspiring everyone around them.
+4. Putting Skills to Action: A candidate who seamlessly applies their expertise and skills to tackle tasks and projects head-on.
+5. Fitting the Work Environment: Someone who easily blends in with the company culture, contributing to a positive and harmonious atmosphere.
+6. Team Player: A selfless collaborator who supports and uplifts the entire team towards success.
+7. Ambition: A go-getter who sets big personal and professional goals, motivating those around them to aim higher.
+8. Giving Credit to Others: An appreciative individual who recognizes and celebrates the contributions and achievements of team members.
+
+Embody these qualities, and you'll undoubtedly stand out as an invaluable asset to any employer!","When employers are searching for the ideal candidate, they're excited to find someone with these exceptional qualities:
+
+1. Long-Term Potential: Someone who demonstrates growth and a bright future with the company.
+2. Ability to Produce Results: A driven individual who consistently achieves set goals and exceeds expectations.
+3. Enthusiasm and Passion: A person who brings infectious energy and love for their work, inspiring everyone around them.
+4. Putting Skills to Action: A candidate who seamlessly applies their expertise and skills to tackle tasks and projects head-on.
+5. Fitting the Work Environment: Someone who easily blends in with the company culture, contributing to a positive and harmonious atmosphere.
+6. Team Player: A selfless collaborator who supports and uplifts the entire team towards success.
+7. Ambition: A go-getter who sets big personal and professional goals, motivating those around them to aim higher.
+8. Giving Credit to Others: An appreciative individual who recognizes and celebrates the contributions and achievements of team members.
+
+Embody these qualities, and you'll undoubtedly stand out as an invaluable asset to any employer!",174,2023-05-21T23:32:00Z,2,United States,4 - Fully Correct,4 - Fully Complete,4 - Fully Coherent,4,4,4,Train,3,Predictive Causal Reasoning/Interventional Reasoning,1,174,139,209
+586539,pilot,16,reserve,,0.007226738934056007,1,ai,121779716,20261027-124027-03,v1.1,How will I know what career I would like to work towards in college ?,I don’t really know what I want to take in college.  I have ideas but I am not really certain . How can make that decision easier for me . ,I don’t really know what I want to take in college. I have ideas but I am not really certain . How can make that decision easier for me .,45,2022-07-12T16:32:00Z,18,1515,college-major career-path careers,United States,"Career Decision-Making, Transitioning, and Exploration Resources",1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,,Make a Decision; Get Step-by-Step Advice,,Get Feedback or Reassurance,,,,,No career mentioned in question,no_career_mentioned,,0,,610553,"This answer is on behalf of an employee group at PagerDuty:
+
+- Go to career fairs and utilize career center on your college campus
+- Join interest groups on campus 
+- Find internships to get work experience and network
+- Find a job within a college department i.e. liberal arts, business, psychology etc.
+- Go into freshman year with an open mind, take classes that interest you, and pay attention to what you like and dislike about general education classes","This answer is on behalf of an employee group at PagerDuty:
+
+- Go to career fairs and utilize career center on your college campus
+- Join interest groups on campus
+- Find internships to get work experience and network
+- Find a job within a college department i.e. liberal arts, business, psychology etc.
+- Go into freshman year with an open mind, take classes that interest you, and pay attention to what you like and dislike about general education classes",80,2022-09-14T19:27:00Z,0,United States,4 - Fully Correct,4 - Fully Complete,4 - Fully Coherent,4,4,4,Train,2,No reasoning - explanation only,1,80,64,96
