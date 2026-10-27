@@ -1,2 +1,2 @@
-# Files over 10 MB are not committed; rebuild with study/scripts/01_build_frame.R
-frame_answers.csv
+# Files over 10 MB are not committed
+data/_superseded/2026-10-27_pre-D85/01_frame/frame_answers.csv

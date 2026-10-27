@@ -7,6 +7,8 @@ run <- start_run("04")
 cfg <- run$cfg
 
 plan <- sample_output_plan(cfg)
+verify_frozen(cfg)
+if (!plan$dry_run && !isTRUE(cfg$frozen)) stop("A real run needs the frozen frame (frozen: true with checksums).", call. = FALSE)
 run_id <- paste0(run$run_id, if (plan$dry_run) "-DRY_RUN")
 dir.create(plan$dir, recursive = TRUE, showWarnings = FALSE)
 if (!plan$dry_run && file.exists(file.path(plan$dir, "study_sample.rds"))) {
@@ -88,7 +90,8 @@ writeLines(c(
   glue("Run `{run_id}` · frame {cfg$frame_version}"), "",
   glue("- Seed base: {plan$seed_base} = {plan$seed_rule}"),
   glue("- Draw seed: {draw_seed} = derive_seed(seed base, \"{plan$draw_stage}\")"),
-  "- Inclusion reps and replacement queues derive from the same seed base.", "",
+  "- Inclusion reps and replacement queues derive from the same seed base.",
+  glue("- Frame frozen: {if (isTRUE(cfg$frozen)) paste0('yes (', length(unlist(cfg$frozen_checksums)), ' checksums verified)') else 'no'}"), "",
   "## Counts at each stage", "",
   md_table(tibble(stage = c("Frame (01)", "Reserved sets (03)", "frame_remaining (sampling frame)",
                             "Selected at the floor stage", "Selected by random fill", "Study sample"),
@@ -124,9 +127,10 @@ writeLines(c(
        "targets for generation are display length ± {cfg$target_words_tolerance * 100}%. ",
        "Questions with one eligible answer: {sum(sample$n_eligible_answers == 1)}; with several: {sum(sample$n_eligible_answers > 1)}."), "",
   glue("- Opening salutation removed: {sum(sample_edits$part == 'opening')} of {nrow(sample)}"),
-  glue("- Closing sign-off or signature removed: {sum(sample_edits$part == 'closing')} of {nrow(sample)}"),
-  glue("- Either: {n_distinct(sample_edits$answer_id)} of {nrow(sample)}"),
-  glue("- has_list: {sum(sample$has_list)} of {nrow(sample)} (lists not changed; decision pending)"),
+  glue("- Closing sign-off, signature or pleasantry removed: {sum(sample_edits$part == 'closing')} of {nrow(sample)}"),
+  glue("- List markers removed (items kept on their own lines): {sum(sample_edits$part == 'list_marker')} of {nrow(sample)}"),
+  glue("- Any display edit: {n_distinct(sample_edits$answer_id)} of {nrow(sample)}"),
+  glue("- has_list (raw text has a list): {sum(sample$has_list)} of {nrow(sample)}"),
   glue("- Question body empty after hashtag removal (title only): {sum(sample$question_text_display == '' | is.na(sample$question_text_display))}"), "",
   "## Screening", "",
   glue("`screening_sheet_round1{plan$tag}.csv` lists the {nrow(sheet)} drawn questions (question text only, in question_id order). ",
@@ -137,7 +141,7 @@ writeLines(c(
 
 write_run_log(file.path(cfg$paths$logs_dir, glue("{run_id}.yml")), run_id, "04_draw_study_sample.R",
               seeds = list(master_seed = cfg$master_seed, seed_base = plan$seed_base, seed_base_rule = as.character(plan$seed_rule),
-                           osf_doi = cfg$osf_doi, study_draw = draw_seed, study_draw_stage = plan$draw_stage,
+                           osf_doi_raw = plan$doi_raw, osf_doi_normalized = plan$doi_normalized, study_draw = draw_seed, study_draw_stage = plan$draw_stage,
                            human_answer = answer_seed, inclusion_reps = as.character(incl$seed_rule),
                            replacement_queues = "derive_seed(seed_base, \"replacement_queue_general\" | \"replacement_queue_<label>\")"),
               config = cfg,

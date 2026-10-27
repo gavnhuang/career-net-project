@@ -19,13 +19,24 @@ test_that("the guard is in dry-run mode unless posted AND an OSF url is given", 
   expect_equal(real$draw_stage, "study_draw")
 })
 
-test_that("the DOI seed is the first 7 hex digits of md5(osf_doi)", {
-  # Checked independently: md5 -q -s "10.17605/OSF.IO/ABC12" = f1a2d0a...; 0xf1a2d0a = 253373706
-  expect_equal(doi_seed("10.17605/OSF.IO/ABC12"), 253373706L)
-  expect_equal(sample_output_plan(real_cfg())$seed_base, 253373706L)
-  expect_equal(derive_seed(doi_seed("10.17605/OSF.IO/ABC12"), "study_draw"), derive_seed(253373706L, "study_draw"))
-  expect_false(doi_seed("10.17605/OSF.IO/ABC12") == doi_seed("10.17605/osf.io/abc12"))  # exact string, no normalization
+test_that("the DOI is normalized, then hashed: first 7 hex digits of md5", {
+  # Checked by hand: md5 -q -s "10.17605/osf.io/abcde" = c18e1d27...; 0xc18e1d2 = 202957266
+  expect_equal(normalize_doi(" doi:10.17605/osf.io/abcde "), "10.17605/osf.io/abcde")
+  expect_equal(normalize_doi("https://doi.org/10.17605/osf.io/abcde"), "10.17605/osf.io/abcde")
+  expect_equal(normalize_doi("HTTP://DOI.ORG/10.17605/OSF.IO/ABCDE"), "10.17605/osf.io/abcde")
+  expect_equal(normalize_doi("doi.org/10.17605/OSF.IO/ABCDE"), "10.17605/osf.io/abcde")
+  variants <- c("10.17605/OSF.IO/ABCDE", "https://doi.org/10.17605/osf.io/abcde", " doi:10.17605/osf.io/abcde ")
+  seeds <- purrr::map_int(variants, doi_seed)
+  expect_true(all(seeds == 202957266L))
+  expect_equal(doi_seed("10.17605/osf.io/abcde"), 202957266L)
+  # The old ABC12 example, now normalized: md5 -q -s "10.17605/osf.io/abc12" -> 151634269
+  expect_equal(sample_output_plan(real_cfg())$seed_base, 151634269L)
+  plan <- sample_output_plan(real_cfg(" https://doi.org/10.17605/OSF.IO/ABCDE"))
+  expect_equal(plan$seed_base, 202957266L)
+  expect_equal(plan$doi_raw, " https://doi.org/10.17605/OSF.IO/ABCDE")
+  expect_equal(plan$doi_normalized, "10.17605/osf.io/abcde")
   expect_error(doi_seed(""), "non-empty")
+  expect_error(doi_seed("doi: "), "non-empty")
 })
 
 test_that("a real draw refuses to run without osf_doi", {

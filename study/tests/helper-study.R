@@ -31,7 +31,7 @@ anchor_ids <- function() {
 real_frame <- function() {
   .fixtures$frame <- .fixtures$frame %||%
     build_frame(real_raw(), CFG$filters, anchor_ids(), character(), CFG$scenario_labels, CFG$guaranteed_labels,
-                expected_attrition = CFG$expected_attrition)
+                expected_attrition = CFG$expected_attrition, closing_pleasantries = CFG$closing_pleasantries)
   .fixtures$frame
 }
 

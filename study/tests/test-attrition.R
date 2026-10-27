@@ -87,7 +87,8 @@ test_that("extra input columns pass through to the answer frame", {
   skip_if_no_data()
   raw <- real_raw()
   raw$future_column <- paste0("v", seq_len(nrow(raw)))
-  fr <- build_frame(raw, CFG$filters, anchor_ids(), character(), CFG$scenario_labels, CFG$guaranteed_labels)
+  fr <- build_frame(raw, CFG$filters, anchor_ids(), character(), CFG$scenario_labels, CFG$guaranteed_labels,
+                    closing_pleasantries = CFG$closing_pleasantries)
   expect_true("future_column" %in% names(fr$frame_answers))
   expect_equal(fr$frame_answers$future_column, raw$future_column[match(fr$frame_answers$answer_id, raw$answer_id)])
 })

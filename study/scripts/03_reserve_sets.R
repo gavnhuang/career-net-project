@@ -2,6 +2,7 @@
 source("study/scripts/_common.R")
 run <- start_run("03")
 cfg <- run$cfg
+assert_not_frozen(cfg, "03_reserve_sets.R")
 
 fq_path <- file.path(cfg$paths$frame_dir, "frame_questions.rds")
 fa_path <- file.path(cfg$paths$frame_dir, "frame_answers.rds")

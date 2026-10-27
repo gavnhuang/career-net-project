@@ -1,6 +1,6 @@
 # Reading sample: 45 frame questions
 
-Run `20261027-131715-02` · seed 40152816 (derive_seed(master_seed, "reading_sample")) · frame v1.1, 681 questions
+Run `20261027-133644-02` · seed 40152816 (derive_seed(master_seed, "reading_sample")) · frame v1.1, 681 questions
 
 Random frame questions, each with one eligible human answer (the same answer the study would use). 
 Read these to write exclusion rules for `study/config/exclusions.csv`. This step removes nothing.
@@ -95,16 +95,16 @@ question_id 661544 · 24 words · 2023-02-20 · 3 eligible answer(s)
 
 > What is the best way to find which career path is the best fit for me?
 
-**Answer** (answer_id 661688 · 229 display words · has list · 2023-02-20 · 4 - Fully Correct, 3 - Mostly Complete, 4 - Fully Coherent)
+**Answer** (answer_id 661688 · 224 display words · has list · 2023-02-20 · 4 - Fully Correct, 3 - Mostly Complete, 4 - Fully Coherent)
 
 > Perfect job is a very subjective term. A perfect job for me or my friend might not be a perfect job for you.
 > To get to what really works for you (your perfect job), you can introspect as to what you enjoy and come to your own conclusion. Below are some of the things you can do to get started on your journey in defining what you would enjoy doing for a large part of your life! :)
 > 
-> 1. What are you fields of interests? I would go back to a year or two and think about what still interests you. Whatever you choose for your college, you will be studying that subject for a couple years - so I would pick something that you are genuinely interested in.
-> 2. Do you envision a future in that field - Take a reality check. Do you see yourself getting a job in your field of interest and supporting yourself and your family with that income?
-> 3. Affordability - Are there good colleges that can offer your field of study with affordable tuition?
-> 4. Talk to people close to you - your friends, family, some of your teachers and/ or guidance counselors and see that they think.
-> 5. Once you slim down your list of careers, talk to people who are currently doing that job and get their opinion as well.
+> What are you fields of interests? I would go back to a year or two and think about what still interests you. Whatever you choose for your college, you will be studying that subject for a couple years - so I would pick something that you are genuinely interested in.
+> Do you envision a future in that field - Take a reality check. Do you see yourself getting a job in your field of interest and supporting yourself and your family with that income?
+> Affordability - Are there good colleges that can offer your field of study with affordable tuition?
+> Talk to people close to you - your friends, family, some of your teachers and/ or guidance counselors and see that they think.
+> Once you slim down your list of careers, talk to people who are currently doing that job and get their opinion as well.
 
 ---
 
@@ -138,13 +138,13 @@ question_id 28652 · 203 words · 2016-05-23 · 2 eligible answer(s)
 
 > I have just graduated from college and looking for a job. I understand that the job market is tougher this time to make matters worse some say there might be a recession coming. I try to put the best in my CV and resume and tailor them to a particular company I send it to. Other than work experience, academic projects, co-curricular activities, voluntary activities, testimonials and recommendations from my professors is there anything else that would look good in my resume. Unfortunately my GPA isn't high and that puts me in disadvantage. The candidates that get selected for the job I want have accomplished something great in the respective areas mentioned above. However, I was not an active member in clubs and societies and my final year project was not among those selected for poster session despite the hardwork. Poster session is where you display and present your project to the public in campus. The only thing I am good at is my hobbies. I understand that seeking employment would take time for me. I would appreciate if you could provide any advice on this matter.
 
-**Answer** (answer_id 478424 · 67 display words · has list · 2021-07-08 · 4 - Fully Correct, 2 - Somewhat Incomplete, 3 - Mostly Coherent)
+**Answer** (answer_id 478424 · 62 display words · has list · 2021-07-08 · 4 - Fully Correct, 2 - Somewhat Incomplete, 3 - Mostly Coherent)
 
-> 1. Highlight the specific traits in your personality or relevant skills that make you the best candidate for the role
-> 2. Highlight your accomplishments that are relevant to the job even if the accomplishments come from volunteering
-> 3. Match your skills to the job requirements/description
-> 4. Know what you bring to the position and how it helps the company
-> 5. Confidence is key
+> Highlight the specific traits in your personality or relevant skills that make you the best candidate for the role
+> Highlight your accomplishments that are relevant to the job even if the accomplishments come from volunteering
+> Match your skills to the job requirements/description
+> Know what you bring to the position and how it helps the company
+> Confidence is key
 > Find more tips here:
 
 ---
@@ -205,7 +205,7 @@ question_id 21100 · 37 words · 2016-05-05 · 1 eligible answer(s)
 
 > I'm interested in learning more about jobs that will allow me to have a well-balanced life.
 
-**Answer** (answer_id 475168 · 223 display words · 2021-07-05 · 3 - Mostly Correct, 1 - Very Incomplete, 3 - Mostly Coherent)
+**Answer** (answer_id 475168 · 220 display words · 2021-07-05 · 3 - Mostly Correct, 1 - Very Incomplete, 3 - Mostly Coherent)
 
 > I will say that "a well balanced life" is very subjective and also very dependent on the phase of your life.
 > 
@@ -214,8 +214,6 @@ question_id 21100 · 37 words · 2016-05-05 · 1 eligible answer(s)
 > As I start to accumulate more experience, things that I used to spend hours on, I am now able to finish in less than an hour. Now I spend less time finishing the same amount of work, and start prioritizing other parts of my life. I carved out more time on self development books / course, pick up new skill sets not relevant to my work, network with people outside of work etc.
 > 
 > I think it depends on what you really want to achieve. List it down and prioritize what you want to focus on. If you feel the first job you gotten yourself into, is not achieving what you plan, be open minded and try. You will never know till you try.
-> 
-> Hope this helps!
 
 ---
 
@@ -477,13 +475,15 @@ question_id 404900 · 39 words · 2021-04-15 · 2 eligible answer(s)
 
 > I am a senior heading to college but still do not know what i want to pursue as my career.
 
-**Answer** (answer_id 404910 · 416 display words · 2021-04-15 · 4 - Fully Correct, 4 - Fully Complete, 3 - Mostly Coherent)
+**Answer** (answer_id 404910 · 419 display words · 2021-04-15 · 4 - Fully Correct, 4 - Fully Complete, 3 - Mostly Coherent)
 
 > Kimberly DO NOT declare your college major if you haven't had an oprotunity to explored all your options yet. Choosing a college major is…well, a major decision, and should not be taken lightly. Entering college with an undeclared major allows you to avoid making a commitment you're not comfortable with for the entirety of your college career. Remember: being undecided does not mean you can't or won't make a decision. You've simply chosen not to commit at this time.
 > 
 > Who doesn't like to sample a variety of foods before selecting a main entrée? Being undeclared allows you to take courses in a wide range of subjects, and you can hone in on a career and academic path based on the courses you enjoy. An added advantage: advisors can guide you to general education courses that fulfill requirements in a number of majors, so you're able to explore and meet your requirements at the same time. The good news is that you don't need to be in the decision-making process alone. Colleges and universities offer many services to help students decide which careers might be best for them. Many colleges also offer exploratory courses in a variety of fields to provide students with ways to learn more and discover their interests further. Career counselors, academic advisors and professors can help you make decisions on courses and programs that could lead to a specific career. Being undeclared can ensure that you take full advantage of all the resources your school offers.
 > 
 > Being undeclared when you enter college could have a financial advantage also. If you spend your first year or two pursuing a major and then decide to change, some or many of the courses you've previously taken may not count toward your new major. You might wind up having to attend school for an extra semester or two, or even longer, as you start over again. This will likely result in spending more money on your college education. Being undeclared while you finalize your decisions can help you avoid this pitfall. In other words, take time to reflect. What motivates you? What are your particular interests? What do you see yourself doing five, ten, or twenty years down the road? It's not so important to know the answer to these questions on the first day of classes. Some self-exploration is vital to making the right choices about which academic path you end up following. Being aware of your personality and likes and dislikes are important first steps.
+> 
+> Happy Hunting Kimberly
 
 ---
 
@@ -517,16 +517,16 @@ question_id 620836 · 68 words · 2022-10-19 · 3 eligible answer(s)
 
 > I have always had a passion for what goes on in a criminals mind and why they do what they do and how they react to certain things. But I want to make sure that I don´t back out of something I know I would really wan to do.
 
-**Answer** (answer_id 620892 · 173 display words · has list · 2022-10-19 · 4 - Fully Correct, 3 - Mostly Complete, 3 - Mostly Coherent)
+**Answer** (answer_id 620892 · 168 display words · has list · 2022-10-19 · 4 - Fully Correct, 3 - Mostly Complete, 3 - Mostly Coherent)
 
 > Agree with all of the above on reaching out to connections in the industries you're interested in. If you need help finding connections, you can look for youth development programs in the city that can take you on college tours and matching you with advisors. A quick google search or your college/ career center at your school can help you find these programs.
 > 
 > When you talk to people, come up with a list of questions ahead of time so you're confident going in. Here are some potential questions:
-> - What is the culture like in this profession?
-> - What do you do day to day?
-> - What your favorite and least favorite part of your job?
-> - What skills/ credentials are helpful for going into this job?
-> - Think about what you want the career to be and ask questions to see if the career is really like that.
+> What is the culture like in this profession?
+> What do you do day to day?
+> What your favorite and least favorite part of your job?
+> What skills/ credentials are helpful for going into this job?
+> Think about what you want the career to be and ask questions to see if the career is really like that.
 > 
 > But finally, any path your pursue can change! So as others have said, go ahead and try it out. You can always change later.
 
@@ -570,16 +570,16 @@ question_id 280418 · 12 words · 2020-07-22 · 1 eligible answer(s)
 
 > (body empty after hashtag removal)
 
-**Answer** (answer_id 381925 · 75 display words · has list · 2021-03-19 · 3 - Mostly Correct, 2 - Somewhat Incomplete, 3 - Mostly Coherent)
+**Answer** (answer_id 381925 · 73 display words · has list · 2021-03-19 · 3 - Mostly Correct, 2 - Somewhat Incomplete, 3 - Mostly Coherent)
 
 > Here are couple of things that i would think is important to remember while preparing a resume :
-> 1. Put the Best Stuff “Above the Fold” basically it’s your first impression
+> Put the Best Stuff “Above the Fold” basically it’s your first impression
 > 2.Make sure to update your recent skills
 > 3.Curate Your Bullet Points
 > 4.Experience First, Education Second
 > 5.Highlight Honors, Not GPA
 > 6.include Continuing or Online Education
-> 7. Show Some Personality (Feel free to include an “Interests”)
+> Show Some Personality (Feel free to include an “Interests”)
 > 8.Beware of Interests That Could Be Controversial
 > 9.Constantly Refresh It
 
@@ -725,19 +725,19 @@ question_id 2311 · 23 words · 2014-01-09 · 2 eligible answer(s)
 
 > I want to know what is a good plan for me.
 
-**Answer** (answer_id 450731 · 212 display words · has list · 2021-06-11 · 4 - Fully Correct, 4 - Fully Complete, 4 - Fully Coherent)
+**Answer** (answer_id 450731 · 204 display words · has list · 2021-06-11 · 4 - Fully Correct, 4 - Fully Complete, 4 - Fully Coherent)
 
 > For eCommerce, I would recommend taking classes in high school that are around literature, writing, content, etc. A lot of what is done on websites is speaking to your customer in a language they understand. Anything creative will help you in all areas of websites. I would also recommend taking a coding class or basics in HTML, css, javascript. Websites are run on complicated technology that you sometimes need to troubleshoot. The more you know the easier it is to get to resolutions.
 > As you start looking at colleges, look into sales/marketing type degrees as well as business. I would also recommend taking some kind of advertising class if it is offered.
 > Fundamentals of e-commerce are learning how to:
-> - speak to your audience.
-> - find your audience.
-> - create innovative ways to reach your audience.
-> - understand your website capabilities (html/css/js/etc).
-> - work with your website, marketing, branding, sales and product teams.
-> - understand how design and copy can help/hurt your site or product.
-> - report on goals and achievements, etc.
-> - incorporate analysis of SEO, SEM, Google Suite and other system metrics into actionable tasks.
+> speak to your audience.
+> find your audience.
+> create innovative ways to reach your audience.
+> understand your website capabilities (html/css/js/etc).
+> work with your website, marketing, branding, sales and product teams.
+> understand how design and copy can help/hurt your site or product.
+> report on goals and achievements, etc.
+> incorporate analysis of SEO, SEM, Google Suite and other system metrics into actionable tasks.
 > 
 > If anything I wrote above is foreign to you, then that is what you need to learn about as the fundamentals through classes and experience.
 

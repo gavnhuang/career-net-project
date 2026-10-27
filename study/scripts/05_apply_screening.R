@@ -7,6 +7,8 @@ run <- start_run("05")
 cfg <- run$cfg
 
 plan <- sample_output_plan(cfg)
+verify_frozen(cfg)
+if (!plan$dry_run && !isTRUE(cfg$frozen)) stop("A real run needs the frozen frame (frozen: true with checksums).", call. = FALSE)
 run_id <- paste0(run$run_id, if (plan$dry_run) "-DRY_RUN")
 in_dir <- function(name, ext) file.path(plan$dir, paste0(name, plan$tag, ".", ext))
 
@@ -41,7 +43,7 @@ if (!res$finished) {
   next_path <- screening_sheet_path(plan$dir, k + 1, plan$tag)
   readr::write_csv(next_sheet, next_path, na = "")
   outputs <- c(next_sheet = next_path)
-  status <- glue("Round {k}: {n_ex_last} exclusion(s), each replaced. Wrote the round {k + 1} sheet ",
+  status <- glue("Round {k}: {n_ex_last} exclusion(s)/floor swap(s), each replaced. Wrote the round {k + 1} sheet ",
                  "({nrow(next_sheet)} question(s)) to {next_path}. Fill it in and run 05 again.")
   screened <- NULL
 } else {
@@ -57,7 +59,7 @@ if (!res$finished) {
     mutate(screening_round = res$selection$screening_round, replaced_question_id = res$selection$replaced_question_id,
            .after = frame_version)
   checks <- check_sample(screened, fr, fa, anchor_ids, reserved_ids, cfg$guaranteed_labels, cfg$floor, cfg$study_n)
-  checks <- bind_rows(checks, tibble(check = "no excluded question remains", passed = !any(screened$question_id %in% res$log$question_id),
+  checks <- bind_rows(checks, tibble(check = "no excluded or swapped-out question remains", passed = !any(screened$question_id %in% res$log$question_id),
                                      detail = ""))
   stop_on_failed_checks(checks)
   outputs <- c(
@@ -78,7 +80,9 @@ writeLines(c(
   "## Rules applied to drawn questions (question text only)", "",
   paste0("- **", names(SCREENING_RULES), "**: ", SCREENING_RULES), "",
   "Replacement: in draw order, an excluded question whose removal drops a guaranteed label below the floor is replaced ",
-  "from that label's queue (rarest label first); any other from the general queue. Questions already selected or excluded are skipped.", "",
+  "from that label's queue (rarest label first); any other from the general queue. If a guaranteed label is still below the floor ",
+  "(two labels dropped at once), the most recently drawn random_fill question whose removal drops no guaranteed label is swapped ",
+  "out for the next question in that label's queue (logged as floor_swap). Questions already selected, excluded or swapped out are skipped.", "",
   "## Exclusions so far", "",
   md_table(res$log), "",
   if (!is.null(screened)) c(
@@ -92,7 +96,8 @@ writeLines(c(
 ), report_path)
 
 write_run_log(file.path(cfg$paths$logs_dir, glue("{run_id}.yml")), run_id, "05_apply_screening.R",
-              seeds = list(seed_base = plan$seed_base, seed_base_rule = as.character(plan$seed_rule)),
+              seeds = list(seed_base = plan$seed_base, seed_base_rule = as.character(plan$seed_rule),
+                           osf_doi_raw = plan$doi_raw, osf_doi_normalized = plan$doi_normalized),
               config = cfg,
               input_files = c(config = run$config_path, study_sample = sample_path, replacement_queues = queues_path,
                               inclusion_probs = probs_path, frame_remaining = fr_path, frame_answers = fa_path,

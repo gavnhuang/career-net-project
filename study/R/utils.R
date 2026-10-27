@@ -55,11 +55,20 @@ derive_seed <- function(master_seed, stage) {
   strtoi(substr(h, 1, 7), base = 16L)
 }
 
-# The real study draw's master seed: first 7 hex digits of md5 of the OSF DOI string, exactly
-# as written in the config (no case or whitespace normalization).
+# DOI normalization before hashing: trim, lowercase, drop a leading "https://doi.org/",
+# "http://doi.org/", "doi.org/" or "doi:" prefix.
+normalize_doi <- function(doi) {
+  x <- str_to_lower(str_trim(doi))
+  str_trim(str_remove(x, "^(?:https?://doi\\.org/|doi\\.org/|doi:)\\s*"))
+}
+
+# The real study draw's master seed: first 7 hex digits of md5 of the normalized DOI string
+# (md5 of the text itself, not of a serialized R object).
 doi_seed <- function(doi) {
-  if (!is.character(doi) || length(doi) != 1 || is.na(doi) || !nzchar(doi)) stop("doi_seed() needs a non-empty DOI", call. = FALSE)
-  strtoi(substr(digest::digest(doi, algo = "md5", serialize = FALSE), 1, 7), base = 16L)
+  if (!is.character(doi) || length(doi) != 1 || is.na(doi) || !nzchar(normalize_doi(doi))) {
+    stop("doi_seed() needs a non-empty DOI", call. = FALSE)
+  }
+  strtoi(substr(digest::digest(normalize_doi(doi), algo = "md5", serialize = FALSE), 1, 7), base = 16L)
 }
 
 # Evaluate `expr` under a fixed seed and the study RNG kinds, then restore the

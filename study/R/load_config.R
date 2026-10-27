@@ -15,6 +15,9 @@ load_config <- function(path) {
     stop("preregistration_posted must be true or false", call. = FALSE)
   cfg$osf_url <- cfg$osf_url %||% ""
   cfg$osf_doi <- cfg$osf_doi %||% ""
+  cfg$closing_pleasantries <- as.character(unlist(cfg$closing_pleasantries))
+  cfg$frozen <- isTRUE(cfg$frozen)
+  if (cfg$frozen && !length(cfg$frozen_checksums)) stop("frozen is true but frozen_checksums is missing", call. = FALSE)
 
   f <- cfg$filters
   needed <- c("answer_date_min", "answer_date_max_exclusive", "answer_min_words", "answer_max_words",
@@ -58,7 +61,8 @@ sample_output_plan <- function(cfg) {
   dry_run <- !is_preregistered(cfg)
   if (dry_run) {
     return(list(dry_run = TRUE, dir = file.path(cfg$paths$sample_dir, "_dry_run"), tag = "_DRY_RUN",
-                draw_stage = "study_draw_DRY_RUN", seed_base = cfg$master_seed,
+                draw_stage = "study_draw_DRY_RUN", seed_base = cfg$master_seed, doi_raw = NA_character_,
+                doi_normalized = NA_character_,
                 seed_rule = "master_seed (dry run; the DOI seed is never used)"))
   }
   doi <- cfg$osf_doi
@@ -67,5 +71,6 @@ sample_output_plan <- function(cfg) {
          "set osf_doi to the registered DOI first.", call. = FALSE)
   }
   list(dry_run = FALSE, dir = cfg$paths$sample_dir, tag = "", draw_stage = "study_draw",
-       seed_base = doi_seed(doi), seed_rule = glue::glue("strtoi(substr(md5(\"{doi}\"), 1, 7), 16)"))
+       seed_base = doi_seed(doi), doi_raw = doi, doi_normalized = normalize_doi(doi),
+       seed_rule = glue::glue("strtoi(substr(md5(\"{normalize_doi(doi)}\"), 1, 7), 16) [normalized from \"{doi}\"]"))
 }

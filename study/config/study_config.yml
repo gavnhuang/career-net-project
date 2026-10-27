@@ -6,8 +6,9 @@
 # OSF pre-registration is posted.
 preregistration_posted: false
 osf_url: ""
-# The real draw's seed comes from this string (see doi_seed()). A real run
-# refuses to start while it is empty. Copy it exactly as registered.
+# The real draw's seed comes from this string (see doi_seed()). It is normalized
+# before hashing (trimmed, lowercased, "https://doi.org/" / "doi:" prefix dropped).
+# A real run refuses to start while it is empty.
 osf_doi: ""
 
 # ---- Seeds -------------------------------------------------------------------
@@ -24,6 +25,9 @@ inputs:
   previous_version: "v1.0"
   documentation: "../03 CareerNet Data/Data-Details v1.1.pdf"
   anchor_exclusions: "pilot/anchor_check_key.csv"
+  # Stays empty (headers only): the reading sample was used to write exclusion rules;
+  # rule 1 is applied to the frame automatically and rules 2-4 by screening the drawn
+  # sample (05). There are no manual frame exclusions.
   manual_exclusions: "study/config/exclusions.csv"
 
 # ---- Outputs -----------------------------------------------------------------
@@ -67,6 +71,28 @@ floor: 3
 inclusion_reps: 10000
 target_words_tolerance: 0.20
 
+# ---- Display cleaning -------------------------------------------------------
+# A final line of a human answer that is ONLY one or more of these phrases (any case,
+# optional punctuation, optionally followed by a name) is removed as a closing.
+# Never removed inside a longer sentence or anywhere but the last line.
+closing_pleasantries:
+  - "hope this helps"
+  - "i hope this helps"
+  - "hope that helps"
+  - "i hope that helps"
+  - "hope this is helpful"
+  - "i hope this is helpful"
+  - "good luck"
+  - "good luck to you"
+  - "best of luck"
+  - "best of luck to you"
+  - "all the best"
+  - "all the best to you"
+  - "all my best"
+  - "wishing you the best"
+  - "wishing you all the best"
+  - "wishing you the best of luck"
+
 # Fixed by name; not recomputed from the data. Chosen by the rule "30+ eligible
 # questions (10 x floor) in the frame". First Job Navigation (29) is not guaranteed.
 guaranteed_labels:
@@ -100,3 +126,25 @@ scenario_labels:
   - "Job Offers and Negotiations"
   - "Career Advancement"
   - "Mid-Career Pivots"
+
+# ---- Frozen frame -------------------------------------------------------------
+# Written by study/scripts/freeze_frame.R. While frozen is true, 01 and 03 refuse to
+# run and 04/05 stop if any checksum differs. Unfreeze only by setting frozen: false
+# by hand.
+frozen: true
+frozen_at: "2026-10-27T13:36:50-0700"
+frozen_checksums:
+  "study/data/01_frame/frame_questions.csv": "87b843a48fe91d1150a01489d5072805"
+  "study/data/01_frame/frame_questions.rds": "9379bbcb92b6fb985a2294aada16ead8"
+  "study/data/01_frame/frame_answers.csv": "f6dbd466348287c4d1044967f78377cc"
+  "study/data/01_frame/frame_answers.rds": "167f2e293fcc4f8ef1cb86e43d3e39b0"
+  "study/data/02_reserved/pilot.csv": "74ece3f5be499dc60a42f72abc1ecd91"
+  "study/data/02_reserved/pilot.rds": "da5c6b8aa4e07ca1bfdf66923fb47c60"
+  "study/data/02_reserved/warmups.csv": "b61470a4568aa79421130d2bceaf9e22"
+  "study/data/02_reserved/warmups.rds": "e6ba1cdef595033459f49f09b1660637"
+  "study/data/02_reserved/calibration.csv": "ce90dfcb0a0cc4f9f5c5b1f483cfe8a9"
+  "study/data/02_reserved/calibration.rds": "7e2040d29c85472507ac2ce1c3e2bf4b"
+  "study/data/02_reserved/gold_candidates.csv": "59320be5e0a816cc90815c6b933ce549"
+  "study/data/02_reserved/gold_candidates.rds": "d2cbf34910756fe3776af2e4ff73fbc9"
+  "study/data/02_reserved/frame_remaining.csv": "e9dd11799321b3f674a99ad4b6ab167c"
+  "study/data/02_reserved/frame_remaining.rds": "b31661b0bd5f565526495dd311d9afbb"

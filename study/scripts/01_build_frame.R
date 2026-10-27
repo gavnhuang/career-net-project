@@ -2,13 +2,14 @@
 source("study/scripts/_common.R")
 run <- start_run("01")
 cfg <- run$cfg
+assert_not_frozen(cfg, "01_build_frame.R")
 
 raw <- read_careernet(cfg$inputs$primary, required = CAREERNET_COLUMNS)
 anchor_ids <- read_ids(cfg$inputs$anchor_exclusions)
 exclusion_ids <- read_ids(cfg$inputs$manual_exclusions)
 
 frame <- build_frame(raw, cfg$filters, anchor_ids, exclusion_ids, cfg$scenario_labels, cfg$guaranteed_labels,
-                     expected_attrition = cfg$expected_attrition)
+                     expected_attrition = cfg$expected_attrition, closing_pleasantries = cfg$closing_pleasantries)
 
 outputs <- c(
   write_outputs(frame$frame_questions, cfg$paths$frame_dir, "frame_questions"),
@@ -26,6 +27,7 @@ rule_threshold <- (cfg$guaranteed_rule_multiplier %||% 10) * cfg$floor
 by_rule <- cfg$scenario_labels[label_n >= rule_threshold]
 n_open <- sum(frame$display_edits$part == "opening")
 n_close <- sum(frame$display_edits$part == "closing")
+n_list <- sum(frame$display_edits$part == "list_marker")
 
 report_path <- file.path(cfg$paths$reports_dir, glue("01_build_frame_{run$run_id}.md"))
 writeLines(c(
@@ -52,9 +54,10 @@ writeLines(c(
        "The date window already removes all of them; the rule stays as a safeguard."), "",
   "## Display text", "",
   glue("- Answers with an opening salutation removed: {n_open} of {nrow(fa)}"),
-  glue("- Answers with a closing sign-off or signature removed: {n_close} of {nrow(fa)}"),
-  glue("- Answers with either: {n_distinct(frame$display_edits$answer_id)} of {nrow(fa)}"),
-  glue("- Answers with a list (has_list): {sum(fa$has_list)} of {nrow(fa)} (lists are not changed)"),
+  glue("- Answers with a closing sign-off, signature or pleasantry removed: {n_close} of {nrow(fa)}"),
+  glue("- Answers with list markers removed (items kept on their own lines): {n_list} of {nrow(fa)}"),
+  glue("- Answers with any display edit: {n_distinct(frame$display_edits$answer_id)} of {nrow(fa)}"),
+  glue("- Answers with a list in the raw text (has_list): {sum(fa$has_list)} of {nrow(fa)}"),
   glue("- Questions with hashtags removed: {nrow(frame$question_display_edits)} of {nrow(fq)}; ",
        "{sum(fq$question_text_display == '' | is.na(fq$question_text_display))} have an empty body after removal (title only)"),
   "- Every removal is logged in `display_edits.csv` (answers) and `question_display_edits.csv` (questions).", "",

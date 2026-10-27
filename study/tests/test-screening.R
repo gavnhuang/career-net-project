@@ -72,14 +72,62 @@ test_that("a floor-protecting exclusion is replaced from that label's queue, any
                                                     q, fr, c("A", "B"), 3)$selection)
 })
 
-test_that("several dropping labels use the rarest label's queue; selected and excluded ids are skipped", {
+test_that("several dropping labels: the rarest label's queue first, then a floor swap", {
   fr <- screen_frame()
   fr$label_b[1:3] <- 1L                                        # questions 1-3 carry A and B
   d <- tibble::tibble(question_id = as.character(c(1, 2, 3, 13:19)), draw_order = 1:10,
                       selection_stage = c(rep("floor", 3), rep("random_fill", 7)), floor_label = c(rep("A", 3), rep(NA, 7)))
   q <- make_replacement_queues(fr, d$question_id, c("A", "B"), 3)
   res <- replay_screening(d, list(filled_sheet(d$question_id, "1")), q, fr, c("A", "B"), 3)
-  expect_equal(res$log$replacement_queue, "A")                  # A (9 in frame) is rarer than B
+  expect_equal(res$log$reason, c("excluded", "floor_swap"))
+  expect_equal(res$log$replacement_queue, c("A", "B"))         # A (9 in frame) is rarer than B
+  expect_equal(res$log$question_id[2], "19")                    # most recently drawn random_fill
+})
+
+# n = 90: one exclusion drops two guaranteed labels below the floor at once.
+two_label_setting <- function() {
+  ids <- as.character(1:300)
+  fr <- tibble::tibble(question_id = ids, question_title = "t", question_text_display = "x",
+                       label_a = as.integer(ids %in% as.character(c(1:3, 4:10))),         # A: 10 in frame (rarest)
+                       label_b = as.integer(ids %in% as.character(c(1:3, 101:140))))      # B: 43 in frame
+  # The draw: 1-3 carry A and B (A and B sit exactly at the floor); 87 random-fill questions carry neither.
+  d <- tibble::tibble(question_id = as.character(c(1:3, 151:237)), draw_order = 1:90,
+                      selection_stage = c(rep("floor", 3), rep("random_fill", 87)),
+                      floor_label = c(rep("A", 3), rep(NA, 87)))
+  list(fr = fr, d = d, q = make_replacement_queues(fr, d$question_id, c("A", "B"), 42))
+}
+
+test_that("a two-label drop keeps n = 90, meets both floors and is reproducible", {
+  st <- two_label_setting()
+  run <- function() replay_screening(st$d, list(filled_sheet(st$d$question_id, "2", "rule3")), st$q, st$fr, c("A", "B"), 3)
+  res <- run()
+  sel <- res$selection
+  expect_equal(nrow(sel), 90)
+  expect_false(anyDuplicated(sel$question_id) > 0)
+  in_sel <- st$fr[match(sel$question_id, st$fr$question_id), ]
+  expect_gte(sum(in_sel$label_a), 3)
+  expect_gte(sum(in_sel$label_b), 3)
+  expect_equal(res$log$reason, c("excluded", "floor_swap"))
+  expect_equal(res$log$replacement_queue, c("A", "B"))
+  expect_equal(res$log$question_id[2], "237")                   # most recently drawn random_fill
+  expect_true(res$log$replaced_by[1] %in% as.character(4:10))   # A-only replacement
+  expect_true(res$log$replaced_by[2] %in% as.character(101:140))
+  expect_false(any(sel$question_id %in% c("2", "237")))
+  expect_setequal(res$next_ids, res$log$replaced_by)            # swapped-in questions are screened next round
+  expect_identical(res, run())
+  # Round 2 clear: finished with n = 90.
+  res2 <- replay_screening(st$d, list(filled_sheet(st$d$question_id, "2", "rule3"), filled_sheet(res$next_ids)),
+                           st$q, st$fr, c("A", "B"), 3)
+  expect_true(res2$finished)
+  expect_equal(nrow(res2$selection), 90)
+})
+
+test_that("the floor swap stops loudly only when no random_fill question can be swapped out", {
+  st <- two_label_setting()
+  d <- st$d
+  d$selection_stage[4:90] <- "replacement"                      # no random_fill questions left
+  expect_error(replay_screening(d, list(filled_sheet(d$question_id, "2")), st$q, st$fr, c("A", "B"), 3),
+               "no random_fill question can be swapped out")
 })
 
 test_that("replacements never duplicate, and never use reserved or anchor items", {
@@ -98,6 +146,7 @@ test_that("replacements never duplicate, and never use reserved or anchor items"
   expect_true(all(per_label >= CFG$floor))
   expect_identical(res, replay_screening(d, list(filled_sheet(d$question_id, excluded, "rule4")), q, fr,
                                          CFG$guaranteed_labels, CFG$floor))
+  expect_false(any(sel$question_id %in% res$log$question_id))
 })
 
 test_that("invalid sheets fail loudly", {

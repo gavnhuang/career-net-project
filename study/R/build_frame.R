@@ -70,7 +70,7 @@ check_attrition <- function(attrition, expected) {
 
 # raw: output of read_careernet(). Returns list(frame_questions, frame_answers, attrition).
 build_frame <- function(raw, filters, anchor_ids, exclusion_ids, all_labels, guaranteed_labels,
-                        expected_attrition = NULL) {
+                        expected_attrition = NULL, closing_pleasantries = character()) {
   elig <- eligibility_attrition(raw, filters, anchor_ids, exclusion_ids)
   attrition <- elig$attrition
   if (!is.null(expected_attrition)) {
@@ -99,7 +99,7 @@ build_frame <- function(raw, filters, anchor_ids, exclusion_ids, all_labels, gua
   extras <- setdiff(names(raw), CAREERNET_COLUMNS)
 
   answer_clean <- clean_text(d$answer_body)
-  answer_display <- display_answer_text(answer_clean)
+  answer_display <- display_answer_text(answer_clean, closing_pleasantries)
   frame_answers <- tibble::tibble(
     question_id = d$question_id,
     answer_id = d$answer_id,
@@ -108,7 +108,7 @@ build_frame <- function(raw, filters, anchor_ids, exclusion_ids, all_labels, gua
     answer_text_display = answer_display$text,
     answer_word_count = d$.answer_words,
     answer_word_count_display = count_words(answer_display$text),
-    has_list = has_list(d$answer_body, answer_display$text),
+    has_list = has_list(d$answer_body, answer_clean),
     answer_added_at = d$.answer_dt,
     answer_score = to_integer(d$answer_score, "answer_score"),
     answerer_location = d$answerer_location,
@@ -157,7 +157,8 @@ build_frame <- function(raw, filters, anchor_ids, exclusion_ids, all_labels, gua
 
   display_edits <- dplyr::bind_rows(
     tibble::tibble(answer_id = d$answer_id, part = "opening", removed_text = answer_display$opening_removed),
-    tibble::tibble(answer_id = d$answer_id, part = "closing", removed_text = answer_display$closing_removed)
+    tibble::tibble(answer_id = d$answer_id, part = "closing", removed_text = answer_display$closing_removed),
+    tibble::tibble(answer_id = d$answer_id, part = "list_marker", removed_text = answer_display$list_markers_removed)
   ) |>
     dplyr::filter(!is.na(removed_text)) |>
     dplyr::arrange(id_key(answer_id), part)
