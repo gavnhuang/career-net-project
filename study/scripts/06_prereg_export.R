@@ -22,7 +22,12 @@ label_tab <- tibble(label = cfg$guaranteed_labels,
   arrange(frame)
 not_guaranteed <- tibble(label = setdiff(cfg$scenario_labels, cfg$guaranteed_labels)) |>
   mutate(frame = purrr::map_int(label_column_names(label), ~ sum(fq[[.x]]))) |> arrange(desc(frame))
-sets <- purrr::map_dfr(cfg$reserved_sets, ~ tibble(set = .x$name, size = .x$size, human = .x$n_human, ai = .x$n_ai))
+sets <- purrr::map_dfr(cfg$reserved_sets, ~ tibble(set = .x$name, size = .x$size, human = .x$n_human, ai = .x$n_ai,
+                                                    screened = if (isFALSE(.x$screened)) "no" else "yes"))
+reserved_log_path <- file.path(cfg$paths$reserved_dir, "reserved_exclusions_log.csv")
+if (!file.exists(reserved_log_path)) stop("Run 03b (reserved-set screening) to completion first", call. = FALSE)
+reserved_log <- readr::read_csv(reserved_log_path, col_types = readr::cols(.default = "c"))
+n_rounds_reserved <- length(list.files(cfg$paths$reserved_dir, pattern = "^reserved_screening_round[0-9]+\\.csv$"))
 checks <- tibble(file = names(unlist(cfg$frozen_checksums)), md5 = unname(unlist(cfg$frozen_checksums)))
 f <- cfg$filters
 
@@ -42,13 +47,18 @@ out <- c(
   "## 2. Reserved sets", "",
   "Before the study draw, four sets were removed from the frame by seeded simple random sampling, in this order, each from what the previous ones left. The planned version (human or AI answer) was assigned at random within each set.", "",
   md_table(sets), "",
+  "The first set, drawn as the pilot set, is kept as spares: it is not used and not screened. The lab pilot runs on the 20 gold candidates.", "",
+  glue("The other three sets were screened with the same exclusion rules 2–4 as the study sample (Section 5), from question text only. ",
+       "{nrow(reserved_log)} item(s) were excluded and replaced ({paste0(names(table(reserved_log$set)), ': ', table(reserved_log$set), collapse = '; ')}) ",
+       "over {n_rounds_reserved} screening round(s). Each replacement is the next question in a seeded random ordering of the remaining frame ",
+       "(`derive_seed(master_seed, \"reserve_replacement\")`), skipping questions already used or excluded; it keeps the set, position and planned version, ",
+       "and its human answer is chosen the usual seeded way (Section 4). Excluded items leave the frame: they are not available to the study draw."), "",
   glue("This leaves {nrow(fr)} questions as the sampling frame for the study draw."), "",
   "## 3. Study draw: coverage floor", "",
-  glue("- Sample size: n = {cfg$study_n} questions are drawn, in a recorded draw order."),
-  "- The study uses the first k questions in draw order, where k (expected 90) is set after the pilot and the rater headcount. Because floor-stage questions come first, every guaranteed label keeps its floor for any k ≥ the number of floor-stage questions. That number is reported when the sample is drawn, and a smaller k is refused.",
+  glue("- Sample size: n = {cfg$study_n} questions, drawn in a recorded draw order."),
   glue("- Guaranteed labels: the {length(cfg$guaranteed_labels)} scenario labels with at least {(cfg$guaranteed_rule_multiplier %||% 10) * cfg$floor} eligible questions ({cfg$guaranteed_rule_multiplier %||% 10} × the floor). Each must appear in at least {cfg$floor} sampled questions (the floor). A question with several labels counts toward each."),
   "- Procedure: go through the guaranteed labels from rarest to most common (count in the sampling frame). If fewer than the floor of the already selected questions carry the label, draw the shortfall at random from unselected questions carrying it. These floor-stage questions take the first positions in draw order (the floor block) and alone meet every floor. Fill the remaining slots by simple random sampling from all unselected questions, in the order drawn.",
-  glue("- Inclusion probabilities: estimated by re-running the whole draw {format(cfg$inclusion_reps, big.mark = ',')} times with derived seeds; each question's probability is the share of runs that select it. Analysis weights are 1 / inclusion probability, normalized to mean 1 over the sample. Screening (Section 5) is not reflected in these probabilities. The first k questions of a draw are exactly the draw that n = k would give with the same seed, so the probabilities for the first k are re-estimated the same way with n = k."),
+  glue("- Inclusion probabilities: estimated by re-running the whole draw {format(cfg$inclusion_reps, big.mark = ',')} times with derived seeds; each question's probability is the share of runs that select it. Analysis weights are 1 / inclusion probability, normalized to mean 1 over the sample. Screening (Section 5) is not reflected in these probabilities."),
   "- Occupation codes and CareerNet reasoning labels play no part in selection.", "",
   md_table(rename(label_tab, `Guaranteed label` = label, `Questions in frame` = frame, `In sampling frame` = after_reserved_sets)), "",
   glue("Not guaranteed (questions in frame): {paste0(not_guaranteed$label, ' (', not_guaranteed$frame, ')', collapse = '; ')}."), "",
@@ -57,9 +67,9 @@ out <- c(
   "## 5. Screening and replacement (exclusion rules 2–4)", "",
   "After the draw, a screener reads each drawn question (title and display text only, never the answers) and marks each rule TRUE or FALSE. A question is excluded when any rule applies:", "",
   paste0("- **Rule ", str_remove(names(SCREENING_RULES), "rule"), ":** ", SCREENING_RULES), "",
-  "Replacement, applied to excluded questions in draw order. A replacement takes the excluded question's position in draw order, and the floor is checked within the floor block:", "",
-  "1. If the excluded question is in the floor block and removing it drops one or more guaranteed labels below the floor within the block, it is replaced by the next question in the rarest such label's replacement queue. Any other excluded question is replaced by the next question in the general queue.",
-  "2. If a guaranteed label is still below the floor within the block (one exclusion dropped two labels at once), the last question in draw order outside the floor block is swapped out and logged as a floor swap. The next question in that label's queue (rarest short label first) joins the end of the floor block, and the questions in between move down one position. This repeats until every guaranteed label meets the floor within the block, so n stays the same and the first-k rule still holds. If no question outside the block exists, the procedure stops with an error.",
+  "Replacement, applied to excluded questions in draw order. The floor is checked across the whole sample, and every replacement takes the position in draw order of the question it replaces:", "",
+  "1. If removing the question drops one or more guaranteed labels below the floor, it is replaced by the next question in the rarest such label's replacement queue; otherwise by the next question in the general queue.",
+  "2. If a guaranteed label is still below the floor (one exclusion dropped two labels at once), the most recently drawn question selected by random fill whose removal would drop no guaranteed label below the floor is swapped out for the next question in that label's queue (rarest short label first), and logged as a floor swap. This repeats until every guaranteed label meets the floor, so n stays the same. If no such question exists, the procedure stops with an error.",
   "3. Queues skip questions already selected, excluded or swapped out. The general queue is a seeded random ordering of every unselected question in the sampling frame; each guaranteed label has its own seeded queue of unselected questions carrying it. All queues are fixed at the time of the draw.",
   "4. Replacements and swapped-in questions are screened in the next round, with the same rules. Rounds repeat until a round has no exclusions. Every exclusion and swap is logged with the round, the rules triggered and the replacement.", "",
   "## 6. Seeds", "",

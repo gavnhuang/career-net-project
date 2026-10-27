@@ -1,0 +1,9 @@
+set,position,question_id,round,rules_triggered,notes,replaced_by,question_title,replaced_by_title
+calibration,7,636974,1,rule4,"rule 4 (pasted resume for review); confirmed by the researcher, D96",512428,What sections of my resume need improvement or could use a bit more detail to help make it a stronger resume?,how do you find out what careers you wanted to do?
+calibration,8,633656,1,rule2,"rule 2 (asks about the responder's own career); confirmed by the researcher, D96",633393,When did you decide that this was the career you wanted?,When is the best time for me to start looking into a good career?
+calibration,11,380770,1,rule2,"rule 2 (asks about the responder's own career); confirmed by the researcher, D96",377024,How did you start your career in education and training?,What courses do I need to clear for an career in the psychology field?
+calibration,13,502654,1,rule2,"rule 2 (asks about the responder's own career); confirmed by the researcher, D96",28860,What is your job and why did you choose that career path?,What is the best way to determine if your major is the best major for you?
+gold_candidates,3,365146,1,rule2,"rule 2 (asks about the responder's own career); confirmed by the researcher, D96",631775,What skills does your job require?,Types of Goals?
+gold_candidates,4,636872,1,rule2,"rule 2 (asks about the responder's own career); confirmed by the researcher, D96",52798,Career choice?,How do I know which career is right for me?
+gold_candidates,20,500234,1,rule2,"rule 2 (asks about the responder's own career); confirmed by the researcher, D96",289571,whats your career choice and why,Do you recommend studying abroad?
+calibration,7,512428,2,rule2,"rule 2: past tense with no body, reads as asking the responder's own story; screened by the researcher, round 2",550543,how do you find out what careers you wanted to do?,Do you think exploring all industries is a good choice?

@@ -12,7 +12,9 @@ for (f in sort(list.files("study/R", pattern = "\\.R$", full.names = TRUE))) sou
 
 start_run <- function(script_no) {
   args <- commandArgs(trailingOnly = TRUE)
-  args <- args[!startsWith(args, "--")]     # --name=value options are read by the script itself
+  # --name=value and "--name value" options are read by the script itself (cli_option()).
+  opt <- startsWith(args, "--")
+  args <- args[!opt & !c(FALSE, utils::head(opt & !grepl("=", args), -1))]
   config_path <- if (length(args)) args[1] else "study/config/study_config.yml"
   cfg <- load_config(config_path)
   for (d in cfg$paths) dir.create(d, recursive = TRUE, showWarnings = FALSE)
@@ -30,11 +32,13 @@ write_outputs <- function(df, dir, name, rds = TRUE) {
   c(csv, rds_path)
 }
 
-# Value of a --name=value command-line option, or NULL.
+# Value of a --name=value or "--name value" command-line option, or NULL.
 cli_option <- function(name) {
   args <- commandArgs(trailingOnly = TRUE)
   hit <- args[startsWith(args, paste0("--", name, "="))]
-  if (length(hit)) sub(paste0("^--", name, "="), "", hit[1]) else NULL
+  if (length(hit)) return(sub(paste0("^--", name, "="), "", hit[1]))
+  i <- which(args == paste0("--", name))
+  if (length(i) && i[1] < length(args)) args[i[1] + 1] else NULL
 }
 
 read_ids <- function(path) {

@@ -1,0 +1,10 @@
+set,position,question_id,question_title,question_text_display,planned_version,rule2,rule3,rule4,excluded,notes
+pilot,16,512428,how do you find out what careers you wanted to do?,,human,,,,,
+calibration,7,28860,What is the best way to determine if your major is the best major for you?,"I recently thought I found the perfect major and minor. I was really excited to finally go from undecided to declaring my current major/minor, Apparel Merchandising and Product Development/Marketing. I was glad to finally share my decision with family and friends, only to have them make me second doubt myself.",ai,,,,,
+calibration,8,631775,Types of Goals?,How can you find your goals in life if you're struggling with what career path you wanna go down?,human,,,,,
+calibration,11,633393,When is the best time for me to start looking into a good career?,"I don't know when i should start looking, especially if you're in high school.",human,,,,,
+calibration,13,377024,What courses do I need to clear for an career in the psychology field?,I´m a freshman in high school who wants to major in psychology or related areas. I heard that some courses that you take don´t matter at all or aren´t useful in the career you are in. So I´d like to know to get a heads up.,human,,,,,
+gold_candidates,3,289571,Do you recommend studying abroad?,,human,,,,,
+gold_candidates,4,550543,Do you think exploring all industries is a good choice?,"Hello! I am still not sure if being a ""project manager"" is a good fit for me. Currently, I am open to trying out internships in different industries. I want a job that is flexible to work with. Should I pick one industry to explore or should I pick what's available for me? I would love to connect on Linkedin to learn more about your careers.",ai,,,,,
+gold_candidates,20,52798,How do I know which career is right for me?,"For long I was stuck in living the dream of those around me because either they were all doctors or they all aspired to be doctors but failed.
+It took a self-evaluation of what really matters to be in life to appreciate that technological innovation and entrepreneurship were what's right for me.",ai,,,,,

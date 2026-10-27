@@ -1,0 +1,286 @@
+run_id: 20261027-154512-04-DRY_RUN
+script: 04_draw_study_sample.R
+timestamp: 2026-10-27T15:45:14-0700
+frame_version: v1.1
+seeds:
+  master_seed: 20261027
+  seed_base: 20261027
+  seed_base_rule: master_seed (dry run; the DOI seed is never used)
+  osf_doi_raw: .na.character
+  osf_doi_normalized: .na.character
+  study_draw: 146283223
+  study_draw_stage: study_draw_DRY_RUN
+  human_answer: 83215812
+  inclusion_reps: derive_seed(20261027, "inclusion_rep_<r>") for r = 1..10000
+  replacement_queues: derive_seed(seed_base, "replacement_queue_general" | "replacement_queue_<label>")
+rng_kind:
+- Mersenne-Twister
+- Inversion
+- Rejection
+input_md5:
+  config: 70a5d336dcb39f4a4eedfa959640afb9
+  frame_questions: 0d5c7dc049e020d1deb2a18e23133370
+  frame_answers: 8c3d249279de9f7114f11000f98d7a18
+  frame_remaining: 6317efddff82029ad58c9c75e8fcaf5f
+  spare: d7f6a6b30303daa9bf8a48f7b6df0f64
+  warmups: 8dc822c7efdc813dd7a969e1fb046cae
+  calibration: fdc99d7fa04b02c571f5bc85648acec3
+  gold_candidates: b6bdc1249725090b2ccf6bfcd127adcd
+  anchor_exclusions: d0649f60d3b77ce2914efdfbf3c4ccb8
+outputs:
+- study/data/03_sample/_dry_run/study_sample_DRY_RUN.csv
+- study/data/03_sample/_dry_run/study_sample_DRY_RUN.rds
+- study/data/03_sample/_dry_run/sample_for_generation_DRY_RUN.csv
+- study/data/03_sample/_dry_run/inclusion_probs_DRY_RUN.csv
+- study/data/03_sample/_dry_run/inclusion_probs_DRY_RUN.rds
+- study/data/03_sample/_dry_run/replacement_queues_DRY_RUN.csv
+- study/data/03_sample/_dry_run/replacement_queues_DRY_RUN.rds
+- study/data/03_sample/_dry_run/screening_sheet_round1_DRY_RUN.csv
+- study/reports/04_draw_study_sample_DRY_RUN_20261027-154512-04-DRY_RUN.md
+r_version: R version 4.5.1 (2025-06-13)
+platform: aarch64-apple-darwin20
+packages:
+  readr: 2.1.5
+  dplyr: 1.2.1
+  tidyr: 1.3.2
+  stringr: 1.5.2
+  purrr: 1.2.2
+  lubridate: 1.9.5
+  yaml: 2.3.10
+  xml2: 1.5.2
+  digest: 0.6.37
+  glue: 1.8.0
+  testthat: 3.3.2
+git:
+  commit: 78799c783d0aded9622b0ca9b94aeb41f62b7723
+  uncommitted_changes: yes
+  scope: study
+dry_run: yes
+floor_slots_mean: 18.2229
+n_floor_block: 18
+question_ids:
+- '325122'
+- '82492'
+- '378797'
+- '111179'
+- '557251'
+- '606593'
+- '580304'
+- '83330'
+- '47479'
+- '359679'
+- '28652'
+- '654302'
+- '595112'
+- '83727'
+- '556501'
+- '657917'
+- '172736'
+- '628114'
+- '421074'
+- '317772'
+- '504821'
+- '123953'
+- '630078'
+- '629365'
+- '26960'
+- '441833'
+- '472813'
+- '125647'
+- '278732'
+- '538435'
+- '37947'
+- '630775'
+- '655560'
+- '431076'
+- '618168'
+- '626111'
+- '75123'
+- '595116'
+- '505158'
+- '433754'
+- '84819'
+- '187932'
+- '380727'
+- '658329'
+- '625094'
+- '24019'
+- '333869'
+- '585617'
+- '289585'
+- '350577'
+- '497853'
+- '143395'
+- '83968'
+- '311045'
+- '180517'
+- '546753'
+- '599080'
+- '507511'
+- '86041'
+- '630509'
+- '453572'
+- '656519'
+- '82460'
+- '572793'
+- '634048'
+- '548389'
+- '531307'
+- '50981'
+- '124003'
+- '467487'
+- '548708'
+- '39045'
+- '341424'
+- '542960'
+- '640119'
+- '564603'
+- '637103'
+- '622823'
+- '113660'
+- '320024'
+- '83600'
+- '350494'
+- '336915'
+- '511862'
+- '386759'
+- '46518'
+- '395917'
+- '404416'
+- '552773'
+- '27888'
+config:
+  preregistration_posted: no
+  osf_url: ''
+  osf_doi: ''
+  master_seed: 20261027
+  frame_version: v1.1
+  inputs:
+    primary: ../03 CareerNet Data/Datasets/v1.1/general_public_v1.1.csv
+    previous: ../03 CareerNet Data/Datasets/general_public.csv
+    previous_version: v1.0
+    documentation: ../03 CareerNet Data/Data-Details v1.1.pdf
+    anchor_exclusions: pilot/anchor_check_key.csv
+    manual_exclusions: study/config/exclusions.csv
+    reserved_confirmed_exclusions: study/config/reserved_confirmed_exclusions.csv
+  paths:
+    frame_dir: study/data/01_frame
+    reserved_dir: study/data/02_reserved
+    sample_dir: study/data/03_sample
+    reports_dir: study/reports
+    logs_dir: study/logs
+  filters:
+    answer_date_min: '2021-01-01'
+    answer_date_max_exclusive: '2023-03-01'
+    answer_min_words: 40
+    answer_max_words: 600
+    question_min_words: 10
+    platform_prompt_pattern: Note:\s*(We've seen a lot of interest in this career|Given
+      the growing interest in the|this (question )?is part of (our|the) professionals
+      series)
+  expected_attrition:
+    questions:
+    - 3000
+    - 764
+    - 725
+    - 707
+    - 707
+    - 694
+    - 694
+    answers:
+    - 7984
+    - 1496
+    - 1338
+    - 1301
+    - 1301
+    - 1278
+    - 1278
+  reading_sample_n: 45
+  reserved_sets:
+  - name: spare
+    size: 16
+    n_human: 8
+    n_ai: 8
+    screened: no
+  - name: warmups
+    size: 6
+    n_human: 3
+    n_ai: 3
+  - name: calibration
+    size: 15
+    n_human: 8
+    n_ai: 7
+  - name: gold_candidates
+    size: 20
+    n_human: 10
+    n_ai: 10
+  study_n: 90
+  floor: 3
+  inclusion_reps: 10000
+  target_words_tolerance: 0.2
+  closing_pleasantries:
+  - hope this helps
+  - i hope this helps
+  - hope that helps
+  - i hope that helps
+  - hope this is helpful
+  - i hope this is helpful
+  - good luck
+  - good luck to you
+  - best of luck
+  - best of luck to you
+  - all the best
+  - all the best to you
+  - all my best
+  - wishing you the best
+  - wishing you all the best
+  - wishing you the best of luck
+  guaranteed_labels:
+  - Industry-Specific Knowledge and Trends
+  - Career Decision-Making, Transitioning, and Exploration Resources
+  - College Queries
+  - Job Search Strategies and Infrastructure
+  - Work-Life Balance and Personal Values Alignment
+  - Resume/CV/LinkedIn Optimization and Personal Branding
+  - Networking and Mentorship
+  - Skill Development
+  - First Job Navigation
+  guaranteed_rule_multiplier: 10
+  scenario_labels:
+  - Industry-Specific Knowledge and Trends
+  - Career Decision-Making, Transitioning, and Exploration Resources
+  - College Queries
+  - Job Search Strategies and Infrastructure
+  - Work-Life Balance and Personal Values Alignment
+  - Resume/CV/LinkedIn Optimization and Personal Branding
+  - Skill Development
+  - Networking and Mentorship
+  - First Job Navigation
+  - Freelancing/Self-Employment/Entrepreneurship
+  - Interview Preparation
+  - Non-Degree Certifications/Credentials
+  - Workplace Dynamics
+  - International Careers
+  - Barriers, Equity, and Resource Considerations
+  - Job Offers and Negotiations
+  - Career Advancement
+  - Mid-Career Pivots
+  frozen: yes
+  frozen_at: 2026-10-27T15:45:11-0700
+  frozen_checksums:
+    study/data/01_frame/frame_questions.csv: f6f246f85390a303028796a0eaa67574
+    study/data/01_frame/frame_questions.rds: 0d5c7dc049e020d1deb2a18e23133370
+    study/data/01_frame/frame_answers.csv: dd320689e534136176abe5b232cb6c84
+    study/data/01_frame/frame_answers.rds: 8c3d249279de9f7114f11000f98d7a18
+    study/data/02_reserved/spare.csv: f3c1dee1023d7075f5b12596aad53d74
+    study/data/02_reserved/spare.rds: d7f6a6b30303daa9bf8a48f7b6df0f64
+    study/data/02_reserved/warmups.csv: 076bf98c478ab345c59f9e4d2bf8564e
+    study/data/02_reserved/warmups.rds: 8dc822c7efdc813dd7a969e1fb046cae
+    study/data/02_reserved/calibration.csv: bf242b055ca7f350d4e8ceebd66e5807
+    study/data/02_reserved/calibration.rds: fdc99d7fa04b02c571f5bc85648acec3
+    study/data/02_reserved/gold_candidates.csv: 3e7408a09d5f440bcf85b94517c7b680
+    study/data/02_reserved/gold_candidates.rds: b6bdc1249725090b2ccf6bfcd127adcd
+    study/data/02_reserved/frame_remaining.csv: 7aac8faa02f300a5563419321f877c2f
+    study/data/02_reserved/frame_remaining.rds: 6317efddff82029ad58c9c75e8fcaf5f
+    study/data/02_reserved/reserved_exclusions_log.csv: d065f5d0cfc59de18dbd5fe66397a801
+  config_path: study/config/study_config.yml

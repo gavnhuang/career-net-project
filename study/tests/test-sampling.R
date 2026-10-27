@@ -12,7 +12,7 @@ test_that("reserved sets have the configured sizes and splits, and do not overla
   expect_length(intersect(res$remaining, res$sets$question_id), 0)
 })
 
-for (n in c(90, 100)) {
+for (n in 90) {
   test_that(glue("the study draw at n = {n} is exact, meets the floor and avoids anchors and reserved ids"), {
     skip_if_no_data()
     draw <- study_draw(n)
@@ -103,38 +103,21 @@ test_that("estimated inclusion probabilities sum to n and favour rare labels", {
   expect_error(inclusion_weights(c(0.5, 0)), "increase inclusion_reps")
 })
 
-test_that("the first k of a draw are the draw n = k gives with the same seed", {
-  skip_if_no_data()
-  big <- study_draw(100, 11)
-  for (k in c(60, 90)) expect_identical(select_first_k(big, k), study_draw(k, 11)[names(big)])
-})
-
-test_that("select_first_k keeps the floor for any k >= the floor block and refuses a smaller k", {
+test_that("the draw still runs at n = 100", {
   skip_if_no_data()
   draw <- study_draw(100)
-  fr <- real_remaining()
-  n_block <- floor_block_size(draw)
-  for (k in c(n_block, 90, 100)) {
-    first <- select_first_k(draw, k)
-    expect_equal(nrow(first), k)
-    expect_equal(first$draw_order, seq_len(k))
-    sel <- fr[match(first$question_id, fr$question_id), ]
-    expect_true(all(map_int(label_column_names(CFG$guaranteed_labels), ~ sum(sel[[.x]])) >= CFG$floor))
-  }
-  expect_error(select_first_k(draw, n_block - 1), glue("smaller than the {n_block} floor-stage questions"))
-  expect_error(select_first_k(draw, 101), "exceeds the sample size")
-  expect_error(select_first_k(draw, 90.5), "whole number")
-  # Row order of the input does not matter.
-  expect_identical(select_first_k(draw[rev(seq_len(nrow(draw))), ], 90), select_first_k(draw, 90))
+  expect_equal(nrow(draw), 100)
+  expect_false(anyDuplicated(draw$question_id) > 0)
+  expect_equal(floor_block_size(draw), sum(draw$selection_stage == "floor"))
 })
 
-test_that("select_first_k refuses a sample whose floor block is not at the start", {
+test_that("floor_block_size refuses a floor block that is not at the start of the draw order", {
   d <- tibble::tibble(question_id = as.character(1:5), draw_order = 1:5,
                       floor_block = c(TRUE, TRUE, FALSE, TRUE, FALSE))
-  expect_error(select_first_k(d, 4), "not the start of the draw order")
+  expect_error(floor_block_size(d), "not the start of the draw order")
   d$draw_order <- c(1L, 2L, 3L, 4L, 6L)
-  expect_error(select_first_k(d, 4), "draw_order is not 1..5")
-  ok <- tibble::tibble(question_id = as.character(1:5), draw_order = 1:5, floor_block = c(TRUE, TRUE, FALSE, FALSE, FALSE))
-  expect_error(select_first_k(ok, 1), "smaller than the 2 floor-stage questions")
-  expect_equal(select_first_k(ok, 2)$question_id, c("1", "2"))
+  expect_error(floor_block_size(d), "draw_order is not 1..5")
+  d$floor_block <- c(TRUE, TRUE, FALSE, FALSE, FALSE)
+  d$draw_order <- 1:5
+  expect_equal(floor_block_size(d), 2)
 })

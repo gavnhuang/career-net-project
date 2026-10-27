@@ -2,7 +2,7 @@
 
 check_sample <- function(sample, frame_questions, frame_answers, anchor_ids = character(),
                          reserved_ids = character(), guaranteed_labels = character(), floor = NULL,
-                         n = NULL) {
+                         n = NULL, check_floor_block = FALSE) {
   label_n <- purrr::map_int(label_column_names(guaranteed_labels), ~ sum(sample[[.x]]))
   below <- guaranteed_labels[label_n < (floor %||% 0)]
   pair_ok <- paste(sample$question_id, sample$answer_id) %in% paste(frame_answers$question_id, frame_answers$answer_id)
@@ -28,9 +28,12 @@ check_sample <- function(sample, frame_questions, frame_answers, anchor_ids = ch
     block <- sample[!is.na(sample$floor_block) & sample$floor_block, ]
     block_below <- guaranteed_labels[purrr::map_int(label_column_names(guaranteed_labels), ~ sum(block[[.x]])) < floor]
     checks <- c(checks, list(
-      c("floor-stage questions come first in draw order", prefix_ok, if (prefix_ok) glue::glue("floor block = first {n_block}") else n_block),
-      c(glue::glue("the floor block alone gives every guaranteed label >= {floor} questions"), length(block_below) == 0,
-        paste(block_below, collapse = "; "))))
+      c("floor-stage questions come first in draw order", prefix_ok, if (prefix_ok) glue::glue("floor block = first {n_block}") else n_block)))
+    # Only for the unscreened draw: screening checks the floor across the whole sample.
+    if (check_floor_block) {
+      checks <- c(checks, list(c(glue::glue("the floor block alone gives every guaranteed label >= {floor} questions"),
+                                 length(block_below) == 0, paste(block_below, collapse = "; "))))
+    }
   }
   tibble::tibble(check = purrr::map_chr(checks, 1), passed = as.logical(purrr::map_chr(checks, 2)),
                  detail = purrr::map_chr(checks, 3))

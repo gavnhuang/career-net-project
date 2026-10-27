@@ -29,7 +29,8 @@ Each script takes an optional config path (default `study/config/study_config.ym
 Rscript study/scripts/00_check_release.R      # v1.1 vs v1.0 equivalence; stops if content differs
 Rscript study/scripts/01_build_frame.R        # eligibility frame, attrition, display text; stops if counts don't reproduce
 Rscript study/scripts/02_reading_sample.R     # 45 random frame questions to read; removes nothing
-Rscript study/scripts/03_reserve_sets.R       # pilot, warm-up, calibration, gold candidate sets
+Rscript study/scripts/03_reserve_sets.R       # spare, warm-up, calibration, gold candidate sets
+Rscript study/scripts/03b_screen_reserved.R   # screen the reserved sets with rules 2-4; one round per call (D96)
 Rscript study/scripts/freeze_frame.R          # checksum the frame and reserved sets into the config (once)
 Rscript study/scripts/unfreeze_frame.R --decision=<id> --approval="..."   # only for an approved, logged change
 Rscript study/scripts/04_draw_study_sample.R  # study draw + screening sheet + replacement queues (DRY RUN until the guard is set)
@@ -40,7 +41,7 @@ Rscript study/scripts/run_tests.R             # testthat suite (~40 s; needs the
 
 `study/scripts/demo_05_screening_TEST.R <out_dir> [floor|two_label]` is a test only: it copies the dry-run draw to a folder outside `study/`, fills the sheet with a fake pattern and runs 05 twice to show replacement working. Its output is not a screening record.
 
-**The frame is frozen** (`frozen: true` in the config). 01 and 03 refuse to run, and 02 still works. 04, 05 and 06 verify the checksums first and stop if any frozen file differs; a real (non-dry) 04/05 also requires the frame to be frozen.
+**The frame is frozen** (`frozen: true` in the config). 01, 03 and 03b refuse to run, and 02 still works. 04, 05 and 06 verify the checksums first and stop if any frozen file differs; a real (non-dry) 04/05 also requires the frame to be frozen.
 
 ### The frame (01)
 
@@ -64,23 +65,29 @@ Why:
 
 **There are no manual frame exclusions.** `config/exclusions.csv` stays empty (headers only): the reading sample was used to write the exclusion rules, rule 1 is applied to the frame automatically, and rules 2–4 are applied by screening the drawn sample (05).
 
+### Reserved sets (03, 03b)
+
+03 draws four sets by seeded sequential simple random sampling: spare (16), warmups (6), calibration (15), gold_candidates (20).
+
+- **spare (D97).** The first set, drawn as "pilot", is renamed `spare`. It is not used and not screened (`screened: false` in the config). **The lab pilot runs on the 20 gold candidates.** The rename did not change any id, planned version or human answer (the set name is not part of the seed).
+- **Screening (D96).** `03b_screen_reserved.R` screens warmups, calibration and gold_candidates with the same rules 2–4 as the study sample, from question text only. Round 1 (`reserved_screening_round1.csv`) is pre-filled from `config/reserved_confirmed_exclusions.csv` (items already confirmed, matched by set and title, exact or by prefix for a title given with "…"); every other item is `excluded = FALSE`. Each excluded item is replaced by the next question in a seeded ordering of `frame_remaining` (`derive_seed(master_seed, "reserve_replacement")`, saved as `reserve_replacement_queue.csv`), skipping questions already used or excluded. The replacement keeps the set, position and `planned_version`, and gets the usual seeded human answer. Replacements go in the next round's sheet; fill `rule2`–`rule4`, `excluded` and `notes`, and run 03b again. 03b replays every sheet from round 1.
+- When a round has no exclusions, 03b rewrites the screened set files and `frame_remaining` (without the replacements) and writes `reserved_exclusions_log.csv`. **Excluded items leave the frame for good**: they are neither reserved nor in `frame_remaining`, and 04 counts them when it checks that the frame is partitioned. Then run `freeze_frame.R`.
+
 ### Freezing the frame
 
-After 01–03, `freeze_frame.R` writes `frozen: true`, `frozen_at` and the md5 of 14 files into the config: `frame_questions` and `frame_answers` (csv and rds) and every reserved-set file plus `frame_remaining` (csv and rds; 04/05 read the rds). It refuses if already frozen and never edits anything else in the config. While frozen:
-- 01 and 03 stop before writing anything.
+After 01–03b, `freeze_frame.R` writes `frozen: true`, `frozen_at` and the md5 of 15 files into the config: `frame_questions` and `frame_answers` (csv and rds), every reserved-set file plus `frame_remaining` (csv and rds; 04/05 read the rds), and `reserved_exclusions_log.csv`. It refuses if already frozen and never edits anything else in the config. While frozen:
+- 01, 03 and 03b stop before writing anything.
 - 04, 05 and 06 verify every checksum at the start and stop if a file is missing or differs.
 - Unfreezing goes through `unfreeze_frame.R --decision=<id> --approval="<who, why>"`. It sets `frozen: false` and writes a run log (`logs/<run_id>-unfreeze.yml`) with the decision, the approval and the checksums it removed. After registration, an unfreeze is a deviation.
 
-The frame was unfrozen once, before registration, under D87 (approved 2026-10-27; drop the `unclear_goal` filter, draw 100). The earlier outputs are in `data/_superseded/2026-10-27_pre-D87/`, and the frame was rebuilt and re-frozen with new checksums.
+The frame was unfrozen once, before registration, under D87 (approved 2026-10-27; drop the `unclear_goal` filter, draw 100). The earlier outputs are in `data/_superseded/2026-10-27_pre-D87/`, and the frame was rebuilt and re-frozen with new checksums. It was unfrozen again under D96 (approved 2026-10-27, before registration) to screen the reserved sets, rename pilot to spare (D97) and draw exactly 90 (D95); the reserved files before that are in `data/_superseded/2026-10-27_pre-D96/`, along with an aborted round 1 that still included the pilot set.
 
-### Study draw: n = 100, the study uses the first k (D88)
+### Study draw: n = 90 (D95)
 
-04 draws `study_n` = 100 questions. **The study uses the first k questions in draw order, where k (expected 90) is set after the pilot and the rater headcount. Because floor-stage questions come first, every guaranteed label keeps its floor for any k ≥ the number of floor-stage questions.**
+04 draws exactly `study_n` = 90 questions; inclusion probabilities are for n = 90. (D88, "draw 100 and use the first k", was dropped under D95.)
 
-- Draw order lists every floor-stage question (`selection_stage = floor`) before any random-fill question. These first slots are the **floor block** (`floor_block = TRUE`); they alone meet every guaranteed label's floor. 04 reports their number (18 in the current dry run; 12–24 across 10,000 simulated draws).
-- `select_first_k(sample, k)` returns the first k rows in draw order and refuses a k smaller than the floor block (or larger than the sample).
-- Screening replacements keep the excluded question's position in draw order, and the floor is checked within the floor block (see Screening).
-- The first k questions of a draw are exactly the draw `n = k` would give with the same seed (tested). So the inclusion probabilities for the first k come from re-running `estimate_inclusion_probs()` with `n = k` and the same seed base; the n = 100 probabilities in `inclusion_probs.csv` are for all 100.
+- Draw order lists every floor-stage question (`selection_stage = floor`) before any random-fill question. These first slots are the **floor block** (`floor_block = TRUE`); they alone meet every guaranteed label's floor. 04 reports their number.
+- Screening replacements keep the excluded question's position in draw order. Screening checks the floor across the whole sample (see Screening); after screening, the floor block alone need not meet every floor.
 
 ### Pre-registration guard and seeds
 
@@ -102,9 +109,9 @@ Workflow:
 1. 04 writes `screening_sheet_round1.csv`: question_id, title and display text of each drawn question (in question_id order, so it does not reveal how each was selected), plus empty `rule2`, `rule3`, `rule4`, `excluded`, `screener`, `notes`. **It contains no answer text, ratings or other answer information.** 04 also fixes the replacement queues (`replacement_queues.csv/.rds`): a seeded random order of every unselected frame question, plus one per guaranteed label.
 2. The screener (the student researcher, or whoever the protocol names) fills every row: `TRUE`/`FALSE` for each rule, `excluded` = TRUE exactly when any rule is TRUE, their name or initials in `screener`, and optional `notes`. Screen from the sheet only; do not look up the answers.
 3. Run `05_apply_screening.R`. It validates the sheet (every row filled, `excluded == rule2 | rule3 | rule4`, ids match the draw) and replaces each excluded question, in draw order:
-   - **The replacement takes the excluded question's position in draw order** (and its place in or outside the floor block).
-   - In the floor block: if removing it drops one or more guaranteed labels below the floor *within the block*, the replacement is the next question in the **rarest** such label's queue (rarest = fewest questions in the sampling frame). Otherwise, and for every exclusion outside the block, it is the next question in the general queue.
-   - **Two labels at once:** if a guaranteed label is still below the floor within the block after that, the last question in draw order outside the block (that this round's sheet did not exclude) is swapped out, and the next question in that label's queue (rarest short label first) joins the end of the floor block; the questions in between move down one position. Repeated until every label meets the floor within the block. Each swapped-out question is logged with reason `floor_swap` (it was not excluded by a rule; it was displaced to keep n = 100), and swapped-in questions are screened in the next round. 05 stops with an error only if nothing is outside the floor block.
+   - The floor is checked **across the whole sample**. If removing it drops one or more guaranteed labels below the floor, the replacement is the next question in the **rarest** such label's queue (rarest = fewest questions in the sampling frame). Otherwise it is the next question in the general queue.
+   - **Two labels at once:** if a guaranteed label is still below the floor after that, the most recently drawn `random_fill` question whose removal would drop no guaranteed label below the floor (and that this round's sheet did not exclude) is swapped out for the next question in that label's queue, rarest short label first, repeated until every label meets the floor. Each swapped-out question is logged with reason `floor_swap` (it was not excluded by a rule; it was displaced to keep n = 90), and swapped-in questions are screened in the next round. 05 stops with an error only if no eligible `random_fill` question exists.
+   - **Every replacement (and swapped-in question) takes the position in draw order of the question it replaces**, so draw order stays 1–90.
    - Queues skip questions already selected, excluded or swapped out.
 4. If anything was excluded, 05 writes `screening_sheet_round2.csv` with the replacements. Fill it in and run 05 again. Repeat until a round has no exclusions; 05 runs one round per call and says what it did.
 5. Then 05 writes `study_sample_screened.csv/.rds` (the study sample columns plus `screening_round` and `replaced_question_id`), `exclusions_log.csv` (question_id, draw_order, round, reason = excluded/floor_swap, rules triggered, notes, screener, replaced_by, queue) and `sample_for_generation_screened.csv`. **Generate LLM answers from the screened file.**
@@ -134,9 +141,10 @@ Raters and the generation step see display text. The raw and clean columns are k
 | `data/01_frame/frame_questions.{csv,rds}` | One row per eligible question: raw/clean/display text, scenario label indicators, goals, SOC occupation, `n_eligible_answers` |
 | `data/01_frame/frame_answers.{csv,rds}` | Every eligible answer: raw/clean/display text, word counts, `has_list`, CareerNet ratings, `careernet_reasoning_label` |
 | `data/01_frame/display_edits.csv`, `question_display_edits.csv` | Every salutation, sign-off and hashtag removal |
-| `data/02_reserved/{pilot,warmups,calibration,gold_candidates}.{csv,rds}` | Reserved sets (16/6/15/20), study-sample columns plus `planned_version` |
+| `data/02_reserved/{spare,warmups,calibration,gold_candidates}.{csv,rds}` | Reserved sets (16/6/15/20), study-sample columns plus `planned_version`; replacements from 03b have `selection_stage = reserve_replacement` |
+| `data/02_reserved/reserved_screening_round<k>.csv`, `reserve_replacement_queue.csv`, `reserved_exclusions_log.csv` | Reserved-set screening sheets (question text only), the seeded replacement queue, and every exclusion with its replacement (03b) |
 | `data/02_reserved/frame_remaining.{csv,rds}` | Frame questions not reserved: the sampling frame for 04 |
-| `data/03_sample/study_sample.{csv,rds}` | The unscreened draw (n = 100), one row per question in draw order with `floor_block`, its human answer, `inclusion_prob`, `weight` and generation targets |
+| `data/03_sample/study_sample.{csv,rds}` | The unscreened draw (n = 90), one row per question in draw order with `floor_block`, its human answer, `inclusion_prob`, `weight` and generation targets |
 | `data/03_sample/screening_sheet_round<k>.csv` | Screening sheets (question text only) |
 | `data/03_sample/replacement_queues.{csv,rds}` | The seeded replacement queues fixed at draw time |
 | `data/03_sample/inclusion_probs.{csv,rds}` | Estimated inclusion probability of every question in `frame_remaining` |
@@ -144,6 +152,7 @@ Raters and the generation step see display text. The raw and clean columns are k
 | `data/03_sample/sample_for_generation_screened.csv` | **Input to LLM generation**: `question_id`, `question_title`, `question_text_display`, `target_words`, `target_min_words`, `target_max_words` (04 also writes an unscreened `sample_for_generation.csv`; do not generate from it) |
 | `data/_superseded/2026-10-27_pre-D85/` | Outputs of the first design (2021+ answers, 13 guaranteed labels), kept for the record |
 | `data/_superseded/2026-10-27_pre-D86/` | Outputs before the final display-cleaning rules (pleasantries, list markers); same frame and reserved-set ids |
+| `data/_superseded/2026-10-27_pre-D96/` | Reserved sets before D96/D97 (with the set named pilot, unscreened) and the aborted round 1 that included it |
 | `data/_superseded/2026-10-27_pre-D87/` | Outputs with the `unclear_goal` filter (681-question frame, 8 guaranteed labels, n = 90), the appendix generated from them, and the reading sample |
 | `reports/prereg_sampling_appendix.md` | Plain-language sampling appendix for the OSF registration (06): rules, counts, seeds, checksums, commit; no question or answer text, no ids |
 | `reports/release_check_<run_id>.md`, `reading_sample_<seed>.md`, `<script>_<run_id>.md` | Run reports: counts at each stage, label coverage with floor PASS/FAIL, distributions, display edits, screening rounds |

@@ -2,11 +2,13 @@
 # config. 01 and 03 refuse to run; 04, 05 and 06 verify every checksum before doing anything.
 # Unfreezing goes through scripts/unfreeze_frame.R, which logs the decision and approval.
 
-# The files that define the frame and the reserved sets (csv and rds; 04/05 read the rds).
+# The files that define the frame and the reserved sets (csv and rds; 04/05 read the rds), plus
+# the reserved-set exclusion log (D96), which 04 needs to check the frame partition.
 frozen_file_paths <- function(cfg) {
   sets <- c(purrr::map_chr(cfg$reserved_sets, "name"), "frame_remaining")
   c(file.path(cfg$paths$frame_dir, paste0(rep(c("frame_questions", "frame_answers"), each = 2), c(".csv", ".rds"))),
-    file.path(cfg$paths$reserved_dir, paste0(rep(sets, each = 2), c(".csv", ".rds"))))
+    file.path(cfg$paths$reserved_dir, paste0(rep(sets, each = 2), c(".csv", ".rds"))),
+    file.path(cfg$paths$reserved_dir, "reserved_exclusions_log.csv"))
 }
 
 file_checksums <- function(paths) {

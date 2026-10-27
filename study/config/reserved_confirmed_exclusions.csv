@@ -1,0 +1,8 @@
+set,title,rule,match,note
+calibration,What sections of my resume need improvement or could use a bit more detail…,rule4,prefix,"rule 4 (pasted resume for review); confirmed by the researcher, D96"
+calibration,When did you decide that this was the career you wanted?,rule2,exact,"rule 2 (asks about the responder's own career); confirmed by the researcher, D96"
+calibration,How did you start your career in education and training?,rule2,exact,"rule 2 (asks about the responder's own career); confirmed by the researcher, D96"
+calibration,What is your job and why did you choose that career path?,rule2,exact,"rule 2 (asks about the responder's own career); confirmed by the researcher, D96"
+gold_candidates,What skills does your job require?,rule2,exact,"rule 2 (asks about the responder's own career); confirmed by the researcher, D96"
+gold_candidates,Career choice?,rule2,exact,"rule 2 (asks about the responder's own career); confirmed by the researcher, D96"
+gold_candidates,whats your career choice and why,rule2,exact,"rule 2 (asks about the responder's own career); confirmed by the researcher, D96"

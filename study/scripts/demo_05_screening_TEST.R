@@ -2,8 +2,8 @@
 # Copies the dry-run draw into <out_dir>, fills the round-1 sheet with a FAKE pattern, runs 05,
 # marks round 2 all clear, runs 05 again. Nothing is written to study/data.
 # Patterns:
-#   floor     (default) the first three questions, in draw order, carrying the rarest guaranteed
-#             label in the sample, so later exclusions push that label to the floor
+#   floor     (default) the first questions, in draw order, carrying the rarest guaranteed label
+#             in the sample, just enough that the last exclusion drops it below the floor
 #   two_label the smallest set found (searching label pairs) whose exclusion drops two guaranteed
 #             labels below the floor at once, so the floor swap runs
 # Usage (from the project root): Rscript study/scripts/demo_05_screening_TEST.R <out_dir> [floor|two_label]
@@ -45,14 +45,14 @@ sheet_with <- function(ex) {
 }
 if (pattern == "floor") {
   rarest <- cols[which.min(counts)]
-  fake <- sample$question_id[order(sample$draw_order)][sample[[rarest]][order(sample$draw_order)] == 1L][1:3]
-  cat("FAKE pattern: exclude the first 3 of", counts[[rarest]], "questions carrying", rarest, "\n")
+  n_fake <- counts[[rarest]] - cfg$floor + 1                 # the last one drops the label below the floor
+  fake <- sample$question_id[order(sample$draw_order)][sample[[rarest]][order(sample$draw_order)] == 1L][seq_len(n_fake)]
+  cat("FAKE pattern: exclude the first", n_fake, "of", counts[[rarest]], "questions carrying", rarest, "\n")
 } else {
-  # For a floor-block question q carrying two guaranteed labels: keep just enough other carriers in
-  # the floor block that each label sits exactly at the floor when q is processed, exclude every
-  # other carrier drawn before q, then q. (The floor is checked within the floor block.)
+  # For a question q carrying two guaranteed labels: keep just enough other carriers that each label
+  # sits exactly at the floor when q is processed, exclude every other carrier drawn before q, then q.
   fake <- NULL
-  block <- sample[sample$floor_block, ]
+  block <- sample
   for (i in seq_along(cols)) for (j in seq_along(cols)) if (i < j) {
     pair <- cols[c(i, j)]
     both <- block$question_id[block[[pair[1]]] == 1L & block[[pair[2]]] == 1L]

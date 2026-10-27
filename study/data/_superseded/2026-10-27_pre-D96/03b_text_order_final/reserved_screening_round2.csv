@@ -1,0 +1,9 @@
+set,position,question_id,question_title,question_text_display,planned_version,rule2,rule3,rule4,excluded,notes
+calibration,7,377024,What courses do I need to clear for an career in the psychology field?,I´m a freshman in high school who wants to major in psychology or related areas. I heard that some courses that you take don´t matter at all or aren´t useful in the career you are in. So I´d like to know to get a heads up.,ai,FALSE,FALSE,FALSE,FALSE,
+calibration,8,28860,What is the best way to determine if your major is the best major for you?,"I recently thought I found the perfect major and minor. I was really excited to finally go from undecided to declaring my current major/minor, Apparel Merchandising and Product Development/Marketing. I was glad to finally share my decision with family and friends, only to have them make me second doubt myself.",human,FALSE,FALSE,FALSE,FALSE,
+calibration,11,512428,how do you find out what careers you wanted to do?,,human,TRUE,FALSE,FALSE,TRUE,"rule 2: past tense with no body, reads as asking the responder's own story; screened by the researcher, round 2"
+calibration,13,633393,When is the best time for me to start looking into a good career?,"I don't know when i should start looking, especially if you're in high school.",human,FALSE,FALSE,FALSE,FALSE,
+gold_candidates,3,52798,How do I know which career is right for me?,"For long I was stuck in living the dream of those around me because either they were all doctors or they all aspired to be doctors but failed.
+It took a self-evaluation of what really matters to be in life to appreciate that technological innovation and entrepreneurship were what's right for me.",human,FALSE,FALSE,FALSE,FALSE,
+gold_candidates,4,289571,Do you recommend studying abroad?,,ai,FALSE,FALSE,FALSE,FALSE,
+gold_candidates,20,631775,Types of Goals?,How can you find your goals in life if you're struggling with what career path you wanna go down?,ai,FALSE,FALSE,FALSE,FALSE,

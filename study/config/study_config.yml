@@ -29,6 +29,8 @@ inputs:
   # rule 1 is applied to the frame automatically and rules 2-4 by screening the drawn
   # sample (05). There are no manual frame exclusions.
   manual_exclusions: "study/config/exclusions.csv"
+  # D96: reserved-set items already confirmed as excluded (rules 2-4), pre-filled in round 1 of 03b.
+  reserved_confirmed_exclusions: "study/config/reserved_confirmed_exclusions.csv"
 
 # ---- Outputs -----------------------------------------------------------------
 paths:
@@ -61,16 +63,17 @@ expected_attrition:
 reading_sample_n: 45
 
 # ---- Step 3: reserved sets (drawn in this order) -----------------------------
+# D97: the first set (drawn as "pilot") is now "spare": not used and not screened. The lab
+# pilot runs on the 20 gold candidates. screened: false keeps a set out of 03b (D96).
 reserved_sets:
-  - {name: pilot,           size: 16, n_human: 8,  n_ai: 8}
+  - {name: spare,           size: 16, n_human: 8,  n_ai: 8, screened: false}
   - {name: warmups,         size: 6,  n_human: 3,  n_ai: 3}
   - {name: calibration,     size: 15, n_human: 8,  n_ai: 7}
   - {name: gold_candidates, size: 20, n_human: 10, n_ai: 10}
 
 # ---- Step 4: study draw ------------------------------------------------------
-# D88: draw 100; the study uses the first k in draw order (k, expected 90, set after the
-# pilot and the rater headcount; see select_first_k()).
-study_n: 100
+# D95: draw exactly 90 (replaces D88, "draw 100, use the first k").
+study_n: 90
 floor: 3
 inclusion_reps: 10000
 target_words_tolerance: 0.20
@@ -137,19 +140,20 @@ scenario_labels:
 # run and 04/05/06 stop if any checksum differs. Unfreeze only with
 # study/scripts/unfreeze_frame.R --decision=<id> --approval="...", which logs it.
 frozen: true
-frozen_at: "2026-10-27T14:54:50-0700"
+frozen_at: "2026-10-27T15:47:34-0700"
 frozen_checksums:
   "study/data/01_frame/frame_questions.csv": "f6f246f85390a303028796a0eaa67574"
   "study/data/01_frame/frame_questions.rds": "0d5c7dc049e020d1deb2a18e23133370"
   "study/data/01_frame/frame_answers.csv": "dd320689e534136176abe5b232cb6c84"
   "study/data/01_frame/frame_answers.rds": "8c3d249279de9f7114f11000f98d7a18"
-  "study/data/02_reserved/pilot.csv": "7061e4ff7ad381706797788c1bf03fb8"
-  "study/data/02_reserved/pilot.rds": "24f7915b4cc8d76d5a51e808d8cca378"
-  "study/data/02_reserved/warmups.csv": "43c5c6afd6b1060387a1095cc21be10e"
-  "study/data/02_reserved/warmups.rds": "e50d1b42df6285e9e416a342528fbf4f"
-  "study/data/02_reserved/calibration.csv": "85a74ecdcf7c9f708e805ed2fd030644"
-  "study/data/02_reserved/calibration.rds": "e9fe8ead608a1a954e340f357c61cfba"
-  "study/data/02_reserved/gold_candidates.csv": "1cec52fa7bac05bc150eb2438cd4241b"
-  "study/data/02_reserved/gold_candidates.rds": "d4ed8b46940979bdb4312f17241dc66c"
-  "study/data/02_reserved/frame_remaining.csv": "581348395cd7e621a7232143897a5fea"
-  "study/data/02_reserved/frame_remaining.rds": "bebd69b3de25647eb92b36c204d89987"
+  "study/data/02_reserved/spare.csv": "ebd3764c01d605d22c1892157b0b6260"
+  "study/data/02_reserved/spare.rds": "1a54d6aa9b0fba0854f71ed6234ab9e8"
+  "study/data/02_reserved/warmups.csv": "3e48a18b766bd91644b35f6fd834da57"
+  "study/data/02_reserved/warmups.rds": "86b1b599a0713a0a3a91b1cd8cfb8618"
+  "study/data/02_reserved/calibration.csv": "56e1734bf27b69cd07fde38505434bde"
+  "study/data/02_reserved/calibration.rds": "46570fa8ee90b8f450bc00f4f86420b8"
+  "study/data/02_reserved/gold_candidates.csv": "b13e2fc0c70195f367c642ca1de4a909"
+  "study/data/02_reserved/gold_candidates.rds": "170df47e00b9dcda27cee5d90352135c"
+  "study/data/02_reserved/frame_remaining.csv": "7aac8faa02f300a5563419321f877c2f"
+  "study/data/02_reserved/frame_remaining.rds": "6317efddff82029ad58c9c75e8fcaf5f"
+  "study/data/02_reserved/reserved_exclusions_log.csv": "bcbc470ffd307ccdb22fa70fbb6b0211"

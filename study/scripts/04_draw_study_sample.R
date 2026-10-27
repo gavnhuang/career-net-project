@@ -32,8 +32,12 @@ fa <- readRDS(fa_path)
 fr <- readRDS(fr_path)
 reserved_ids <- unlist(purrr::map(set_paths, ~ readRDS(.x)$question_id), use.names = FALSE)
 anchor_ids <- read_ids(cfg$inputs$anchor_exclusions)
-if (!setequal(c(fr$question_id, reserved_ids), fq$question_id) || anyDuplicated(c(fr$question_id, reserved_ids))) {
-  stop("frame_remaining + reserved sets do not partition the frame; rerun 01 and 03", call. = FALSE)
+# Reserved items excluded by screening (D96) leave the frame for good.
+reserved_log_path <- file.path(cfg$paths$reserved_dir, "reserved_exclusions_log.csv")
+reserved_excluded <- if (file.exists(reserved_log_path)) read_ids(reserved_log_path) else character()
+parts <- c(fr$question_id, reserved_ids, reserved_excluded)
+if (!setequal(parts, fq$question_id) || anyDuplicated(parts)) {
+  stop("frame_remaining + reserved sets + screened-out reserved items do not partition the frame; rerun 01, 03 and 03b", call. = FALSE)
 }
 
 n <- cfg$study_n
@@ -49,7 +53,8 @@ selection <- draw |>
          weight = inclusion_weights(inclusion_prob), planned_version = NA_character_)
 sample <- assemble_sample(selection, fr, answers, draw_seed, run_id, cfg$frame_version, cfg$target_words_tolerance)
 
-checks <- check_sample(sample, fr, fa, anchor_ids, reserved_ids, cfg$guaranteed_labels, cfg$floor, n)
+checks <- check_sample(sample, fr, fa, anchor_ids, reserved_ids, cfg$guaranteed_labels, cfg$floor, n,
+                       check_floor_block = TRUE)
 stop_on_failed_checks(checks)
 n_floor_block <- floor_block_size(sample)
 
@@ -94,16 +99,14 @@ writeLines(c(
   "- Inclusion reps and replacement queues derive from the same seed base.",
   glue("- Frame frozen: {if (isTRUE(cfg$frozen)) paste0('yes (', length(unlist(cfg$frozen_checksums)), ' checksums verified)') else 'no'}"), "",
   "## Counts at each stage", "",
-  md_table(tibble(stage = c("Frame (01)", "Reserved sets (03)", "frame_remaining (sampling frame)",
+  md_table(tibble(stage = c("Frame (01)", "Reserved sets (03, after 03b screening)", "Reserved items screened out (03b)",
+                            "frame_remaining (sampling frame)",
                             "Selected at the floor stage (draw order 1 to the floor block size)",
                             "Selected by random fill", "Study sample"),
-                  questions = c(nrow(fq), length(reserved_ids), nrow(fr), sum(draw$selection_stage == "floor"),
+                  questions = c(nrow(fq), length(reserved_ids), length(reserved_excluded), nrow(fr), sum(draw$selection_stage == "floor"),
                                 sum(draw$selection_stage == "random_fill"), nrow(sample)))), "",
-  "## Using the first k (D88)", "",
-  glue("**Floor-stage questions in this draw: {n_floor_block}** (draw order 1-{n_floor_block})."), "",
-  "The study uses the first k questions in draw order, where k (expected 90) is set after the pilot and the rater headcount. ",
-  "Because floor-stage questions come first, every guaranteed label keeps its floor for any k >= the number of floor-stage questions. ",
-  glue("`select_first_k(sample, k)` refuses k < {n_floor_block}. Screening replacements keep the excluded question's position."), "",
+  glue("**Floor block: {n_floor_block} floor-stage questions** (draw order 1-{n_floor_block}); they alone meet every floor. ",
+       "Screening replacements keep the excluded question's position."), "",
   "## Floor stage", "",
   "Labels are processed rarest first (count in frame_remaining).", "",
   md_table(order_tab), "",

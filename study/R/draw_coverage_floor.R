@@ -5,8 +5,7 @@
 #  2. Fill the remaining slots by simple random sampling from all unselected questions.
 # A multi-label question counts toward every label it carries.
 # Draw order lists every floor-stage question before any random-fill question. The floor-stage
-# slots (the "floor block", floor_block = TRUE) alone meet every guaranteed label's floor, so the
-# first k in draw order keep every floor for any k >= the size of the floor block (D88).
+# slots (the "floor block", floor_block = TRUE) alone meet every guaranteed label's floor.
 
 # Everything the draw needs that does not depend on the seed. Fails loudly when a
 # guaranteed label cannot meet the floor.
@@ -73,18 +72,4 @@ floor_block_size <- function(sample) {
   n_block <- sum(s$floor_block)
   if (!all(s$floor_block[seq_len(n_block)])) stop("The floor block is not the start of the draw order", call. = FALSE)
   n_block
-}
-
-# The first k questions in draw order (D88). Refuses a k smaller than the floor block, which
-# would cut floor-stage questions and could leave a guaranteed label below the floor.
-select_first_k <- function(sample, k) {
-  n_block <- floor_block_size(sample)
-  if (length(k) != 1 || is.na(k) || k != round(k)) stop("k must be a single whole number", call. = FALSE)
-  if (k < n_block) {
-    stop("k = ", k, " is smaller than the ", n_block, " floor-stage questions; the first k would not keep ",
-         "every guaranteed label's floor", call. = FALSE)
-  }
-  if (k > nrow(sample)) stop("k = ", k, " exceeds the sample size ", nrow(sample), call. = FALSE)
-  s <- sample[order(sample$draw_order), ]
-  s[seq_len(k), ]
 }

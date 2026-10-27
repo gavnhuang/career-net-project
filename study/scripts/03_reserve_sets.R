@@ -1,4 +1,4 @@
-# Step 3: reserve pilot, warm-up, calibration and gold candidate sets before any study draw.
+# Step 3: reserve spare, warm-up, calibration and gold candidate sets before any study draw.
 source("study/scripts/_common.R")
 run <- start_run("03")
 cfg <- run$cfg

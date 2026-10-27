@@ -81,18 +81,15 @@ validate_screening_sheet <- function(sheet, expected_ids, round) {
 # draw: question_id, draw_order, selection_stage, floor_block, floor_label (the study draw).
 # sheets: completed sheets for rounds 1..K. frame: frame_remaining with label columns.
 #
-# The floor block is the floor-stage slots at the start of the draw order; the floor is checked
-# within it, so the first k questions keep every floor for any k >= its size (D88). For each
-# excluded question, in draw order:
-#  1. Remove it. Its replacement takes the same position in draw order (and block). In the floor
-#     block, if the removal drops guaranteed labels below the floor within the block, the
-#     replacement is the next question in the rarest such label's queue; otherwise, and always
-#     outside the block, the next in the general queue.
-#  2. Floor swap: while a guaranteed label is still below the floor within the block (several
-#     labels dropped at once), the last question in draw order outside the block (that this
-#     round's sheet did not exclude) is swapped out, logged with reason "floor_swap", and the next
-#     question in the short label's queue (rarest short label first) joins the end of the floor
-#     block; the questions between move down one position. Stops only if nothing is outside the block.
+# The floor is checked across the whole sample (D95: n is fixed at 90). Replacements take the
+# position in draw order of the question they replace. For each excluded question, in draw order:
+#  1. Remove it. If that drops guaranteed labels below the floor, replace it with the next
+#     question in the rarest such label's queue; otherwise the next in the general queue.
+#  2. Floor swap: while any guaranteed label is still below the floor (several labels dropped at
+#     once), take the most recently drawn "random_fill" question whose removal drops no
+#     guaranteed label below the floor (and that this round's sheet did not exclude), swap it out
+#     for the next question in the short label's queue (rarest short label first), and log it with
+#     reason "floor_swap". Stops only if no such random_fill question exists.
 # Queues skip questions already selected, excluded or swapped out. n never changes.
 # Returns the current selection, the log, whether screening is finished, and the next round's ids.
 replay_screening <- function(draw, sheets, queues, frame, guaranteed_labels, floor) {
@@ -113,7 +110,7 @@ replay_screening <- function(draw, sheets, queues, frame, guaranteed_labels, flo
   expected <- current$question_id
   finished <- FALSE
 
-  block_counts <- function() colSums(member[current$question_id[current$floor_block], , drop = FALSE])
+  label_counts <- function() colSums(member[current$question_id, , drop = FALSE])
   next_in_queue <- function(queue_name, r) {
     cand <- queues$question_id[queues$queue == queue_name]
     cand <- cand[!cand %in% c(current$question_id, gone)]
@@ -143,7 +140,7 @@ replay_screening <- function(draw, sheets, queues, frame, guaranteed_labels, flo
       row <- current[current$question_id == q, ]
       current <- current[current$question_id != q, ]
       gone <- c(gone, q)
-      dropping <- if (row$floor_block) intersect(rarity, guaranteed_labels[member[q, ] & block_counts() < floor]) else character()
+      dropping <- intersect(rarity, guaranteed_labels[member[q, ] & label_counts() < floor])
       queue_name <- if (length(dropping)) dropping[1] else "general"
       repl <- next_in_queue(queue_name, r)
       add(repl, row$draw_order, row$floor_block, queue_name, q, r)
@@ -151,22 +148,22 @@ replay_screening <- function(draw, sheets, queues, frame, guaranteed_labels, flo
       log_row(q, row$draw_order, r, "excluded", paste(rules, collapse = "; "), ex$notes[i], ex$screener[i], repl, queue_name)
 
       repeat {
-        short <- intersect(rarity, guaranteed_labels[block_counts() < floor])
+        counts <- label_counts()
+        short <- intersect(rarity, guaranteed_labels[counts < floor])
         if (!length(short)) break
         lab <- short[1]
-        pool <- current[!current$floor_block & !current$question_id %in% ex$question_id, ]
-        if (!nrow(pool)) {
+        pool <- current[current$selection_stage == "random_fill" & !current$question_id %in% ex$question_id, ]
+        pool <- pool[order(-pool$draw_order), ]
+        safe <- purrr::map_lgl(pool$question_id, function(id) all(counts[member[id, ]] - 1 >= floor))
+        if (!any(safe)) {
           stop("Guaranteed label '", lab, "' is below the floor after excluding ", q, " (round ", r,
-               ") and no question outside the floor block can be swapped out", call. = FALSE)
+               ") and no random_fill question can be swapped out without dropping another label", call. = FALSE)
         }
-        out <- pool[which.max(pool$draw_order), ]
+        out <- pool[safe, ][1, ]
         current <- current[current$question_id != out$question_id, ]
         gone <- c(gone, out$question_id)
-        n_block <- sum(current$floor_block)
-        shift <- !current$floor_block & current$draw_order < out$draw_order
-        current$draw_order[shift] <- current$draw_order[shift] + 1L
         in_q <- next_in_queue(lab, r)
-        add(in_q, n_block + 1L, TRUE, lab, out$question_id, r)
+        add(in_q, out$draw_order, out$floor_block, lab, out$question_id, r)
         log_row(out$question_id, out$draw_order, r, "floor_swap", "", paste("displaced to keep n after excluding", q),
                 NA_character_, in_q, lab)
       }

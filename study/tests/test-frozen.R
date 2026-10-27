@@ -1,7 +1,7 @@
 frozen_fixture <- function() {
   dir <- tempfile("frozen_")
   dir.create(dir)
-  paths <- file.path(dir, c("frame_questions.csv", "pilot.rds"))
+  paths <- file.path(dir, c("frame_questions.csv", "spare.rds"))
   writeLines("a,b\n1,2", paths[1])
   saveRDS(list(x = 1), paths[2])
   cfg <- list(frozen = TRUE, frozen_checksums = file_checksums(paths))
@@ -17,7 +17,7 @@ test_that("verify_frozen passes on unchanged files and stops on a changed or mis
   expect_error(verify_frozen(fx$cfg), "Frozen files differ.*frame_questions.csv")
   fx2 <- frozen_fixture()
   file.remove(fx2$paths[2])
-  expect_error(verify_frozen(fx2$cfg), "pilot.rds \\(expected [0-9a-f]+, got MISSING\\)")
+  expect_error(verify_frozen(fx2$cfg), "spare.rds \\(expected [0-9a-f]+, got MISSING\\)")
   expect_null(verify_frozen(list(frozen = FALSE)))
 })
 
@@ -28,9 +28,10 @@ test_that("01 and 03 refuse to run while frozen", {
 
 test_that("the freeze block lists every frame and reserved-set file", {
   paths <- frozen_file_paths(CFG)
-  expect_length(paths, 2 * (2 + length(CFG$reserved_sets) + 1))
+  expect_length(paths, 2 * (2 + length(CFG$reserved_sets) + 1) + 1)
+  expect_true("study/data/02_reserved/reserved_exclusions_log.csv" %in% paths)
   expect_true(all(c("study/data/01_frame/frame_questions.csv", "study/data/01_frame/frame_answers.csv",
-                    "study/data/02_reserved/frame_remaining.csv", "study/data/02_reserved/pilot.csv") %in% paths))
+                    "study/data/02_reserved/frame_remaining.csv", "study/data/02_reserved/spare.csv") %in% paths))
   block <- frozen_config_block(list(`a/b.csv` = "abc"), "2026-10-27T00:00:00")
   expect_equal(yaml::yaml.load(paste(block, collapse = "\n"))$frozen_checksums$`a/b.csv`, "abc")
 })
