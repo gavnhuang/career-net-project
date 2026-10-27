@@ -1,0 +1,37 @@
+item,question_id,answer_id,goal_cell,quality_band,careernet_completeness,careernet_correctness,careernet_coherency,scenario_labels,answer_words
+1,501912,503084,validation,high,4 - Fully Complete,4 - Fully Correct,4 - Fully Coherent,"Career Decision-Making, Transitioning, and Exploration Resources",221
+2,1044038,1044985,instrumental,high,4 - Fully Complete,4 - Fully Correct,4 - Fully Coherent,Industry-Specific Knowledge and Trends; College Queries,421
+3,40785,481782,validation,high,4 - Fully Complete,4 - Fully Correct,4 - Fully Coherent,Networking and Mentorship,149
+4,1032160,1032490,other,mid,3 - Mostly Complete,4 - Fully Correct,3 - Mostly Coherent,Industry-Specific Knowledge and Trends; Skill Development,56
+5,640081,840214,other,high,4 - Fully Complete,4 - Fully Correct,4 - Fully Coherent,College Queries,561
+6,423739,434989,validation,mid,3 - Mostly Complete,4 - Fully Correct,4 - Fully Coherent,"Career Decision-Making, Transitioning, and Exploration Resources",90
+7,924420,924965,instrumental,mid,3 - Mostly Complete,4 - Fully Correct,4 - Fully Coherent,Industry-Specific Knowledge and Trends,103
+8,714404,780073,validation,low,2 - Somewhat Incomplete,2 - Mostly Incorrect,2 - Mostly Incoherent,"Career Decision-Making, Transitioning, and Exploration Resources",138
+9,854490,854678,validation,high,4 - Fully Complete,4 - Fully Correct,4 - Fully Coherent,Industry-Specific Knowledge and Trends; Networking and Mentorship; College Queries,118
+10,985688,1012566,other,low,1 - Very Incomplete,3 - Mostly Correct,3 - Mostly Coherent,Industry-Specific Knowledge and Trends; Resume/CV/LinkedIn Optimization and Personal Branding,289
+11,311852,330651,instrumental,low,1 - Very Incomplete,4 - Fully Correct,4 - Fully Coherent,"Career Decision-Making, Transitioning, and Exploration Resources; Industry-Specific Knowledge and Trends",193
+12,937595,937781,instrumental,low,1 - Very Incomplete,2 - Mostly Incorrect,3 - Mostly Coherent,Industry-Specific Knowledge and Trends,130
+13,753793,765596,other,high,4 - Fully Complete,4 - Fully Correct,4 - Fully Coherent,"Career Decision-Making, Transitioning, and Exploration Resources; Skill Development",65
+14,663448,663639,validation,low,2 - Somewhat Incomplete,4 - Fully Correct,4 - Fully Coherent,"Industry-Specific Knowledge and Trends; Career Decision-Making, Transitioning, and Exploration Resources",60
+15,455669,455791,other,mid,3 - Mostly Complete,4 - Fully Correct,3 - Mostly Coherent,Job Search Strategies and Infrastructure,107
+16,1000555,1001010,validation,mid,3 - Mostly Complete,4 - Fully Correct,3 - Mostly Coherent,Industry-Specific Knowledge and Trends; College Queries; Skill Development,344
+17,551246,551262,other,mid,3 - Mostly Complete,4 - Fully Correct,4 - Fully Coherent,Industry-Specific Knowledge and Trends,246
+18,1018526,1024214,instrumental,high,4 - Fully Complete,4 - Fully Correct,4 - Fully Coherent,Networking and Mentorship; Job Search Strategies and Infrastructure; Interview Preparation,399
+19,96721,675019,validation,mid,3 - Mostly Complete,4 - Fully Correct,4 - Fully Coherent,Work-Life Balance and Personal Values Alignment,106
+20,990807,998064,other,high,4 - Fully Complete,4 - Fully Correct,4 - Fully Coherent,Industry-Specific Knowledge and Trends; Resume/CV/LinkedIn Optimization and Personal Branding,242
+21,804905,804937,other,mid,3 - Mostly Complete,4 - Fully Correct,3 - Mostly Coherent,"Career Decision-Making, Transitioning, and Exploration Resources; Skill Development",405
+22,812970,813519,validation,low,2 - Somewhat Incomplete,4 - Fully Correct,4 - Fully Coherent,College Queries; Skill Development,102
+23,110484,409645,other,low,2 - Somewhat Incomplete,4 - Fully Correct,4 - Fully Coherent,College Queries,40
+24,745349,745515,instrumental,low,2 - Somewhat Incomplete,4 - Fully Correct,4 - Fully Coherent,"Career Decision-Making, Transitioning, and Exploration Resources; Industry-Specific Knowledge and Trends",119
+25,926523,932935,other,low,2 - Somewhat Incomplete,3 - Mostly Correct,2 - Mostly Incoherent,"Career Decision-Making, Transitioning, and Exploration Resources; College Queries",102
+26,50687,387156,instrumental,mid,3 - Mostly Complete,4 - Fully Correct,4 - Fully Coherent,"Career Decision-Making, Transitioning, and Exploration Resources; Networking and Mentorship",105
+27,32205,364628,other,low,2 - Somewhat Incomplete,4 - Fully Correct,3 - Mostly Coherent,"Career Decision-Making, Transitioning, and Exploration Resources",79
+28,391628,392732,validation,mid,3 - Mostly Complete,4 - Fully Correct,3 - Mostly Coherent,Industry-Specific Knowledge and Trends; Job Search Strategies and Infrastructure,107
+29,725192,729546,validation,high,4 - Fully Complete,4 - Fully Correct,4 - Fully Coherent,Industry-Specific Knowledge and Trends; College Queries; Work-Life Balance and Personal Values Alignment,256
+30,1021206,1021502,instrumental,high,4 - Fully Complete,4 - Fully Correct,4 - Fully Coherent,Industry-Specific Knowledge and Trends,568
+31,829870,830012,instrumental,mid,3 - Mostly Complete,4 - Fully Correct,4 - Fully Coherent,NA,174
+32,696376,696449,instrumental,low,2 - Somewhat Incomplete,4 - Fully Correct,4 - Fully Coherent,"Career Decision-Making, Transitioning, and Exploration Resources",283
+33,721685,722100,validation,low,2 - Somewhat Incomplete,4 - Fully Correct,4 - Fully Coherent,"Career Decision-Making, Transitioning, and Exploration Resources",95
+34,759773,759916,instrumental,high,4 - Fully Complete,4 - Fully Correct,4 - Fully Coherent,"Career Decision-Making, Transitioning, and Exploration Resources",88
+35,985945,989475,other,high,4 - Fully Complete,4 - Fully Correct,4 - Fully Coherent,Industry-Specific Knowledge and Trends; Networking and Mentorship,70
+36,512763,574127,instrumental,mid,3 - Mostly Complete,3 - Mostly Correct,4 - Fully Coherent,Resume/CV/LinkedIn Optimization and Personal Branding,174

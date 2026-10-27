@@ -1,0 +1,781 @@
+# Anchor check — reading set
+
+36 real question and human answer pairs, drawn to span goal type and human answer quality.
+Rate each on actionability and supportiveness using the draft 4-point anchors, in
+`anchor_check_items.csv`. Do not open `anchor_check_key.csv` until finished.
+
+---
+
+## The draft anchors (D37, four-point)
+
+**Actionability** — does the answer leave something concrete to do next?
+
+| | |
+|---|---|
+| 1 | Nothing actionable. No step of any kind |
+| 2 | Vague direction only. Advice naming no specific action: "network more", "get experience" |
+| 3 | Concrete but not usable as a plan. One or more specific steps, unsequenced or too general to begin from |
+| 4 | A usable next step. A clear action or short sequence the asker could begin this week |
+
+**Supportiveness** — does the answer engage the asker as a person and leave them better positioned to act? **Not warmth or politeness.** An answer can be friendly and score 3.
+
+| | |
+|---|---|
+| 1 | Dismissive, or ignores stated emotional content |
+| 2 | Neutral information delivery. No engagement with the person |
+| 3 | Generic encouragement untied to anything the asker said |
+| 4 | Engages the specific situation and connects encouragement to a concrete basis for confidence |
+
+The 3 versus 4 boundary on supportiveness is the crux. The countable question behind it: does the answer reference something the asker actually said?
+
+**Write down every case where an anchor felt ambiguous.** Those notes matter more than the ratings.
+
+---
+
+## 1
+
+**Is this the job you wanted when grew up**
+
+Is this the job that you always wanted? #support #job-search #career
+
+**Answer**
+
+Is this the job I wanted when I was a child?  Yes, if I knew it existed back then!  When I was growing up, I was in the time period where parents were pushing kids to be doctors or lawyers.  So back then I thought I would be an OB/GYN and make a lot of money because that was what I was conditioned to believe I wanted.
+
+Fortunately for me, I learned during college that I absolutely loved teaching others.  I had great mentors in college, and an even better mentor during one of my first jobs out of college.  After college I thought I would work toward becoming a college professor.  However, the mentor I had after college opened my eyes to corporate training and it's been a blessing ever since.  While I have had numerous opportunities to move into different career paths, I knew early on that I didn't want to deviate from adult education and now I'm still very much happy and thriving because of that decision.  I do want to also point out that it's very critical to have a good manager and team since culture plays very much into one's happiness at work.
+
+My advice is to keep your mind open to opportunities and ultimately find what you love with a good, supportive manager and team.
+
+---
+
+## 2
+
+**What do you learn in law school?**
+
+I'm currently set on pursuing law. What are some important things I should realize about this career pathway and law school?
+
+**Answer**
+
+My brother is a lawyer and he says that in law school, you will embark on a rigorous academic journey that equips you with a deep understanding of the legal system, the principles of justice, and the tools necessary to navigate complex legal issues. The curriculum typically starts with foundational courses such as Constitutional Law, Contracts, Torts, Civil Procedure, Criminal Law, and Legal Writing. These subjects will help you develop critical thinking, analytical reasoning, and strong communication skills. As you progress, you'll delve into specialized areas like Environmental Law, Corporate Law, Intellectual Property, and Family Law, among others, depending on your interests. Law school is also designed to foster a thorough understanding of legal research and the ability to apply the law to real-world situations through case studies and simulations.
+
+However, it’s important to realize that law school is not just about absorbing legal principles. It is about cultivating a mindset that is methodical, detail-oriented, and able to view problems from multiple perspectives. Expect to engage in intense reading and writing, as much of the work requires you to interpret case law and legal texts critically and creatively. The Socratic method, commonly used in law schools, can be challenging at first, but it is designed to sharpen your ability to think on your feet and defend your position, even in the face of tough questions.
+
+As you pursue a career in law, it’s essential to understand that law school is only the beginning. Legal education prepares you for a wide range of career options, including becoming a practicing attorney, but it also opens doors to opportunities in business, politics, academia, and public policy. The legal profession can be incredibly rewarding, but it requires long hours, dedication, and a strong ethical framework. It's crucial to understand the emotional and mental resilience needed to manage the pressures of client expectations, deadlines, and the adversarial nature of legal proceedings. Networking is another key aspect of law school and the legal field; building connections with professors, peers, and professionals can have a profound impact on your future career.
+
+Ultimately, pursuing law is a path that demands both intellectual discipline and a genuine passion for advocating for justice and change. The experience will challenge you in ways that will transform your thinking, but it will also offer you the opportunity to influence society meaningfully and create a lasting impact. As you move forward, maintain a balance between academic rigor and practical application, and remember that law school is just the start of an exciting, dynamic career.
+
+---
+
+## 3
+
+**Is it important to have connections and know how to network?**
+
+Hello!  I'm a junior in High school and recently a guess speaker has come to our classroom to talk to us about the future careers and what's important. They spoke of networking a few times so I'd like to know just how much networking and connections would be to me.  #networking #future-careers
+
+**Answer**
+
+Networking and connections is incredibly important.  It's probably been the most important part of my career.  The fact that you are asking this so early is impressive, so Kudos to you.  I'd just start by making a list of who can teach you or influence you in whatever field you are looking at.  Pen to paper, nothing crazy.  Just think of it as a brainstorming list.  Then I'd think about if you or your friends/family know anyone or have connections to anyone on that list.  Ask for an introduction.  I'm 40 years old and I'm always asking for introductions.  It works!  Also when you get into college, I'd make yourself a regular at the Career Center or with your Advisor if you have one.  If they know what you want, they can help guide you and by the time you're ready for an internship you will be more prepared!
+
+---
+
+## 4
+
+**"What are the best platforms and resources to use for streaming and building a gaming audience"
+
+?**
+
+Also I want to know "What are the most important qualities and skills that professional gamers need to succeed?"
+
+**Answer**
+
+Best growth and engagement 
+Twitch -the biggest platform for live streaming games best for community interaction.
+YouTube gaming -Great for streaming video contents 
+Kicks-Newer platform with better revenue splits for creators
+Facebook gaming -Good if you have a Facebook following 
+Streaming software 
+OBS studio-free and highly customizable 
+X split - good for professional , quality stream
+
+---
+
+## 5
+
+**Giveaway Question**
+
+What process is the best to ensure I find the right college that has a good reputation and good education and will ensure I will exceed and land a successful career?
+
+**Answer**
+
+Hello Edina,
+
+Finding the Right College for a Successful Career
+
+Finding the right college that has a good reputation and provides a quality education is crucial for ensuring a successful career. There are several steps and processes that can help you in this endeavor.
+
+Research and Self-Assessment
+
+The first step in finding the right college is to conduct thorough research and self-assessment. This involves identifying your academic interests, career goals, and personal preferences. Consider what you are passionate about, what subjects you excel in, and what career paths align with your interests. Research various colleges and universities to understand their programs, faculty, campus culture, and reputation. Utilize resources such as college websites, guidebooks, and online databases to gather information about different institutions.
+
+Academic Programs and Reputation
+
+When evaluating colleges, consider the academic programs offered and their reputation in those specific fields. Look for colleges that offer strong programs in your areas of interest. Consider factors such as faculty expertise, research opportunities, internship programs, and industry connections. Additionally, assess the college’s overall reputation in terms of academic excellence, student success rates, and alumni achievements. Seek out rankings and reviews from reputable sources to gauge the standing of the colleges you are considering.
+
+Campus Visits and Interviews
+
+Visiting college campuses and engaging in interviews can provide valuable insights into the institution’s culture, facilities, and community. Take advantage of campus tours, open houses, and admission interviews to interact with current students, faculty members, and admissions staff. This firsthand experience can help you gauge whether the college environment aligns with your preferences and aspirations.
+
+Financial Considerations
+
+Evaluate the financial aspects of attending college, including tuition costs, financial aid options, scholarships, and potential return on investment. Research the availability of merit-based scholarships, need-based aid, work-study programs, and other forms of financial assistance. Consider the long-term implications of student loan debt versus potential earning potential after graduation.
+
+Alumni Success and Career Services
+
+Examine the track record of alumni success and the support provided by the college’s career services office. Look for colleges with strong networks of successful alumni who have achieved notable careers in your field of interest. Additionally, inquire about career development resources such as resume assistance, job placement services, internships, networking events, and mentorship programs.
+
+Top 3 Authoritative Sources Used in Answering this Question:
+
+U.S. News & World Report: U.S. News & World Report is a widely recognized source for college rankings and evaluations based on various criteria such as academic quality, graduation rates, faculty resources, and student satisfaction.
+
+The Princeton Review: The Princeton Review offers comprehensive college profiles, rankings, and student reviews to help prospective students assess different colleges based on academics, campus life, financial aid offerings, and career outcomes.
+
+College Board: The College Board provides valuable resources for researching colleges including information on academic programs, admission requirements, financial aid options, and tools for comparing different institutions.
+
+These authoritative sources were utilized to ensure that the information provided is based on reliable data and expert evaluations of colleges and universities.
+
+Don't forget to read my autobiography, paying attention to the foods that provide all the essential nutrients for effective studying. You might discover that you can accomplish twice as much academic work in half the time. Your performance in exams and assignments could also improve, especially if your diet has significantly improved. Replenishing missing nutrients can do wonders.
+
+GOD BLESS YOU,
+James Constantine Frangos.
+
+---
+
+## 6
+
+**What is your vision for your career in another 10 years ?**
+
+Diligent, loyal, reliable. I am always the first person that my friends call because they know I am always there for them. #mechanical-engineering #engineering #career-counseling
+
+**Answer**
+
+Great question Dey’ja...
+I’ve been with the company for 12 years thinking I knew what I wanted to do based on results and other people’s suggestions. I will say this once you find your purpose and that THING that puts a constant smile on your face and joy while doing it, then you’ll want to do whatever that is for the duration of you working career. 
+Within the next 10 years I personally hope to get closer to that and making an impact on the lives of everyone I encounter!
+
+---
+
+## 7
+
+**How to become a Medical Scribe?**
+
+Tell us everything we need to know to become a Medical Scribe.
+
+Note: We've seen a lot of interest in this career, so we're looking for guidance from our community of professionals.
+
+**Answer**
+
+As a medical scribe, you’ll be responsible for various tasks such as documenting patient encounters, assisting with the management of patient flow, and ensuring accurate record-keeping. It helps you observe a range of medical  treatments and interactions which can benefit you as a medical professional. So to become a medical scribe, you will need to:
+1. Have a high school diploma at least.
+2. Gain some training on medical terminologies  and have some basic knowledge on documentation.
+3. Get a medical scribe certification if you can afford to.
+4. Gain more experience by partaking in medical scribe internship programs. Wish you success ahead!
+
+---
+
+## 8
+
+**what would be the best way to find a job?**
+
+What are the best ways to find a job that would be the one u stick to for the rest of your life? Also why would it be the best way?
+
+**Answer**
+
+Starting with a job at a fast food restaurant might be a smooth entry point. This kind of job can offer a long-term career, even up to 50 years, with opportunities to climb up to senior management. For me, I find joy in assisting people to conquer diseases through comprehensive nutritional knowledge. 
+
+There's a demand for teachers who can educate others about essential life skills like managing credit card accounts and promoting healthy eating habits. My friend always used to say, "To be, to be is the bourgeoisie; Get a degree!" 
+
+Earning a degree can significantly boost your income potential, especially if you specialize or pursue a doctorate. This could enable you to save more for your retirement. 
+
+Personally, I believe in the power of helping others. Perhaps starting as a barista could be a good first step.
+
+---
+
+## 9
+
+**If I'm Certain of a College Major and Career path should I ask professionals who studied the major or work in the Career path I'm interested in questions about what it's like and what I need to do to get there?**
+
+I'm a Sophomore Student in High-School
+I'm interested in Biomedical Engineering
+I'm starting to look at College that suit my needs and major
+
+**Answer**
+
+Hey Myrick! Your idea is fantastic! If you're decided on a specific major or career path, it would be beneficial to connect with college students who are currently studying your chosen field and professionals who are already working in your desired career. LinkedIn is a great platform to set up these informative "coffee" chats. If you haven't created a LinkedIn profile yet, it's a good idea to do so. This way, you can identify and connect with students and professionals who share your career aspirations and arrange a brief conversation to gain insights from their experiences. When arranging these discussions, it's important to introduce yourself, share your objectives, and clarify the purpose of your chat. Best of luck!
+
+---
+
+## 10
+
+**“What types of skills or projects should I highlight on my resume to stand out for a career in sustainable design or environmental planning” #Fall24?**
+
+“What types of skills or projects should I highlight on my resume to stand out for a career in sustainable design or environmental planning?”
+
+**Answer**
+
+This is a great question Manal!
+
+There are some great recommendations above. Something else to consider is the way you present yourself via resume/ CV.
+
+Regardless of whether you're a seasoned professional with over two decades of experience or a fresh graduate wanting to move into teaching, having a clear, succinct, and impactful CV is crucial. Given that you've recently left school, a one-page CV would be ideal, but remember, it needs to be distinctive.
+
+Skills are transferable! Its great to check out your dream job on LinkedIn or other job sites, identify the necessary skills and then consider how you can acquire these skills through a more accessible role, such Customer Service experience in retail or Fast food OR even at school, if you had any accolade's from school that demonstrated a great work ethic eg letter from teacher. You can also tailor your CV to emphasize Transferable Skills over specific job titles, making you a more attractive candidate for a wider range of roles, rather than being restricted to jobs based on your previous titles. To find examples, just search for Transferable skills CV example online.
+
+Also, I discovered an outstanding CV template on Etsy, which I bought and simply filled in the gaps. Typically, the first page serves as an introduction or cover letter, presenting who you are and why you believe you're the perfect fit for the role. The second page is your actual CV, highlighting your relevant experience and skills for the position.
+
+I hope this advice is beneficial. And remember, your career is a journey, not a destination. You may start in one area and end up in another - there are not short cuts in life. That's completely fine. Embrace the journey!
+
+---
+
+## 11
+
+**What career should I go into?**
+
+I am a sophomore in high school and I would like to go into Veterinary Medicine, but I have also been interested in Anthropology. I have done research on both careers and they are both interesting and careers that I would like to go into. How can I decide on which career is best? #careerchoices #career-path #school #anthropology #veterianary-medicine
+
+**Answer**
+
+Hi Erin,
+
+What you are facing now is something everyone faces, and you will continue to face in the future. In life, we tend to get to forks in the road where we are faced with a major decision that will dictate big aspects of our life. One thing I do to ease this decision making process is understand that at the end of the day, whatever choice you go with, it will be the right choice. Why? Because essentially there is no possible way to understand how your life might have been different if you chose the alternative. You can't go back in time and see what would have happened if you made a difference choice. When you take this into perspective it eases the burden of making the decision and guarantees satisfaction with your choice. So whatever you end up deciding to study, understand that there are no regrets and that everything happens of a reason. Despite this, it is of course still very important to do your due diligence and weigh your options, which I see you have already done! Good luck, you will make the right choice. :)
+
+Ryan
+
+---
+
+## 12
+
+**Should I choose to be a veterinarian?**
+
+I am looking at being a veterinarian as one of my possible career choices. What skills do you need? Any specific personality traits you would need or the type of person you need to be in order to be one? What is being a veterinarian like, day to day and so forth? Is it worth it? How do you get to being a veterinarian? When should you start? How much schooling is needed? Any and all information on being a veterinarian is helpful. Thank you in advance!
+
+**Answer**
+
+I'm not a vet but my advice to anyone interested in that field is to work in that field.  
+
+Being a physician, I had no idea what I was getting myself into.  Even though I worked filing charts when I was in high school or college, it still did not prepare me.  Only people working in the field will know.  I've mentioned before that I had patients who were vets and they were not happy.  One told me that vets have the highest suicide rate.  Previously, I had heard it was dentists.  So, if you work at a vet clinic, you can see what they do and maybe work yourself up to helping the vet.  You can talk with them and see what they like and dislike about their job.
+
+---
+
+## 13
+
+**What is the most challenging career ?**
+
+“What” is the most challenging career. “How” could I improve my knowledge. “When” would I know what I want to do in life career. “What” could I possibly face in life.
+
+**Answer**
+
+The most challenging career can vary for different people. For me, not attending college meant I had to work hard to prove myself. To improve your knowledge, consider online courses or workshops related to your interest. Knowing what you want to do in life, career-wise, might come with experience and self discovery. In life, you might face obstacles, but with determination, you can overcome them.
+
+---
+
+## 14
+
+**What does it take to be a Film Director, and is this an attainable career?**
+
+I am interested in being a film director, but I do not know if this is something I should seriously pursue. I love watching movies and documentaries on how movies are made, but I don't know if I could actually make it in the film production world. I don't want to chase an unrealistic dream.
+
+**Answer**
+
+In retirement, I'm trying to be a screenwriter.  Nearly all of the people who I have encountered in the movie business moved to LA and started at the bottom.  However, the opportunities are numerous.  I'd jump jobs whenever you saw the opportunity to get closer to your dreams, but start by developing your experience and connections in entry level opportunities.
+
+---
+
+## 15
+
+**How do I find a part time job?**
+
+I'm a student going into my senior year and I'm looking to get a part time job so that I can support myself a little, but I don't know where to start. #job #work #internship #job-search
+
+**Answer**
+
+Hello,
+I would start looking into Co-op programs at your High School.  Depending on where your interest lies, there are many opportunities (Business, Engineering, Automotive, Health Care, etc).  These are terrific opportunities to get some real-world experience on your resume, credit in High School, and may help guide your interest or college major if that is the path you seek.  Co-op programs are typically paid, and the schedule is typically 1/2 day at school &amp; a 1/2 at work during your senior year.  These co-op opportunities often extend through the summer &amp; sometimes even extend beyond that (internships, etc.).  Best of luck in your part-time job search.
+
+---
+
+## 16
+
+**How to become a Veterinarian Technician?
+What are good university I can go to?**
+
+I am currently looking for careers I can pursue after high school and my main question is how do I become a vet tech? What is the best university for this career? What courses do I need to take and can somebody explain how the courses work? And my final question is does it require math? I am so terrible at math I have a IEP for it and no matter how hard I try to learn basic math it can never fully process in my head.
+
+I dont know any good universities but im considering Washington state university or maybe black hills state, Im willing to expand my options so please do give me good recommendations, thank you for taking the time to read this.
+
+**Answer**
+
+Licensed Veterinary Technician here, with 20 years of experience!
+
+I too am horrible with math, my justification for relying on my calculator.... well, if I am responsible for calculating out a controlled drug for my patient (the DVM gives the orders in mg/kg) then I want to ensure I have the correct answer, so I don't accidentally overdose my patient! Why such a specific answer...well, the veterinary technology program I attended required an algebra course. That particular class was the ONLY math class in the entire school that didn't allow the use of a calculator! I understand algebraic formulas, heck, drug calculations are just that! It took me 3 attempts to pass that darn class! It wasn't until the college revamped their entire math department, as the success rate was a dismal 11%, and even though they still wouldn't allow a calculator in the course, I was able to successfully pass with a B! 
+
+As far as looking for a program, I would first look to see if there is a local AVMA accredited program to you. Brick & mortar schools have the advantage of hands-on classes right out of the gate. If that isn't an option, and online AVMA accredited program is just as good BUT you have to be disciplined to essentially teach yourself, advocate for your opportunity for hands on experience, and structured to complete the program in a timely manner. 
+
+There is a bachelor's degree in veterinary technology, that builds off your associates. That is what I am completing now. My program is online, as my state doesn't have a bachelor's program at any of the colleges. I chose my particular program because I liked the curriculum they offered, as I could choose a concentration in hospital administration or clinical techniques. A bachelors isn't a requirement to become a credentialed veterinary technician, but it does open more career paths in the future, such as working in a reference laboratory, teaching at a faculty level in a veterinary technology program or even becoming a sales representative for one of the companies.
+
+---
+
+## 17
+
+**How difficult is it to become a chef after completing school?**
+
+I am in Job Corps and I am planning on joining culinary. How difficult is it to get a job as a chef after completing school?
+
+**Answer**
+
+Hi Yakov!
+
+While I may currently work in the tech field, I have worked in countless restaurants. I have talked with many chefs as I have a passion for cooking, and the answer was always the same. "Do not expect to start out as a chef after completing school."
+
+Chefs know the restaurant, the menu, and the processes inside and out. It would be very difficult to start out as a chef having not worked in the restaurant, cooking any of the meals, and learning any of the process. Your best bet would be to find a restaurant or cuisine that you like to cook and start out as a line cook or prep cook. This would be your "in" and would allow you to start learning the process, learning the menu, and learning the people. As you prove your knowledge, you will be able to move up the ranks. 
+
+If you do not want to do this, then the only other option I am aware of would be starting your own restaurant or food truck. This would allow you to start out as a chef, but would carry a lot more responsibility as you have overhead, people to hire, and customers to bring in.
+
+The culinary industry is a lot of work, and I applaud those that work in it. Do not be scared to work, and do not be discouraged if you do not start out as a chef right away. You got this!
+
+---
+
+## 18
+
+**What am I supposed to write in an email to a recruiter?**
+
+I just applied for an internship through a website that gives out the email of the recruiter at the end. I want to reach out but don't know how to not sound generic or even what the ideal subject line should be. If I ask the recruiter if they have time to answer any questions should I add my calendly or wait for their response??
+
+**Answer**
+
+Hi Sally, 
+
+Reaching out to a recruiter can be a good idea! It shows initiative, enthusiasm, and interest in the position, which can help you stand out from other applicants. Just make sure your message is polite, professional, and concise.
+
+Here’s a quick guide on how to write a professional email to a recruiter:
+
+1. Subject Line
+
+• Follow-up on Internship Application – [Your Name]
+
+• Inquiry About Internship Opportunity – [Your Name]
+
+But Here Are Some Important Things to Consider Before Writing the Email
+
+2. What to Include in the Email
+
+• Introduction: Briefly introduce yourself and mention the position you applied for.
+
+• Express Enthusiasm: Share your excitement about the role and why you are a good fit.
+
+• Ask Relevant Questions: If you have specific questions about the position or process, ask politely.
+
+• Mention Availability for Further Discussion: Politely offer your availability for a quick chat, but also wait for their response first.
+
+• Professional Closing: Thank them for their time and express your eagerness to hear back.
+
+3. What NOT to Include
+
+• Don’t Sound Too Casual: Keep the tone professional. Avoid overly informal language.
+
+• Avoid Over explaining: Keep the email concise and focused on your qualifications and interest.
+
+• Don’t Push for a Response Too Soon: Give them some time to reply before you send a follow-up.
+
+4. Here’s a quick example:
+
+Subject: Follow-up on Internship Application –  [Your Full Name]
+
+Dear [Recruiter's Name],
+
+I hope this message finds you well. My name is [Your Name], and I recently applied for the [Position Name] internship through [Platform Name]. I’m really excited about the opportunity to contribute my skills in [specific skills/field], and I would love to know more about the next steps in the application process.
+
+If you have time, I would be happy to answer any questions or provide additional information. Please let me know if there is a convenient time to connect.
+
+Thank you for your time and consideration, and I look forward to hearing from you.
+
+Best regards,
+[Your Name]
+
+
+When reaching out, you are not only expressing your interest but also giving the recruiter a chance to get to know you better. It can also give you valuable insights into the hiring process or next steps. Just make sure to be respectful of their time and don’t overdo it with follow-ups.
+
+I hope this helps. 
+Best of luck!
+
+---
+
+## 19
+
+**What's the most important thing to look for in a company?**
+
+When applying for jobs, what has made you decide to accept an offer from one company over another?
+
+#job-search #career
+
+**Answer**
+
+Hi Ethan -
+
+I would say it would be the company's culture and your fit for it.  We spend a lot of our time working and interacting for our jobs and we definitely want to make sure that we spend that in a company that has the culture that gets you and you enjoy working for.  It will be really hard to wake up each morning and do your best if you don't like your environment.  Also - how do you fit in all of it?  You want to make sure you are able to thrive and grow in the company .  Goodluck with your journey!
+
+---
+
+## 20
+
+**What experiences do I need or would look good on a resume to get a job in a warehouse?**
+
+I'm a high school student currently and don't have much experience. What could I do to make my resume more attractive to potential employers?
+
+**Answer**
+
+Hi Ki'yon,
+
+It's great to see you taking proactive steps toward your future career, and looking into warehouse work is a fantastic choice! To boost your resume, there are several experiences and skills you can develop that will stand out to employers. 
+
+First, consider volunteering at local food banks or community organizations. Many of these places rely on volunteers to help with sorting and packing food items, which is very similar to warehouse tasks. Not only does it show you’re willing to help your community, but you also gain hands-on experience in organizing and moving inventory. 
+
+Additionally, try looking for part-time jobs that involve physical labor, such as stocking shelves at a grocery store or working at a retail outlet. These positions can help you learn about inventory management and customer service, both valuable skills in a warehouse setting. If you can, seek out youth programs that may offer training in logistics or supply chain management. Many local community centers might have programs tailored to high school students.  
+
+Also, don’t forget to emphasize any skills you gain from school, such as teamwork and communication, particularly if you've participated in group projects or sports. Employers appreciate candidates who can work well in teams. Finally, consider taking a forklift certification course offered at community colleges or through online platforms—it’s a great way to demonstrate your commitment and enhance your qualifications. Best of luck with your job search, and keep building that resume!
+
+Best,
+Aman
+
+---
+
+## 21
+
+**What are some steps I can take right now in middle school to better my highschool and college education?**
+
+Im an 8th grader, people are always talking me to prepare for my future, but I just don’t see how. I can’t get a job in my local area or find any helpful programs. Any one got some advice I could borrow?
+
+**Answer**
+
+Hello,  Charli !
+
+I would like to lend some advice to you. You've come to the right place for it !
+
+My one piece of advice on how you can prepare for high school and college now, is to read and write A LOT.  Get familiar with reading and writing a lot because you will have a demand for it in high school and an even greater demand for it in college. As well, get involved in things that require oral presentations like public speaking or presenting class projects. You  will most likely be doing this in high school, but inevitably will have to do it in college. So, for now, as you are not in high school yet, it is a matter of developing your skills for the basics that will carry you through.
+
+As for a job, the website Glassdoor may be something that you can use. I have left a link to their page that has jobs for teens. Also, you may want to visit nearby businesses to see if they hire teens your age and if they do, you can apply for a job there. The website Simply Hired has some employment opportunities, too.
+
+You are correct when you said that there are barely any social service agencies where you live. A long-shot would be for you to contact an independent living center in your county for which I have left a link for you below. Normally, an independent living center is a community agency that serves individuals that have a disability but there's no telling what type of programs they have or know about and can refer you to. This is the only thing I can think of to try.  Since you are about 13 years old, you will need assistance with this, finding out who is hiring people your age. There doesn't seem to be a Summer Youth Employment Program for your town, but you can inquire in person when you visit to see if anything like that exists for a summer job. 
+
+Other than that - freelance. Offer your services as a babysitter, house painter, dog walker, or use any skill you have to work various jobs.  I have a feeling once you do the work required to find a job, you will obtain a job you really like. 
+
+I hope that this was helpful . Continue asking for advice and I wish you all the best !
+
+---
+
+## 22
+
+**What's the smartest thing to do during a gap year to help with college in the coming future?**
+
+What's the smartest thing to do during a gap year to help with college ?
+
+**Answer**
+
+Taking a gap year is a fantastic chance to expand your world view and gather some priceless life lessons. 
+
+As you gear up for college, it's essential to engage in activities that make you stand out from the crowd of other college hopefuls, particularly in areas such as leadership and academics. For instance, you could delve into research or enroll in classes that align with your interests, such as exploring biology, mastering a new language, or honing your acting skills. On the leadership front, consider chasing a dream project, like launching a startup, or contributing to an organization that sparks your enthusiasm.
+
+---
+
+## 23
+
+**Is a technical school better than a trade school?**
+
+What's the difference? #Difference #technical-training #trade-school #education #vocational-school #higher-education #post-secondary
+
+**Answer**
+
+The difference mostly relates to the type of skills that you are learning. Trade skills tend to be for more blue-collar types jobs involving maintenance and repair of physical equipment while technical school is geared more towards software/computer type skills.
+
+---
+
+## 24
+
+**How does one know exactly what branch of whatever their passion is to major in and focus on?**
+
+I know I love art, but am pretty sure I’m not going to go to art school, and am looking for alternatives, and have no clue which design related topic to choose!
+
+**Answer**
+
+Hey Sophia!
+
+What you're feeling is perfectly normal and valid! Most colleges should have a general class that you can take that explores many areas of design to see which one interests you most. From there you can ask questions to your professor and dive deeper into areas of potential interest. 
+
+I work in Media and Advertising and when I was in college there was a "Media Studies" class that walked through every potential path within Media that I could major in. From Journalism to Public Relations, it spent time going through each vertical and ultimately helped me understand my path to where I am now. 
+
+Not all outcomes are guaranteed but these types of classes really do help!
+
+---
+
+## 25
+
+**I am exploring the ways that my skills and values align. I value achievement, commitment, and independence and my strongest skills are related to technology; these included listening, computer, and organizing. Can you help me identify careers where both the values and these skills align ?**
+
+I just graduated high school and plan to go to community college for two years and then transfer to Cal State LA
+
+**Answer**
+
+Lots of good options for you like:
+
+Data Visualization and Dashboarding (Business Intelligence)
+Artificial Intelligence
+Computer Developer
+Product Management
+
+go ask someone in fields you are interested in if they can spend a few minutes with you telling / showing you what they do...what do they like about it?  what do they dislike?  What is the job really all about?  Does it pay well?   Are their plentiful jobs?  What did they do to get their job?   Any career advice they may have for you?  People generally want to share and help and those types of questions are great ways to learn more
+
+---
+
+## 26
+
+**I'm Massively overwhelmed with my future plans.**
+
+Is there anyone I can talk to? #college-advice #career-advice #general-advice
+
+**Answer**
+
+Have you tried talking to your school counselor? They can do a lot to help  you plot out potential futures. This phase of life can be really scary since people make it sound like you make or break  your future there, but as long as you do your best to pass your classes and graduate, you have a lot of positive options to work with. If you're looking for career ideas, check out the department of labor's website and see what some of the fast growing careers are. If any of those interest you, do some research online for what those fields are really like.
+
+---
+
+## 27
+
+**What are some good jobs for someone with strong people skills?**
+
+I want to work with people but I don't know what careers could best suit my skillset. #social-work #social #skills #people #personal-development
+
+**Answer**
+
+Great start! Beyond people skills, what do you enjoy doing? Also, what specifically would you describe as your "people skills"? Is it working with others, understanding others? Speaking with people? Or speaking in front of people? I would recommend combining it with other aspects - your skills, what your intellectual interests are, and your personality. 
+
+Finding a way to mix what you're passionate about, your professional interests, and your skills is a great way to build your career path.
+
+---
+
+## 28
+
+**What's the best way to find a job after college?**
+
+I know for the first few years of my career I would want to work at an Accounting firm or in a stable position as a accountant for a company. #career #career-counseling #working #jobs #job
+
+**Answer**
+
+1. Get connected on LinkedIn and start to build out your social work profile. 
+2. Follow those people on LI that are of interest to you. 
+3. Make a list of potential jobs you might be interested in and a pro/con list of each one. Do some online research about each. Add notes to that matrix. 
+4. Talk to your parents or your parent's friends about their jobs. 
+5. Attend online career fairs. 
+6. Ask you student counselor for ideas. 
+7. Take an online class in an area you think you might be interested in and see if it is a good fit. 
+8. Find an internship.
+
+---
+
+## 29
+
+**Is it worth it to go through schooling to become a teacher?**
+
+Is it worth it to go through school to become a teacher, or does the pay not make up for the money you spent on schooling? I want to become a teacher but i’m not sure if it’s worth it or not.
+
+**Answer**
+
+Your question is crucial, as many aspiring education majors and teachers wonder the same thing. Considering the upheaval in education due to the global COVID-19 pandemic and numerous other concerns, it's essential to think carefully about this issue.
+
+Before becoming an administrator and instructional leader at my school, I spent 9 years as a direct teacher. I taught English for six years and served in teaching roles through the federal program AmeriCorps for three years. Although the pay was lower, the experience ignited my passion for teaching and led me to pursue it long-term. When I secured a full-time position at a school, my salary improved over time. As I consistently met district benchmarks for student progress and grew as a teacher, my rating increased, resulting in yearly raises.
+
+Moreover, the district I worked in consistently offered extra-pay opportunities, such as after-school tutoring, summer school, curriculum development, enrichment activities, and seasonal coaching. These programs significantly contribute to a school's and district's functions and can be a valuable source of additional income.
+
+Furthermore, my salary has always been enough to support my family (wife and two children) and cover expenses. It's essential to be realistic about your living costs and total debts when considering any position.
+
+Teaching is a crucial profession that can lead to life-changing connections with students and create lasting positive change in the community. If you have a strong sense of duty, a desire to help others, and a passion for empowering people through knowledge, I hope you'll seriously consider a career in education!
+
+---
+
+## 30
+
+**How to become an investigator?**
+
+Lend your expertise: what does it take to become an investigator?
+
+Note: We've seen a lot of interest in this career, so we're looking for guidance from our community of professionals.
+
+**Answer**
+
+Becoming an investigator is an exciting and challenging career path that requires a combination of education, training, and practical skills. Here's a step-by-step guide to help you understand what it takes:
+
+1. Understand the Role
+Investigators work in various fields such as law enforcement, private investigation, corporate security, insurance, or cyber forensics. The skills and requirements depend on the type of investigator you want to be. For example:
+- Criminal Investigator: Works in law enforcement to solve crimes.
+- Private Investigator: Handles cases for individuals or businesses (e.g., missing persons, fraud).
+- Corporate Investigator: Looks into internal company issues like theft or embezzlement.
+- Cybercrime Investigator: Focuses on digital evidence and online crimes.
+
+2. Education
+While specific requirements vary, most investigator roles require at least a high school diploma or equivalent. However, pursuing higher education can improve your chances:
+- Associate or Bachelor’s Degree: Degrees in criminal justice, criminology, psychology, law enforcement, or related fields are highly beneficial.
+- Specialized Certifications: For areas like cybercrime or financial fraud, certifications such as Certified Fraud Examiner (CFE) or cybersecurity credentials can be useful.
+
+3. Develop Essential Skills
+Successful investigators have a mix of technical and soft skills, including:
+- Critical Thinking: Ability to analyze complex situations and find solutions.
+- Attention to Detail: Spotting inconsistencies or overlooked evidence.
+- Communication Skills: Clear writing for reports and effective verbal communication during interviews or testimony.
+- Research Skills: Proficiency in data collection, online research, and using investigative tools.
+- Discretion: Maintaining confidentiality and handling sensitive information.
+
+4. Gain Experience
+- Law Enforcement: Many investigators start as police officers or deputies to gain hands-on experience in criminal cases.
+- Internships/Apprenticeships: Seek opportunities to work under licensed investigators or agencies.
+- Entry-Level Positions: Roles such as security officer, claims adjuster, or paralegal can provide relevant experience.
+
+ 5. Licensing and Certification
+In many jurisdictions, private investigators need to obtain a license. Requirements typically include:
+- Meeting age and education prerequisites.
+- Passing a background check.
+- Completing a training program or gaining supervised experience.
+- Passing a licensing exam.
+
+For specialized investigators (e.g., cyber or financial), certifications like Certified Ethical Hacker (CEH) or Certified Information Systems Security Professional (CISSP) may be required.
+
+6. Specialize
+Choosing an area of expertise can help you stand out. Some popular specializations include:
+- Forensic Investigation: Analyzing physical evidence and crime scenes.
+- Digital Forensics: Investigating cybercrimes and recovering digital evidence.
+- Corporate Investigations: Handling internal fraud, theft, or compliance issues.
+- Insurance Investigation: Detecting fraudulent claims.
+
+7. Stay Updated
+Laws, technology, and investigative techniques are constantly evolving. Stay informed through:
+- Professional Associations: Join groups like the National Association of Legal Investigators (NALI) or ASIS International.
+- Continuous Education: Attend workshops, webinars, or courses.
+- Networking: Connect with other professionals for mentorship and career growth.
+
+8. Pathways to Start
+Here are some common routes into investigative careers:
+- Police Academy: For those pursuing roles in law enforcement.
+- Private Investigator Apprenticeship: Work under a licensed investigator.
+- Military Service: Experience in military intelligence or security roles can be advantageous.
+- Specialized Training Schools: Many institutions offer programs in private investigation, forensics, or cybercrime.
+
+Becoming an investigator requires dedication, curiosity, and a willingness to constantly learn. Focus on gaining relevant education, building key skills, and accumulating real-world experience. Whether you’re solving crimes, uncovering fraud, or digging into digital trails, it’s a career where your efforts can make a real difference!
+
+---
+
+## 31
+
+**How do you find a lifelong career that you will love and be passionate about?**
+
+I'm still young, in my early twenties asking for advice or helpful insight on finding the right path for me. I'm currently enrolled in a Jobcorps Center and am pursuing Pharmacy technician and or other trade work training. I have several small interests that I enjoy but none that I feel confident building into a lifelong career. I graduated from high school during the COVID-19 outbreak in 2020, and I feel it's stunted my growth into a career. I'm interested in STEM, Language studies, Anatomy Physiology, forensics, Physical fitness, Chemistry, Woodworking, and Medicine. I'm artistic and investigative and wish to do a career that I find challenging and rewarding. I've traveled to Europe, Studied French in southern France, and interned as a sales associate in Ireland with a Designer Exchange Company; all of which were wonderful experiences but I'm unsure how to turn them into a career for my future. So how do I narrow down my interests into a career I will find fulfilling in my later life?
+
+**Answer**
+
+I wish I could give you a specific answer but you have good interests and are asking an important question. However, one thing I can tell you for sure is that success, happiness and fulfillment in a career depends on what you put into it. People who put in their best effort and work truly well with colleagues have a natural tendency to be recognized and rewarded. Be prepared to adjust your goals and situation if it's not happening. Be honest with yourself about your abilities. Be generous with your talent. Find like minded people, not meaning "group thinkers"  but forward thinkers, perhaps with different ideas, who are also generous in return. The best colleagues will make each other better.
+
+Your exploration is on the right track. Get meaningful internships as soon as possible and a path will open before you.
+
+This is based on my actual experience in my 44 year career which I look back on fondly and a lot of good to look forward to in retirement.
+
+Best wishes to you.
+
+---
+
+## 32
+
+**How can I prepare myself now for future success?**
+
+I'm not sure what I want to do in life, but I want to help people and be successful.
+
+**Answer**
+
+Hi Mikaela!
+
+I'm a graphic designer in San Francisco, CA. I found that art, design and creative thinking were a constant part of my life growing up, long before I got paid to do it. Finding success as a designer happened because I love to design—I went to a 2-year design program at San Diego City College, went to design conferences, interned as a designer, graduated from California College of the Arts in SF, and found my first job. This felt much easier because I was active in the design community, and could always ask someone for advice or help.
+
+You've said you want to help people, which is wonderful! I think you could take that in lots of different directions. For example, what do you love to do, just for fun? Is there any way to incorporate that into a job that helps people? 
+
+For example—do your friends always come to you with a problem, because you're a great listener and will help them get to the bottom of an issue? Maybe that's an indication you could pursue a job as a therapist. Ask your friends and family: what do you think I'm great at? See if you get similar answers. Is there anything you could pursue from there? Is there anything in the Great Barrington community that could use your help?
+
+There are lots of ways to help people—your next step might be defining HOW you want to help people.
+
+Lastly, I just want to say, don't feel like you have to figure it all out right now! Life is about trying things and learning from your experiences. You get to define what success means to you.
+
+Good luck, Mikaela! :)
+
+---
+
+## 33
+
+**How do you know what to go into when you have multiple interests?**
+
+I like a lot of things and I just want to know what to focus on.
+
+**Answer**
+
+All of these responses are fantastic! Additionally, I suggest contemplating enrolling in classes at a community or junior college. Frequently, high school students, as well as college students, can attend these courses. These institutions typically offer a diverse range of subjects, allowing you to delve into areas that intrigue you. It's an excellent method to determine if delving deeper into a preferred subject boosts your excitement or leaves you feeling disinterested. This can assist you in not only pinpointing your true passions but also determining what you're prepared to dedicate yourself to. Best of luck!
+
+---
+
+## 34
+
+**How do you find opportunities for what you’re passionate about?**
+
+How can I find and get involved with volunteer organizations and research programs near me or virtually? How do you find a career you are passionate about?
+
+**Answer**
+
+I normally check some of the public institutions.
+
+Organizations like libraries and the court system offer opportunities for volunteerism. I worked in housing justice projects, and there are always openings in public defenders organizations, parks and recreation, YMCA's, and local food banks. 
+
+Basically try to find something that you love to do so much, that even if they did not pay you to do it, you would still come every day and work the opportunity anyway. A deep love and passion for what you are doing in life.
+
+---
+
+## 35
+
+**How can I contact professionals to shadow/interview?**
+
+I'm a 2nd year bio student and I'm still trying to figure out what I want to pursue. I've been thinking about becoming a physician assistant or medical social worker, but I want to learn more about it before deciding. I volunteer at the hospital rn, but I don't get to interact w any professionals (just the hospitality personnel) I'm not sure how to reach out or who to ask to learn more about their experiences
+#fall2024
+
+**Answer**
+
+Hi Dana, 
+If you work at a hospital with the professions that you are interested in, then speak with your HR department about setting up a day. They might offer you some information or a timeframe for you to meet and ask questions with someone who might have some availability. Otherwise, you would have to go through your school to give out forms and waivers to sign during extern/ internships.
+
+---
+
+## 36
+
+**What is important on a resume?**
+
+I was wondering what are important things to be put on resumes and what things don't matter
+ #resume #job-application
+
+**Answer**
+
+Hi Aiden,
+
+This is a great question and like my peers have mentioned, the content depends on your experience, as your resume in its very nature will become a living document.  With that said, here are a few key points that helped me throughout my career, and should hopefully assist in yours equally:
+
+- Skills and competency : Make sure your skills are matched to the requirements of the position.  Understand that many positions have a "basic requirements" section.  Remember to target those basic requirements, otherwise the application could be skipped by a recruiter.  Also, focus on your achievements as actionable items, meaning, what did you do and what was the result.
+
+- Education : Extremely important
+
+- Objectives : Catered specifically to the job, speaks to what differentiates you to other applicants, ie. why are you the best candidate for the job.
+
+Besides these sections, something that is extremely important is avoiding grammatical errors, tense inconsistency (past vs present), and keep it to hopefully within one page, max of 2.
+
+Best of luck!
+
+---
+
