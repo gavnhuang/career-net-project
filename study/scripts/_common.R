@@ -12,6 +12,7 @@ for (f in sort(list.files("study/R", pattern = "\\.R$", full.names = TRUE))) sou
 
 start_run <- function(script_no) {
   args <- commandArgs(trailingOnly = TRUE)
+  args <- args[!startsWith(args, "--")]     # --name=value options are read by the script itself
   config_path <- if (length(args)) args[1] else "study/config/study_config.yml"
   cfg <- load_config(config_path)
   for (d in cfg$paths) dir.create(d, recursive = TRUE, showWarnings = FALSE)
@@ -27,6 +28,13 @@ write_outputs <- function(df, dir, name, rds = TRUE) {
   rds_path <- file.path(dir, paste0(name, ".rds"))
   saveRDS(df, rds_path)
   c(csv, rds_path)
+}
+
+# Value of a --name=value command-line option, or NULL.
+cli_option <- function(name) {
+  args <- commandArgs(trailingOnly = TRUE)
+  hit <- args[startsWith(args, paste0("--", name, "="))]
+  if (length(hit)) sub(paste0("^--", name, "="), "", hit[1]) else NULL
 }
 
 read_ids <- function(path) {

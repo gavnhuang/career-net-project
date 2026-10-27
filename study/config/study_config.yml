@@ -47,13 +47,15 @@ filters:
   answer_min_words: 40        # b. answer word count, inclusive
   answer_max_words: 600
   question_min_words: 10      # c. title + body word count, inclusive
-  # e. exclusion rule 1: prompts written by CareerVillage, not by a real asker.
+  # unclear_goal is NOT a filter (D87): "Unclear Goal" questions stay in the frame.
+  # d. exclusion rule 1: prompts written by CareerVillage, not by a real asker.
   #    Matched case-insensitively against title + body with HTML stripped.
   platform_prompt_pattern: 'Note:\s*(We''ve seen a lot of interest in this career|Given the growing interest in the|this (question )?is part of (our|the) professionals series)'
-# Counts that steps all, a, b, c, d, e, f must reproduce exactly (g, manual exclusions, may lower the last).
+# Counts that steps all, a, b, c, d (rule 1), e (anchor check), f (manual exclusions) must
+# reproduce exactly; 01 stops otherwise.
 expected_attrition:
-  questions: [3000, 764, 725, 707, 694, 694, 681]
-  answers: [7984, 1496, 1338, 1301, 1275, 1275, 1252]
+  questions: [3000, 764, 725, 707, 707, 694, 694]
+  answers: [7984, 1496, 1338, 1301, 1301, 1278, 1278]
 
 # ---- Step 2: reading sample --------------------------------------------------
 reading_sample_n: 45
@@ -66,7 +68,9 @@ reserved_sets:
   - {name: gold_candidates, size: 20, n_human: 10, n_ai: 10}
 
 # ---- Step 4: study draw ------------------------------------------------------
-study_n: 90
+# D88: draw 100; the study uses the first k in draw order (k, expected 90, set after the
+# pilot and the rater headcount; see select_first_k()).
+study_n: 100
 floor: 3
 inclusion_reps: 10000
 target_words_tolerance: 0.20
@@ -93,8 +97,8 @@ closing_pleasantries:
   - "wishing you all the best"
   - "wishing you the best of luck"
 
-# Fixed by name; not recomputed from the data. Chosen by the rule "30+ eligible
-# questions (10 x floor) in the frame". First Job Navigation (29) is not guaranteed.
+# Fixed by name; chosen by the rule "30+ eligible questions (10 x floor) in the frame".
+# 01 stops if the rule no longer gives exactly this set. First Job Navigation has exactly 30.
 guaranteed_labels:
   - "Industry-Specific Knowledge and Trends"
   - "Career Decision-Making, Transitioning, and Exploration Resources"
@@ -104,7 +108,8 @@ guaranteed_labels:
   - "Resume/CV/LinkedIn Optimization and Personal Branding"
   - "Networking and Mentorship"
   - "Skill Development"
-guaranteed_rule_multiplier: 10   # informational: reports check labels with >= multiplier x floor questions
+  - "First Job Navigation"
+guaranteed_rule_multiplier: 10   # 01 checks guaranteed_labels == labels with >= multiplier x floor questions
 
 # The full CareerNet scenario label vocabulary (18). Any other label in the data is an error.
 scenario_labels:
@@ -129,22 +134,22 @@ scenario_labels:
 
 # ---- Frozen frame -------------------------------------------------------------
 # Written by study/scripts/freeze_frame.R. While frozen is true, 01 and 03 refuse to
-# run and 04/05 stop if any checksum differs. Unfreeze only by setting frozen: false
-# by hand.
+# run and 04/05/06 stop if any checksum differs. Unfreeze only with
+# study/scripts/unfreeze_frame.R --decision=<id> --approval="...", which logs it.
 frozen: true
-frozen_at: "2026-10-27T13:36:50-0700"
+frozen_at: "2026-10-27T14:54:50-0700"
 frozen_checksums:
-  "study/data/01_frame/frame_questions.csv": "87b843a48fe91d1150a01489d5072805"
-  "study/data/01_frame/frame_questions.rds": "9379bbcb92b6fb985a2294aada16ead8"
-  "study/data/01_frame/frame_answers.csv": "f6dbd466348287c4d1044967f78377cc"
-  "study/data/01_frame/frame_answers.rds": "167f2e293fcc4f8ef1cb86e43d3e39b0"
-  "study/data/02_reserved/pilot.csv": "74ece3f5be499dc60a42f72abc1ecd91"
-  "study/data/02_reserved/pilot.rds": "da5c6b8aa4e07ca1bfdf66923fb47c60"
-  "study/data/02_reserved/warmups.csv": "b61470a4568aa79421130d2bceaf9e22"
-  "study/data/02_reserved/warmups.rds": "e6ba1cdef595033459f49f09b1660637"
-  "study/data/02_reserved/calibration.csv": "ce90dfcb0a0cc4f9f5c5b1f483cfe8a9"
-  "study/data/02_reserved/calibration.rds": "7e2040d29c85472507ac2ce1c3e2bf4b"
-  "study/data/02_reserved/gold_candidates.csv": "59320be5e0a816cc90815c6b933ce549"
-  "study/data/02_reserved/gold_candidates.rds": "d2cbf34910756fe3776af2e4ff73fbc9"
-  "study/data/02_reserved/frame_remaining.csv": "e9dd11799321b3f674a99ad4b6ab167c"
-  "study/data/02_reserved/frame_remaining.rds": "b31661b0bd5f565526495dd311d9afbb"
+  "study/data/01_frame/frame_questions.csv": "f6f246f85390a303028796a0eaa67574"
+  "study/data/01_frame/frame_questions.rds": "0d5c7dc049e020d1deb2a18e23133370"
+  "study/data/01_frame/frame_answers.csv": "dd320689e534136176abe5b232cb6c84"
+  "study/data/01_frame/frame_answers.rds": "8c3d249279de9f7114f11000f98d7a18"
+  "study/data/02_reserved/pilot.csv": "7061e4ff7ad381706797788c1bf03fb8"
+  "study/data/02_reserved/pilot.rds": "24f7915b4cc8d76d5a51e808d8cca378"
+  "study/data/02_reserved/warmups.csv": "43c5c6afd6b1060387a1095cc21be10e"
+  "study/data/02_reserved/warmups.rds": "e50d1b42df6285e9e416a342528fbf4f"
+  "study/data/02_reserved/calibration.csv": "85a74ecdcf7c9f708e805ed2fd030644"
+  "study/data/02_reserved/calibration.rds": "e9fe8ead608a1a954e340f357c61cfba"
+  "study/data/02_reserved/gold_candidates.csv": "1cec52fa7bac05bc150eb2438cd4241b"
+  "study/data/02_reserved/gold_candidates.rds": "d4ed8b46940979bdb4312f17241dc66c"
+  "study/data/02_reserved/frame_remaining.csv": "581348395cd7e621a7232143897a5fea"
+  "study/data/02_reserved/frame_remaining.rds": "bebd69b3de25647eb92b36c204d89987"

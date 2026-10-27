@@ -8,7 +8,7 @@ test_that("reserved sets have the configured sizes and splits, and do not overla
   checks <- check_reserved_sets(res$sets, CFG$reserved_sets, real_frame()$frame_questions, anchor_ids())
   expect_true(all(checks$passed))
   expect_equal(nrow(res$sets), 57L)
-  expect_equal(length(res$remaining), 681L - 57L)
+  expect_equal(length(res$remaining), 694L - 57L)
   expect_length(intersect(res$remaining, res$sets$question_id), 0)
 })
 
@@ -24,8 +24,15 @@ for (n in c(90, 100)) {
     sel <- fr[match(draw$question_id, fr$question_id), ]
     per_label <- map_int(label_column_names(CFG$guaranteed_labels), ~ sum(sel[[.x]]))
     expect_true(all(per_label >= CFG$floor))
-    expect_true(all(draw$selection_stage[draw$selection_stage == "floor"] == "floor"))
     expect_true(all(is.na(draw$floor_label) == (draw$selection_stage == "random_fill")))
+    # Every floor-stage question comes before any random-fill question, and the floor block alone
+    # meets every floor.
+    n_block <- sum(draw$selection_stage == "floor")
+    expect_equal(draw$selection_stage, rep(c("floor", "random_fill"), c(n_block, n - n_block)))
+    expect_equal(draw$floor_block, draw$selection_stage == "floor")
+    expect_equal(floor_block_size(draw), n_block)
+    block <- sel[draw$floor_block, ]
+    expect_true(all(map_int(label_column_names(CFG$guaranteed_labels), ~ sum(block[[.x]])) >= CFG$floor))
 
     fa <- real_frame()$frame_answers
     answers <- pick_human_answer(fa, derive_seed(CFG$master_seed, "human_answer"))
@@ -94,4 +101,40 @@ test_that("estimated inclusion probabilities sum to n and favour rare labels", {
   w <- inclusion_weights(c(0.5, 0.25, 0.1))
   expect_equal(mean(w), 1)
   expect_error(inclusion_weights(c(0.5, 0)), "increase inclusion_reps")
+})
+
+test_that("the first k of a draw are the draw n = k gives with the same seed", {
+  skip_if_no_data()
+  big <- study_draw(100, 11)
+  for (k in c(60, 90)) expect_identical(select_first_k(big, k), study_draw(k, 11)[names(big)])
+})
+
+test_that("select_first_k keeps the floor for any k >= the floor block and refuses a smaller k", {
+  skip_if_no_data()
+  draw <- study_draw(100)
+  fr <- real_remaining()
+  n_block <- floor_block_size(draw)
+  for (k in c(n_block, 90, 100)) {
+    first <- select_first_k(draw, k)
+    expect_equal(nrow(first), k)
+    expect_equal(first$draw_order, seq_len(k))
+    sel <- fr[match(first$question_id, fr$question_id), ]
+    expect_true(all(map_int(label_column_names(CFG$guaranteed_labels), ~ sum(sel[[.x]])) >= CFG$floor))
+  }
+  expect_error(select_first_k(draw, n_block - 1), glue("smaller than the {n_block} floor-stage questions"))
+  expect_error(select_first_k(draw, 101), "exceeds the sample size")
+  expect_error(select_first_k(draw, 90.5), "whole number")
+  # Row order of the input does not matter.
+  expect_identical(select_first_k(draw[rev(seq_len(nrow(draw))), ], 90), select_first_k(draw, 90))
+})
+
+test_that("select_first_k refuses a sample whose floor block is not at the start", {
+  d <- tibble::tibble(question_id = as.character(1:5), draw_order = 1:5,
+                      floor_block = c(TRUE, TRUE, FALSE, TRUE, FALSE))
+  expect_error(select_first_k(d, 4), "not the start of the draw order")
+  d$draw_order <- c(1L, 2L, 3L, 4L, 6L)
+  expect_error(select_first_k(d, 4), "draw_order is not 1..5")
+  ok <- tibble::tibble(question_id = as.character(1:5), draw_order = 1:5, floor_block = c(TRUE, TRUE, FALSE, FALSE, FALSE))
+  expect_error(select_first_k(ok, 1), "smaller than the 2 floor-stage questions")
+  expect_equal(select_first_k(ok, 2)$question_id, c("1", "2"))
 })

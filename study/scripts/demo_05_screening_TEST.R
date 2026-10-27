@@ -36,7 +36,7 @@ cols <- label_column_names(cfg$guaranteed_labels)
 counts <- colSums(as.matrix(sample[cols]))
 fr <- readRDS(file.path(cfg$paths$reserved_dir, "frame_remaining.rds"))
 queues <- readRDS(file.path(dry_dir, "replacement_queues_DRY_RUN.rds"))
-draw <- sample[c("question_id", "draw_order", "selection_stage", "floor_label")]
+draw <- sample[c("question_id", "draw_order", "selection_stage", "floor_block", "floor_label")]
 sheet_with <- function(ex) {
   s <- make_screening_sheet(sample)
   s$rule2 <- ifelse(s$question_id %in% ex, "TRUE", "FALSE"); s$rule3 <- "FALSE"; s$rule4 <- "FALSE"
@@ -48,15 +48,17 @@ if (pattern == "floor") {
   fake <- sample$question_id[order(sample$draw_order)][sample[[rarest]][order(sample$draw_order)] == 1L][1:3]
   cat("FAKE pattern: exclude the first 3 of", counts[[rarest]], "questions carrying", rarest, "\n")
 } else {
-  # For a question q carrying two guaranteed labels: keep just enough other carriers that each label
-  # sits exactly at the floor when q is processed, exclude every other carrier drawn before q, then q.
+  # For a floor-block question q carrying two guaranteed labels: keep just enough other carriers in
+  # the floor block that each label sits exactly at the floor when q is processed, exclude every
+  # other carrier drawn before q, then q. (The floor is checked within the floor block.)
   fake <- NULL
+  block <- sample[sample$floor_block, ]
   for (i in seq_along(cols)) for (j in seq_along(cols)) if (i < j) {
     pair <- cols[c(i, j)]
-    both <- sample$question_id[sample[[pair[1]]] == 1L & sample[[pair[2]]] == 1L]
+    both <- block$question_id[block[[pair[1]]] == 1L & block[[pair[2]]] == 1L]
     for (q in both) {
-      qo <- sample$draw_order[sample$question_id == q]
-      carriers <- sample[(sample[[pair[1]]] == 1L | sample[[pair[2]]] == 1L) & sample$question_id != q, ]
+      qo <- block$draw_order[block$question_id == q]
+      carriers <- block[(block[[pair[1]]] == 1L | block[[pair[2]]] == 1L) & block$question_id != q, ]
       kept <- colSums(as.matrix(carriers[carriers$draw_order > qo, pair]))
       before <- carriers[carriers$draw_order < qo, ]
       before <- before[order(-before$draw_order), ]

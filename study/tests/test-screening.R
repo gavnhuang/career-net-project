@@ -59,6 +59,12 @@ test_that("a floor-protecting exclusion is replaced from that label's queue, any
   expect_equal(log$replaced_by[log$question_id == a_in[1]], q$question_id[q$queue == "A"][1])
   expect_equal(log$replacement_queue[log$question_id == other], "general")
   sel <- res$selection
+  # Replacements take the excluded question's position (and block); draw order stays 1..n.
+  pos <- function(id, x) x$draw_order[match(id, x$question_id)]
+  expect_equal(pos(log$replaced_by, sel), pos(log$question_id, d))
+  expect_equal(sel$floor_block[match(log$replaced_by, sel$question_id)], d$floor_block[match(log$question_id, d$question_id)])
+  expect_equal(sel$draw_order, 1:10)
+  expect_equal(floor_block_size(sel), floor_block_size(d))
   expect_equal(nrow(sel), 10)
   expect_false(anyDuplicated(sel$question_id) > 0)
   expect_false(any(sel$question_id %in% excluded))
@@ -81,10 +87,30 @@ test_that("several dropping labels: the rarest label's queue first, then a floor
   res <- replay_screening(d, list(filled_sheet(d$question_id, "1")), q, fr, c("A", "B"), 3)
   expect_equal(res$log$reason, c("excluded", "floor_swap"))
   expect_equal(res$log$replacement_queue, c("A", "B"))         # A (9 in frame) is rarer than B
-  expect_equal(res$log$question_id[2], "19")                    # most recently drawn random_fill
+  expect_equal(res$log$question_id[2], "19")                    # last outside the floor block
+  sel <- res$selection
+  expect_equal(sel$question_id, c(res$log$replaced_by[1], "2", "3", res$log$replaced_by[2], as.character(13:18)))
+  expect_equal(sel$draw_order, 1:10)
+  expect_equal(floor_block_size(sel), 4)                         # the swapped-in B question joins the block
+  expect_equal(res$log$draw_order, c(1L, 10L))
 })
 
-# n = 90: one exclusion drops two guaranteed labels below the floor at once.
+test_that("an exclusion outside the floor block uses the general queue, even when it carries a guaranteed label", {
+  fr <- screen_frame()
+  d <- tibble::tibble(question_id = as.character(c(1, 2, 3, 4, 5, 6, 21, 13:15)), draw_order = 1:10,
+                      selection_stage = c(rep("floor", 6), rep("random_fill", 4)),
+                      floor_label = c(rep("A", 3), rep("B", 3), rep(NA, 4)))
+  q <- make_replacement_queues(fr, d$question_id, c("A", "B"), 3)
+  res <- replay_screening(d, list(filled_sheet(d$question_id, "21")), q, fr, c("A", "B"), 3)
+  expect_equal(res$log$replacement_queue, "general")             # 21 carries A but sits at position 7
+  expect_equal(res$selection$draw_order[res$selection$question_id == res$log$replaced_by], 7L)
+  # In the block, the same label triggers that label's queue.
+  res2 <- replay_screening(d, list(filled_sheet(d$question_id, "2")), q, fr, c("A", "B"), 3)
+  expect_equal(res2$log$replacement_queue, "A")
+  expect_equal(res2$selection$draw_order[res2$selection$question_id == res2$log$replaced_by], 2L)
+})
+
+# n = 90: one exclusion drops two guaranteed labels below the floor (within the floor block) at once.
 two_label_setting <- function() {
   ids <- as.character(1:300)
   fr <- tibble::tibble(question_id = ids, question_title = "t", question_text_display = "x",
@@ -113,6 +139,13 @@ test_that("a two-label drop keeps n = 90, meets both floors and is reproducible"
   expect_true(res$log$replaced_by[1] %in% as.character(4:10))   # A-only replacement
   expect_true(res$log$replaced_by[2] %in% as.character(101:140))
   expect_false(any(sel$question_id %in% c("2", "237")))
+  # The A replacement keeps position 2; the B question joins the floor block at position 4.
+  expect_equal(sel$question_id[c(2, 4)], res$log$replaced_by)
+  expect_equal(floor_block_size(sel), 4)
+  expect_equal(sel$question_id[5:90], as.character(151:236))
+  first4 <- st$fr[match(select_first_k(sel, 4)$question_id, st$fr$question_id), ]
+  expect_gte(sum(first4$label_a), 3)
+  expect_gte(sum(first4$label_b), 3)
   expect_setequal(res$next_ids, res$log$replaced_by)            # swapped-in questions are screened next round
   expect_identical(res, run())
   # Round 2 clear: finished with n = 90.
@@ -122,24 +155,30 @@ test_that("a two-label drop keeps n = 90, meets both floors and is reproducible"
   expect_equal(nrow(res2$selection), 90)
 })
 
-test_that("the floor swap stops loudly only when no random_fill question can be swapped out", {
+test_that("the floor swap stops loudly only when nothing outside the floor block can be swapped out", {
   st <- two_label_setting()
   d <- st$d
-  d$selection_stage[4:90] <- "replacement"                      # no random_fill questions left
+  d$selection_stage[4:90] <- "floor"                             # the whole draw is the floor block
   expect_error(replay_screening(d, list(filled_sheet(d$question_id, "2")), st$q, st$fr, c("A", "B"), 3),
-               "no random_fill question can be swapped out")
+               "no question outside the floor block can be swapped out")
 })
 
 test_that("replacements never duplicate, and never use reserved or anchor items", {
   skip_if_no_data()
   fr <- real_remaining()
-  d <- draw_coverage_floor(fr, CFG$guaranteed_labels, CFG$floor, 90, 11)
+  d <- draw_coverage_floor(fr, CFG$guaranteed_labels, CFG$floor, 100, 11)
   q <- make_replacement_queues(fr, d$question_id, CFG$guaranteed_labels, 11)
   expect_false(any(q$question_id %in% c(real_reserved()$sets$question_id, anchor_ids(), d$question_id)))
-  excluded <- d$question_id[c(1, 2, 3, 20, 50, 89)]
+  excluded <- d$question_id[c(1, 2, 3, 20, 50, 89, 100)]
   res <- replay_screening(d, list(filled_sheet(d$question_id, excluded, "rule4")), q, fr, CFG$guaranteed_labels, CFG$floor)
   sel <- res$selection
-  expect_equal(nrow(sel), 90)
+  expect_equal(nrow(sel), 100)
+  expect_equal(sel$draw_order, 1:100)
+  block <- fr[match(sel$question_id[sel$floor_block], fr$question_id), ]
+  expect_true(all(purrr::map_int(label_column_names(CFG$guaranteed_labels), ~ sum(block[[.x]])) >= CFG$floor))
+  if (!any(res$log$reason == "floor_swap")) {
+    expect_equal(sel$draw_order[match(res$log$replaced_by, sel$question_id)], c(1, 2, 3, 20, 50, 89, 100))
+  }
   expect_false(anyDuplicated(sel$question_id) > 0)
   expect_false(any(sel$question_id %in% c(excluded, real_reserved()$sets$question_id, anchor_ids())))
   per_label <- purrr::map_int(label_column_names(CFG$guaranteed_labels), ~ sum(fr[[.x]][match(sel$question_id, fr$question_id)]))

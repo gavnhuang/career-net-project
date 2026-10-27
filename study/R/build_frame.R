@@ -5,12 +5,12 @@ ATTRITION_RULES <- c(
   a = "Answer posted on or after {answer_date_min} and before {answer_date_max_exclusive} (UTC)",
   b = "Answer {answer_min_words}-{answer_max_words} words",
   c = "Question (title + body) {question_min_words}+ words",
-  d = "unclear_goal missing",
-  e = "Exclusion rule 1: platform-written prompts removed",
-  f = "Anchor check questions removed",
-  g = "Manual exclusions (study/config/exclusions.csv) removed"
+  d = "Exclusion rule 1: platform-written prompts removed",
+  e = "Anchor check questions removed",
+  f = "Manual exclusions (study/config/exclusions.csv) removed"
 )
-ATTRITION_CHECKED_STEPS <- c("all", "a", "b", "c", "d", "e", "f")
+# unclear_goal is not a filter (D87); it is kept as a descriptive column.
+ATTRITION_CHECKED_STEPS <- names(ATTRITION_RULES)
 
 # Exclusion rule 1: TRUE where title + body (HTML stripped) matches the platform-prompt pattern.
 is_platform_prompt <- function(title, body, pattern) {
@@ -38,10 +38,9 @@ eligibility_attrition <- function(raw, filters, anchor_ids = character(), exclus
   keep$a <- keep$all & !is.na(answer_dt) & answer_dt >= window[["min"]] & answer_dt < window[["max_exclusive"]]
   keep$b <- keep$a & answer_words >= filters$answer_min_words & answer_words <= filters$answer_max_words
   keep$c <- keep$b & question_words >= filters$question_min_words
-  keep$d <- keep$c & is_missing(raw$unclear_goal)
-  keep$e <- keep$d & !platform_prompt
-  keep$f <- keep$e & !(raw$question_id %in% anchor_ids)
-  keep$g <- keep$f & !(raw$question_id %in% exclusion_ids)
+  keep$d <- keep$c & !platform_prompt
+  keep$e <- keep$d & !(raw$question_id %in% anchor_ids)
+  keep$f <- keep$e & !(raw$question_id %in% exclusion_ids)
 
   attrition <- tibble::tibble(
     step = names(keep),
@@ -49,11 +48,11 @@ eligibility_attrition <- function(raw, filters, anchor_ids = character(), exclus
     n_questions = unname(purrr::map_int(keep, ~ dplyr::n_distinct(raw$question_id[.x]))),
     n_answers = unname(purrr::map_int(keep, sum))
   )
-  list(keep = keep$g, masks = keep, attrition = attrition, answer_dt = answer_dt, answer_words = answer_words,
+  list(keep = keep$f, masks = keep, attrition = attrition, answer_dt = answer_dt, answer_words = answer_words,
        question_words = question_words, platform_prompt = platform_prompt)
 }
 
-# Stops unless steps all, a, ..., f reproduce the expected question and answer counts exactly.
+# Stops unless every step (all, a, ..., f) reproduces the expected question and answer counts exactly.
 check_attrition <- function(attrition, expected) {
   steps <- ATTRITION_CHECKED_STEPS
   for (what in c("questions", "answers")) {
@@ -75,8 +74,8 @@ build_frame <- function(raw, filters, anchor_ids, exclusion_ids, all_labels, gua
   attrition <- elig$attrition
   if (!is.null(expected_attrition)) {
     check_attrition(attrition, expected_attrition)
-    attrition$expected_questions <- c(expected_attrition$questions, NA_integer_)
-    attrition$expected_answers <- c(expected_attrition$answers, NA_integer_)
+    attrition$expected_questions <- expected_attrition$questions
+    attrition$expected_answers <- expected_attrition$answers
   }
 
   d <- raw[elig$keep, ]

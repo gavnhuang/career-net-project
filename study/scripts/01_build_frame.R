@@ -11,6 +11,15 @@ exclusion_ids <- read_ids(cfg$inputs$manual_exclusions)
 frame <- build_frame(raw, cfg$filters, anchor_ids, exclusion_ids, cfg$scenario_labels, cfg$guaranteed_labels,
                      expected_attrition = cfg$expected_attrition, closing_pleasantries = cfg$closing_pleasantries)
 
+# The configured guaranteed labels must be exactly those meeting the rule in this frame.
+label_n <- purrr::map_int(label_column_names(cfg$scenario_labels), ~ sum(frame$frame_questions[[.x]]))
+rule_threshold <- (cfg$guaranteed_rule_multiplier %||% 10) * cfg$floor
+by_rule <- cfg$scenario_labels[label_n >= rule_threshold]
+if (!setequal(by_rule, cfg$guaranteed_labels)) {
+  stop("guaranteed_labels does not match the rule (", rule_threshold, "+ frame questions). By rule: ",
+       paste0(by_rule, collapse = "; "), ". Config: ", paste0(cfg$guaranteed_labels, collapse = "; "), call. = FALSE)
+}
+
 outputs <- c(
   write_outputs(frame$frame_questions, cfg$paths$frame_dir, "frame_questions"),
   write_outputs(frame$frame_answers, cfg$paths$frame_dir, "frame_answers"),
@@ -22,9 +31,6 @@ outputs <- c(
 full_prompt <- is_platform_prompt(raw$question_title, raw$question_body, cfg$filters$platform_prompt_pattern)
 fq <- frame$frame_questions
 fa <- frame$frame_answers
-label_n <- purrr::map_int(label_column_names(cfg$scenario_labels), ~ sum(fq[[.x]]))
-rule_threshold <- (cfg$guaranteed_rule_multiplier %||% 10) * cfg$floor
-by_rule <- cfg$scenario_labels[label_n >= rule_threshold]
 n_open <- sum(frame$display_edits$part == "opening")
 n_close <- sum(frame$display_edits$part == "closing")
 n_list <- sum(frame$display_edits$part == "list_marker")
@@ -49,9 +55,12 @@ writeLines(c(
   "## Exclusion rule 1: platform-written prompts", "",
   glue("Pattern (case-insensitive, title + body with HTML stripped): `{cfg$filters$platform_prompt_pattern}`"), "",
   glue("- Matches in the full release: {n_distinct(raw$question_id[full_prompt])} questions"),
-  glue("- Removed at step e (still present after steps a-d): ",
-       "{with(frame$attrition, n_questions[step == 'd'] - n_questions[step == 'e'])} questions. ",
+  glue("- Removed at step d (still present after steps a-c): ",
+       "{with(frame$attrition, n_questions[step == 'c'] - n_questions[step == 'd'])} questions. ",
        "The date window already removes all of them; the rule stays as a safeguard."), "",
+  "## unclear_goal (descriptive, not a filter)", "",
+  glue("Frame questions with CareerNet's \"Unclear Goal\" flag: {sum(!is.na(fq$unclear_goal))} of {nrow(fq)}. ",
+       "They stay in the frame (D87)."), "",
   "## Display text", "",
   glue("- Answers with an opening salutation removed: {n_open} of {nrow(fa)}"),
   glue("- Answers with a closing sign-off, signature or pleasantry removed: {n_close} of {nrow(fa)}"),

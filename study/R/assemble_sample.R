@@ -1,11 +1,11 @@
 # Build the output rows (study sample or a reserved set), one per question, in the
 # documented column order. Extra input columns are appended unchanged.
 
-DRAW_COLUMNS <- c("question_id", "set", "draw_order", "selection_stage", "floor_label", "inclusion_prob",
+DRAW_COLUMNS <- c("question_id", "set", "draw_order", "selection_stage", "floor_block", "floor_label", "inclusion_prob",
                   "weight", "planned_version", "seed", "run_id", "frame_version")
 
-# selection: question_id, set, draw_order, selection_stage, floor_label, inclusion_prob, weight,
-#            planned_version (NA for the study sample)
+# selection: question_id, set, draw_order, selection_stage, floor_block (NA for reserved sets),
+#            floor_label, inclusion_prob, weight, planned_version (NA for the study sample)
 # chosen_answers: output of pick_human_answer()
 assemble_sample <- function(selection, frame_questions, chosen_answers, seed, run_id, frame_version,
                             tolerance) {
@@ -15,6 +15,7 @@ assemble_sample <- function(selection, frame_questions, chosen_answers, seed, ru
 
   draw <- selection
   if (!"planned_version" %in% names(draw)) draw$planned_version <- NA_character_
+  if (!"floor_block" %in% names(draw)) draw$floor_block <- NA
   draw$floor_label <- as.character(draw$floor_label)
   draw$seed <- as.integer(seed)
   draw$run_id <- run_id

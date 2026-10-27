@@ -51,6 +51,7 @@ sample <- assemble_sample(selection, fr, answers, draw_seed, run_id, cfg$frame_v
 
 checks <- check_sample(sample, fr, fa, anchor_ids, reserved_ids, cfg$guaranteed_labels, cfg$floor, n)
 stop_on_failed_checks(checks)
+n_floor_block <- floor_block_size(sample)
 
 queues <- make_replacement_queues(fr, sample$question_id, cfg$guaranteed_labels, plan$seed_base)
 sheet <- make_screening_sheet(sample)
@@ -94,9 +95,15 @@ writeLines(c(
   glue("- Frame frozen: {if (isTRUE(cfg$frozen)) paste0('yes (', length(unlist(cfg$frozen_checksums)), ' checksums verified)') else 'no'}"), "",
   "## Counts at each stage", "",
   md_table(tibble(stage = c("Frame (01)", "Reserved sets (03)", "frame_remaining (sampling frame)",
-                            "Selected at the floor stage", "Selected by random fill", "Study sample"),
+                            "Selected at the floor stage (draw order 1 to the floor block size)",
+                            "Selected by random fill", "Study sample"),
                   questions = c(nrow(fq), length(reserved_ids), nrow(fr), sum(draw$selection_stage == "floor"),
                                 sum(draw$selection_stage == "random_fill"), nrow(sample)))), "",
+  "## Using the first k (D88)", "",
+  glue("**Floor-stage questions in this draw: {n_floor_block}** (draw order 1-{n_floor_block})."), "",
+  "The study uses the first k questions in draw order, where k (expected 90) is set after the pilot and the rater headcount. ",
+  "Because floor-stage questions come first, every guaranteed label keeps its floor for any k >= the number of floor-stage questions. ",
+  glue("`select_first_k(sample, k)` refuses k < {n_floor_block}. Screening replacements keep the excluded question's position."), "",
   "## Floor stage", "",
   "Labels are processed rarest first (count in frame_remaining).", "",
   md_table(order_tab), "",
@@ -109,9 +116,7 @@ writeLines(c(
        "({sum(cfg$guaranteed_labels %in% present)} of {length(cfg$guaranteed_labels)} guaranteed, ",
        "{labels_present - sum(cfg$guaranteed_labels %in% present)} not guaranteed)."), "",
   glue("Guaranteed labels are those with at least {rule_threshold} eligible questions (10 x floor) in the frame. ",
-       "Not guaranteed: {paste0(not_guaranteed$label, ' (', not_guaranteed$n, ')', collapse = ', ')}. ",
-       "First Job Navigation has {not_guaranteed$n[not_guaranteed$label == 'First Job Navigation']} eligible questions ",
-       "and is not guaranteed."), "",
+       "Not guaranteed (frame questions): {paste0(not_guaranteed$label, ' (', not_guaranteed$n, ')', collapse = ', ')}."), "",
   "## Inclusion probabilities and weights", "",
   glue("Estimated from {format(incl$reps, big.mark = ',')} re-runs of the draw ({incl$seed_rule}). ",
        "weight = 1 / inclusion_prob, normalized to mean 1 over the sample."), "",
@@ -148,8 +153,8 @@ write_run_log(file.path(cfg$paths$logs_dir, glue("{run_id}.yml")), run_id, "04_d
               input_files = c(config = run$config_path, frame_questions = fq_path, frame_answers = fa_path,
                               frame_remaining = fr_path, set_paths, anchor_exclusions = cfg$inputs$anchor_exclusions),
               frame_version = cfg$frame_version, outputs = c(outputs, report = report_path),
-              extra = list(dry_run = plan$dry_run, floor_slots_mean = mean(fs),
+              extra = list(dry_run = plan$dry_run, floor_slots_mean = mean(fs), n_floor_block = n_floor_block,
                            question_ids = sample$question_id))
 
-message(if (plan$dry_run) "DRY RUN " else "", "study sample: ", nrow(sample), " questions; mean floor slots ",
-        sprintf("%.2f", mean(fs)), ". Report: ", report_path)
+message(if (plan$dry_run) "DRY RUN " else "", "study sample: ", nrow(sample), " questions; floor-stage questions: ",
+        n_floor_block, " (mean across simulated draws ", sprintf("%.2f", mean(fs)), "). Report: ", report_path)

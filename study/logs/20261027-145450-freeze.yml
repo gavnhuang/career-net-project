@@ -1,0 +1,194 @@
+run_id: 20261027-145450-freeze
+script: freeze_frame.R
+timestamp: 2026-10-27T14:54:50-0700
+frame_version: v1.1
+seeds:
+  master_seed: 20261027
+rng_kind:
+- Mersenne-Twister
+- Inversion
+- Rejection
+input_md5:
+  config: d22c97fda73657b1f4d3bdc8d1db99bd
+  study/data/01_frame/frame_questions.csv: f6f246f85390a303028796a0eaa67574
+  study/data/01_frame/frame_questions.rds: 0d5c7dc049e020d1deb2a18e23133370
+  study/data/01_frame/frame_answers.csv: dd320689e534136176abe5b232cb6c84
+  study/data/01_frame/frame_answers.rds: 8c3d249279de9f7114f11000f98d7a18
+  study/data/02_reserved/pilot.csv: 7061e4ff7ad381706797788c1bf03fb8
+  study/data/02_reserved/pilot.rds: 24f7915b4cc8d76d5a51e808d8cca378
+  study/data/02_reserved/warmups.csv: 43c5c6afd6b1060387a1095cc21be10e
+  study/data/02_reserved/warmups.rds: e50d1b42df6285e9e416a342528fbf4f
+  study/data/02_reserved/calibration.csv: 85a74ecdcf7c9f708e805ed2fd030644
+  study/data/02_reserved/calibration.rds: e9fe8ead608a1a954e340f357c61cfba
+  study/data/02_reserved/gold_candidates.csv: 1cec52fa7bac05bc150eb2438cd4241b
+  study/data/02_reserved/gold_candidates.rds: d4ed8b46940979bdb4312f17241dc66c
+  study/data/02_reserved/frame_remaining.csv: 581348395cd7e621a7232143897a5fea
+  study/data/02_reserved/frame_remaining.rds: bebd69b3de25647eb92b36c204d89987
+outputs:
+- study/config/study_config.yml
+r_version: R version 4.5.1 (2025-06-13)
+platform: aarch64-apple-darwin20
+packages:
+  readr: 2.1.5
+  dplyr: 1.2.1
+  tidyr: 1.3.2
+  stringr: 1.5.2
+  purrr: 1.2.2
+  lubridate: 1.9.5
+  yaml: 2.3.10
+  xml2: 1.5.2
+  digest: 0.6.37
+  glue: 1.8.0
+  testthat: 3.3.2
+git:
+  commit: ea70b8b75125b861a93b837e250e7c07a12c5057
+  uncommitted_changes: yes
+  scope: study
+frozen_at: 2026-10-27T14:54:50-0700
+frozen_checksums:
+  study/data/01_frame/frame_questions.csv: f6f246f85390a303028796a0eaa67574
+  study/data/01_frame/frame_questions.rds: 0d5c7dc049e020d1deb2a18e23133370
+  study/data/01_frame/frame_answers.csv: dd320689e534136176abe5b232cb6c84
+  study/data/01_frame/frame_answers.rds: 8c3d249279de9f7114f11000f98d7a18
+  study/data/02_reserved/pilot.csv: 7061e4ff7ad381706797788c1bf03fb8
+  study/data/02_reserved/pilot.rds: 24f7915b4cc8d76d5a51e808d8cca378
+  study/data/02_reserved/warmups.csv: 43c5c6afd6b1060387a1095cc21be10e
+  study/data/02_reserved/warmups.rds: e50d1b42df6285e9e416a342528fbf4f
+  study/data/02_reserved/calibration.csv: 85a74ecdcf7c9f708e805ed2fd030644
+  study/data/02_reserved/calibration.rds: e9fe8ead608a1a954e340f357c61cfba
+  study/data/02_reserved/gold_candidates.csv: 1cec52fa7bac05bc150eb2438cd4241b
+  study/data/02_reserved/gold_candidates.rds: d4ed8b46940979bdb4312f17241dc66c
+  study/data/02_reserved/frame_remaining.csv: 581348395cd7e621a7232143897a5fea
+  study/data/02_reserved/frame_remaining.rds: bebd69b3de25647eb92b36c204d89987
+config:
+  preregistration_posted: no
+  osf_url: ''
+  osf_doi: ''
+  master_seed: 20261027
+  frame_version: v1.1
+  inputs:
+    primary: ../03 CareerNet Data/Datasets/v1.1/general_public_v1.1.csv
+    previous: ../03 CareerNet Data/Datasets/general_public.csv
+    previous_version: v1.0
+    documentation: ../03 CareerNet Data/Data-Details v1.1.pdf
+    anchor_exclusions: pilot/anchor_check_key.csv
+    manual_exclusions: study/config/exclusions.csv
+  paths:
+    frame_dir: study/data/01_frame
+    reserved_dir: study/data/02_reserved
+    sample_dir: study/data/03_sample
+    reports_dir: study/reports
+    logs_dir: study/logs
+  filters:
+    answer_date_min: '2021-01-01'
+    answer_date_max_exclusive: '2023-03-01'
+    answer_min_words: 40
+    answer_max_words: 600
+    question_min_words: 10
+    platform_prompt_pattern: Note:\s*(We've seen a lot of interest in this career|Given
+      the growing interest in the|this (question )?is part of (our|the) professionals
+      series)
+  expected_attrition:
+    questions:
+    - 3000
+    - 764
+    - 725
+    - 707
+    - 707
+    - 694
+    - 694
+    answers:
+    - 7984
+    - 1496
+    - 1338
+    - 1301
+    - 1301
+    - 1278
+    - 1278
+  reading_sample_n: 45
+  reserved_sets:
+  - name: pilot
+    size: 16
+    n_human: 8
+    n_ai: 8
+  - name: warmups
+    size: 6
+    n_human: 3
+    n_ai: 3
+  - name: calibration
+    size: 15
+    n_human: 8
+    n_ai: 7
+  - name: gold_candidates
+    size: 20
+    n_human: 10
+    n_ai: 10
+  study_n: 100
+  floor: 3
+  inclusion_reps: 10000
+  target_words_tolerance: 0.2
+  closing_pleasantries:
+  - hope this helps
+  - i hope this helps
+  - hope that helps
+  - i hope that helps
+  - hope this is helpful
+  - i hope this is helpful
+  - good luck
+  - good luck to you
+  - best of luck
+  - best of luck to you
+  - all the best
+  - all the best to you
+  - all my best
+  - wishing you the best
+  - wishing you all the best
+  - wishing you the best of luck
+  guaranteed_labels:
+  - Industry-Specific Knowledge and Trends
+  - Career Decision-Making, Transitioning, and Exploration Resources
+  - College Queries
+  - Job Search Strategies and Infrastructure
+  - Work-Life Balance and Personal Values Alignment
+  - Resume/CV/LinkedIn Optimization and Personal Branding
+  - Networking and Mentorship
+  - Skill Development
+  - First Job Navigation
+  guaranteed_rule_multiplier: 10
+  scenario_labels:
+  - Industry-Specific Knowledge and Trends
+  - Career Decision-Making, Transitioning, and Exploration Resources
+  - College Queries
+  - Job Search Strategies and Infrastructure
+  - Work-Life Balance and Personal Values Alignment
+  - Resume/CV/LinkedIn Optimization and Personal Branding
+  - Skill Development
+  - Networking and Mentorship
+  - First Job Navigation
+  - Freelancing/Self-Employment/Entrepreneurship
+  - Interview Preparation
+  - Non-Degree Certifications/Credentials
+  - Workplace Dynamics
+  - International Careers
+  - Barriers, Equity, and Resource Considerations
+  - Job Offers and Negotiations
+  - Career Advancement
+  - Mid-Career Pivots
+  frozen: yes
+  frozen_at: 2026-10-27T14:54:50-0700
+  frozen_checksums:
+    study/data/01_frame/frame_questions.csv: f6f246f85390a303028796a0eaa67574
+    study/data/01_frame/frame_questions.rds: 0d5c7dc049e020d1deb2a18e23133370
+    study/data/01_frame/frame_answers.csv: dd320689e534136176abe5b232cb6c84
+    study/data/01_frame/frame_answers.rds: 8c3d249279de9f7114f11000f98d7a18
+    study/data/02_reserved/pilot.csv: 7061e4ff7ad381706797788c1bf03fb8
+    study/data/02_reserved/pilot.rds: 24f7915b4cc8d76d5a51e808d8cca378
+    study/data/02_reserved/warmups.csv: 43c5c6afd6b1060387a1095cc21be10e
+    study/data/02_reserved/warmups.rds: e50d1b42df6285e9e416a342528fbf4f
+    study/data/02_reserved/calibration.csv: 85a74ecdcf7c9f708e805ed2fd030644
+    study/data/02_reserved/calibration.rds: e9fe8ead608a1a954e340f357c61cfba
+    study/data/02_reserved/gold_candidates.csv: 1cec52fa7bac05bc150eb2438cd4241b
+    study/data/02_reserved/gold_candidates.rds: d4ed8b46940979bdb4312f17241dc66c
+    study/data/02_reserved/frame_remaining.csv: 581348395cd7e621a7232143897a5fea
+    study/data/02_reserved/frame_remaining.rds: bebd69b3de25647eb92b36c204d89987
+  config_path: study/config/study_config.yml

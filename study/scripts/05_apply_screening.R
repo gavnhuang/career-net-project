@@ -33,7 +33,7 @@ anchor_ids <- read_ids(cfg$inputs$anchor_exclusions)
 sheet_paths <- find_screening_sheets(plan$dir, plan$tag)
 if (!length(sheet_paths)) stop("No screening sheet in ", plan$dir, "; run 04 first", call. = FALSE)
 sheets <- purrr::map(sheet_paths, read_screening_sheet)
-res <- replay_screening(sample[c("question_id", "draw_order", "selection_stage", "floor_label")], sheets, queues, fr,
+res <- replay_screening(sample[c("question_id", "draw_order", "selection_stage", "floor_block", "floor_label")], sheets, queues, fr,
                         cfg$guaranteed_labels, cfg$floor)
 k <- res$rounds
 n_ex_last <- sum(res$log$round == k)
@@ -79,15 +79,17 @@ writeLines(c(
   status, "",
   "## Rules applied to drawn questions (question text only)", "",
   paste0("- **", names(SCREENING_RULES), "**: ", SCREENING_RULES), "",
-  "Replacement: in draw order, an excluded question whose removal drops a guaranteed label below the floor is replaced ",
-  "from that label's queue (rarest label first); any other from the general queue. If a guaranteed label is still below the floor ",
-  "(two labels dropped at once), the most recently drawn random_fill question whose removal drops no guaranteed label is swapped ",
-  "out for the next question in that label's queue (logged as floor_swap). Questions already selected, excluded or swapped out are skipped.", "",
+  "Replacement, in draw order: the replacement takes the excluded question's position. In the floor block (the floor-stage ",
+  "slots at the start of the draw order), an exclusion that drops a guaranteed label below the floor within the block is replaced ",
+  "from that label's queue (rarest label first); any other exclusion from the general queue. If a guaranteed label is still below ",
+  "the floor within the block (two labels dropped at once), the last question outside the block is swapped out (logged as floor_swap) ",
+  "and the next question in that label's queue joins the end of the block. Questions already selected, excluded or swapped out are skipped.", "",
   "## Exclusions so far", "",
   md_table(res$log), "",
   if (!is.null(screened)) c(
     "## Screened sample", "",
     md_table(count(screened, screening_round, selection_stage)), "",
+    glue("Floor block after screening: draw order 1-{floor_block_size(screened)}. `select_first_k()` refuses a smaller k."), "",
     "### Scenario label coverage (frame = frame_remaining)", "",
     md_table(coverage_table(fr, screened, cfg$scenario_labels, cfg$guaranteed_labels, cfg$floor)), "",
     "### Checks", "", md_table(mutate(checks, passed = ifelse(passed, "PASS", "FAIL"))), "",

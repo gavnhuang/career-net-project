@@ -11,11 +11,12 @@ test_that("read_careernet normalizes both missing-value styles", {
   expect_equal(d$question_body, c("x", NA, "y"))
 })
 
-test_that("eligibility returns 694 questions at the unclear-goal step on v1.1 and v1.0", {
+test_that("unclear_goal is missing for 694 of the 707 step-c questions on v1.1 and v1.0", {
   skip_if_no_data()
+  # unclear_goal is no longer a filter (D87), but both missing-value styles must still read as missing.
   step_d <- function(raw) {
-    a <- eligibility_attrition(raw, CFG$filters)$attrition
-    a$n_questions[a$step == "d"]
+    e <- eligibility_attrition(raw, CFG$filters)
+    dplyr::n_distinct(raw$question_id[e$masks$c & is_missing(raw$unclear_goal)])
   }
   v11 <- real_raw()
   v10 <- read_careernet(root_path(CFG$inputs$previous))

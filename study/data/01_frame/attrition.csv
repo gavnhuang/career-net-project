@@ -3,7 +3,6 @@ all,All questions in the release,3000,7984,3000,7984
 a,Answer posted on or after 2021-01-01 and before 2023-03-01 (UTC),764,1496,764,1496
 b,Answer 40-600 words,725,1338,725,1338
 c,Question (title + body) 10+ words,707,1301,707,1301
-d,unclear_goal missing,694,1275,694,1275
-e,Exclusion rule 1: platform-written prompts removed,694,1275,694,1275
-f,Anchor check questions removed,681,1252,681,1252
-g,Manual exclusions (study/config/exclusions.csv) removed,681,1252,,
+d,Exclusion rule 1: platform-written prompts removed,707,1301,707,1301
+e,Anchor check questions removed,694,1278,694,1278
+f,Manual exclusions (study/config/exclusions.csv) removed,694,1278,694,1278

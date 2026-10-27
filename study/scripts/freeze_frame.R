@@ -3,7 +3,7 @@
 source("study/scripts/_common.R")
 run <- start_run("freeze")
 cfg <- run$cfg
-if (isTRUE(cfg$frozen)) stop("Already frozen. Unfreezing requires setting frozen: false by hand.", call. = FALSE)
+if (isTRUE(cfg$frozen)) stop("Already frozen. Unfreezing requires study/scripts/unfreeze_frame.R with a decision id.", call. = FALSE)
 
 checksums <- file_checksums(frozen_file_paths(cfg))
 lines <- readLines(run$config_path)

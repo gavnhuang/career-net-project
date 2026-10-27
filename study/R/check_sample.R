@@ -22,6 +22,16 @@ check_sample <- function(sample, frame_questions, frame_answers, anchor_ids = ch
     checks <- c(checks, list(c(glue::glue("every guaranteed label has >= {floor} questions"), length(below) == 0,
                                paste(below, collapse = "; "))))
   }
+  if (!is.null(floor) && "floor_block" %in% names(sample)) {
+    n_block <- tryCatch(floor_block_size(sample), error = function(e) conditionMessage(e))
+    prefix_ok <- is.numeric(n_block)
+    block <- sample[!is.na(sample$floor_block) & sample$floor_block, ]
+    block_below <- guaranteed_labels[purrr::map_int(label_column_names(guaranteed_labels), ~ sum(block[[.x]])) < floor]
+    checks <- c(checks, list(
+      c("floor-stage questions come first in draw order", prefix_ok, if (prefix_ok) glue::glue("floor block = first {n_block}") else n_block),
+      c(glue::glue("the floor block alone gives every guaranteed label >= {floor} questions"), length(block_below) == 0,
+        paste(block_below, collapse = "; "))))
+  }
   tibble::tibble(check = purrr::map_chr(checks, 1), passed = as.logical(purrr::map_chr(checks, 2)),
                  detail = purrr::map_chr(checks, 3))
 }

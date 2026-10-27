@@ -1,20 +1,25 @@
 test_that("attrition reproduces the expected question and answer counts exactly", {
   skip_if_no_data()
   att <- real_frame()$attrition
-  expect_equal(att$step, c("all", "a", "b", "c", "d", "e", "f", "g"))
-  expect_equal(att$n_questions[1:7], c(3000L, 764L, 725L, 707L, 694L, 694L, 681L))
-  expect_equal(att$n_answers[1:7], c(7984L, 1496L, 1338L, 1301L, 1275L, 1275L, 1252L))
-  expect_equal(nrow(real_frame()$frame_questions), 681L)
-  expect_equal(nrow(real_frame()$frame_answers), 1252L)
+  expect_equal(att$step, c("all", "a", "b", "c", "d", "e", "f"))
+  expect_equal(att$n_questions, c(3000L, 764L, 725L, 707L, 707L, 694L, 694L))
+  expect_equal(att$n_answers, c(7984L, 1496L, 1338L, 1301L, 1301L, 1278L, 1278L))
+  expect_equal(att$n_questions, att$expected_questions)
+  expect_equal(nrow(real_frame()$frame_questions), 694L)
+  expect_equal(nrow(real_frame()$frame_answers), 1278L)
 })
 
 test_that("a wrong expected attrition fails loudly", {
   skip_if_no_data()
   att <- real_frame()$attrition
-  wrong_q <- modifyList(CFG$expected_attrition, list(questions = c(3000, 764, 725, 707, 694, 694, 680)))
+  wrong_q <- modifyList(CFG$expected_attrition, list(questions = c(3000, 764, 725, 707, 707, 694, 693)))
   expect_error(check_attrition(att, wrong_q), "questions\\) does not reproduce")
-  wrong_a <- modifyList(CFG$expected_attrition, list(answers = c(7984, 1496, 1338, 1301, 1275, 1275, 1251)))
+  wrong_a <- modifyList(CFG$expected_attrition, list(answers = c(7984, 1496, 1338, 1301, 1301, 1278, 1277)))
   expect_error(check_attrition(att, wrong_a), "answers\\) does not reproduce")
+  # The old D85/D86 counts (with the unclear_goal filter) no longer reproduce.
+  old <- list(questions = c(3000, 764, 725, 707, 694, 694, 681), answers = c(7984, 1496, 1338, 1301, 1275, 1275, 1252))
+  expect_error(check_attrition(att, old), "does not reproduce")
+  expect_error(check_attrition(att, list(questions = 1:6, answers = 1:6)), "needs 7 numbers")
 })
 
 test_that("rule 1 matches exactly 79 questions in the full release and spares 'asked anonymously' notes", {
@@ -49,11 +54,20 @@ test_that("the answer date window includes its start, excludes its end", {
   expect_equal(elig$masks$a, c(FALSE, TRUE, TRUE, FALSE, FALSE))
 })
 
-test_that("manual exclusions lower the final count", {
+test_that("manual exclusions lower the final count, and 01 then fails the expected counts", {
   skip_if_no_data()
   ids <- head(real_frame()$frame_questions$question_id, 2)
   att <- eligibility_attrition(real_raw(), CFG$filters, anchor_ids(), ids)$attrition
-  expect_equal(att$n_questions[att$step == "g"], 679L)
+  expect_equal(att$n_questions[att$step == "f"], 692L)
+  expect_error(check_attrition(att, CFG$expected_attrition), "questions\\) does not reproduce")
+})
+
+test_that("Unclear Goal questions stay in the frame (D87) and unclear_goal is kept as a column", {
+  skip_if_no_data()
+  fq <- real_frame()$frame_questions
+  expect_true("unclear_goal" %in% names(fq))
+  expect_equal(sum(!is.na(fq$unclear_goal)), 13L)
+  expect_false("unclear_goal missing" %in% real_frame()$attrition$rule)
 })
 
 test_that("the frame is one row per question and every answer is eligible", {
@@ -67,20 +81,20 @@ test_that("the frame is one row per question and every answer is eligible", {
   expect_true(all(fa$answer_added_at >= as.POSIXct("2021-01-01", tz = "UTC")))
   expect_true(all(fa$answer_added_at < as.POSIXct("2023-03-01", tz = "UTC")))
   expect_true(all(fq$question_word_count >= 10))
-  expect_true(all(is.na(fq$unclear_goal)))
   expect_false(any(fq$question_id %in% anchor_ids()))
   expect_equal(sum(fq$n_eligible_answers), nrow(fa))
   expect_false(any(PRIVATE_COLUMNS %in% c(names(fq), names(fa))))
   expect_true(all(fa$careernet_correctness_num %in% 1:4))
 })
 
-test_that("the 8 guaranteed labels are exactly those with 30+ frame questions", {
+test_that("the 9 guaranteed labels are exactly those with 30+ frame questions", {
   skip_if_no_data()
   fq <- real_frame()$frame_questions
   n <- purrr::map_int(label_column_names(CFG$scenario_labels), ~ sum(fq[[.x]]))
   expect_setequal(CFG$scenario_labels[n >= 10 * CFG$floor], CFG$guaranteed_labels)
-  expect_length(CFG$guaranteed_labels, 8)
-  expect_equal(n[CFG$scenario_labels == "First Job Navigation"], 29L)
+  expect_length(CFG$guaranteed_labels, 9)
+  expect_equal(n[CFG$scenario_labels == "First Job Navigation"], 30L)
+  expect_true("First Job Navigation" %in% CFG$guaranteed_labels)
 })
 
 test_that("extra input columns pass through to the answer frame", {

@@ -7,7 +7,9 @@ question_id,part,removed_text
 8675,hashtags,#college #human-resources #resume #college-applications #personal-statements #personal-objective
 12217,hashtags,#degree #skills
 15554,hashtags,#training #hands-on-experience #observational-research
+18704,hashtags,#career #career-counseling #job #student #advice
 20333,hashtags,#program #anchor #media #television #career #career-counseling
+21006,hashtags,#job-search #resume
 21100,hashtags,#relationship-management #career #career-counseling #finance
 21186,hashtags,#engineer #teaching #engineering #mechanical-engineering #science #career #career-counseling
 21288,hashtags,#bank #business #business-development #career #career-counseling
@@ -214,6 +216,7 @@ question_id,part,removed_text
 187679,hashtags,#job-search #business #career #job
 187795,hashtags,#carpentry #marketing #networking
 187932,hashtags,#college #job #career #job-search
+188127,hashtags,#career-counseling
 189467,hashtags,#economics #business #career-path
 189996,hashtags,#career-choice #career-path
 190510,hashtags,#Military #BootCamp #Army
@@ -251,6 +254,7 @@ question_id,part,removed_text
 308217,hashtags,#job #entry-level #jobs #job-search #first-job
 308941,hashtags,#jobs #job-search #job-search
 309221,hashtags,#career-path #medical-school #nurse
+310512,hashtags,#learning
 311037,hashtags,#resume #resume-building #job-applications
 311038,hashtags,#resume #resume-building #job-applications #skillset #new-job
 311044,hashtags,#resume #resume-building #job-applications #changing-industries
@@ -273,6 +277,7 @@ question_id,part,removed_text
 322498,hashtags,#career-paths #career-path
 323569,hashtags,#career-path #career-advice
 323795,hashtags,#political-science #career-advice
+324454,hashtags,#students #property #engineering #engineers #entrepreneur #networking #architecture #design #funding #investors #investing
 325122,hashtags,#job-search #first-job
 325178,hashtags,#career-counseling #career #career-development #job #highschool #writing #career-choice #stem
 329421,hashtags,#career #career-counseling #future
@@ -341,8 +346,10 @@ question_id,part,removed_text
 422636,hashtags,#technology #career-path
 424673,hashtags,#career-counseling
 426787,hashtags,#career-advice #interviewing-skills
+426790,hashtags,#career-options #career-development #career-path #career
 429454,hashtags,#career #career-paths #career-advice
 431076,hashtags,#career #career-choice #jobs #career-counseling #career-choice
+431120,hashtags,#Freshman #Career-Path #university #college-bound
 431254,hashtags,#career #math #career-options #career-choice #career-counseling
 431304,hashtags,#career-counseling #math
 432236,hashtags,#jobs #field #job-search
@@ -381,6 +388,7 @@ question_id,part,removed_text
 485881,hashtags,#information-technology #get #learning #web #self
 488473,hashtags,#travel #career-path #college
 489279,hashtags,#Food #career-path #career-choice #Chefs #Specialty-Chefs #culinary
+490767,hashtags,#career-path #nursing
 491043,hashtags,#career #teaching #any #career-counseling #psychology #technology
 494338,hashtags,#career #job #career-choice #career-counseling
 495104,hashtags,#job #interviews #job-search #interviewing-skills
@@ -422,8 +430,10 @@ question_id,part,removed_text
 512147,hashtags,#career-choice #undecided #career-path #stem #career #college
 512428,hashtags,#career-choice #career-counseling #career-path #career-paths #career
 512431,hashtags,#college-major #career #career-choice #major #career-counseling
+512490,hashtags,#business #real-estate #business-management #networking #finance #entrepreneur
 512681,hashtags,#science #political-science #i #law #job-search
 512748,hashtags,#business #networking #finance #entrepreneur #connections
+517362,hashtags,#career #job-search
 517550,hashtags,#job-search #job #jobsearch #career #career-counseling #remote #remotejobs #workfromhome #travelingjobs #travel
 517825,hashtags,#career #career-choice #career-path
 518034,hashtags,#career #career-choice #career-path #college

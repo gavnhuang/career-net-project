@@ -1,5 +1,6 @@
 # Frozen frame: once the frame and reserved sets are final, their files are checksummed in the
-# config. 01 and 03 refuse to run; 04 and 05 verify every checksum before doing anything.
+# config. 01 and 03 refuse to run; 04, 05 and 06 verify every checksum before doing anything.
+# Unfreezing goes through scripts/unfreeze_frame.R, which logs the decision and approval.
 
 # The files that define the frame and the reserved sets (csv and rds; 04/05 read the rds).
 frozen_file_paths <- function(cfg) {
@@ -33,7 +34,7 @@ verify_frozen <- function(cfg) {
 assert_not_frozen <- function(cfg, script) {
   if (isTRUE(cfg$frozen)) {
     stop(script, " would overwrite the frozen frame / reserved sets. frozen is true in the config; ",
-         "unfreezing requires setting frozen: false by hand.", call. = FALSE)
+         "unfreezing requires an approved, logged decision (study/scripts/unfreeze_frame.R).", call. = FALSE)
   }
   invisible(TRUE)
 }
