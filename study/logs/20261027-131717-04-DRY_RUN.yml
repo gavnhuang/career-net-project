@@ -1,0 +1,245 @@
+run_id: 20261027-131717-04-DRY_RUN
+script: 04_draw_study_sample.R
+timestamp: 2026-10-27T13:17:19-0700
+frame_version: v1.1
+seeds:
+  master_seed: 20261027
+  seed_base: 20261027
+  seed_base_rule: master_seed (dry run; the DOI seed is never used)
+  osf_doi: ''
+  study_draw: 146283223
+  study_draw_stage: study_draw_DRY_RUN
+  human_answer: 83215812
+  inclusion_reps: derive_seed(20261027, "inclusion_rep_<r>") for r = 1..10000
+  replacement_queues: derive_seed(seed_base, "replacement_queue_general" | "replacement_queue_<label>")
+rng_kind:
+- Mersenne-Twister
+- Inversion
+- Rejection
+input_md5:
+  config: 08c0f9c35d3cc2ec44ff536c80994da3
+  frame_questions: 9379bbcb92b6fb985a2294aada16ead8
+  frame_answers: 030d09faf7088f1b94ccf0a084ae68b5
+  frame_remaining: b31661b0bd5f565526495dd311d9afbb
+  pilot: 12ac6519e11aec1866449b47b8a10fd4
+  warmups: 0bd53da7c28234555af0a5708f51a373
+  calibration: b2e82cb6d511b8cc0ae90afd0c9355ac
+  gold_candidates: d11928b57aa900b8b3d06ba8d5819dac
+  anchor_exclusions: d0649f60d3b77ce2914efdfbf3c4ccb8
+outputs:
+- study/data/03_sample/_dry_run/study_sample_DRY_RUN.csv
+- study/data/03_sample/_dry_run/study_sample_DRY_RUN.rds
+- study/data/03_sample/_dry_run/sample_for_generation_DRY_RUN.csv
+- study/data/03_sample/_dry_run/inclusion_probs_DRY_RUN.csv
+- study/data/03_sample/_dry_run/inclusion_probs_DRY_RUN.rds
+- study/data/03_sample/_dry_run/replacement_queues_DRY_RUN.csv
+- study/data/03_sample/_dry_run/replacement_queues_DRY_RUN.rds
+- study/data/03_sample/_dry_run/screening_sheet_round1_DRY_RUN.csv
+- study/reports/04_draw_study_sample_DRY_RUN_20261027-131717-04-DRY_RUN.md
+r_version: R version 4.5.1 (2025-06-13)
+platform: aarch64-apple-darwin20
+packages:
+  readr: 2.1.5
+  dplyr: 1.2.1
+  tidyr: 1.3.2
+  stringr: 1.5.2
+  purrr: 1.2.2
+  lubridate: 1.9.5
+  yaml: 2.3.10
+  xml2: 1.5.2
+  digest: 0.6.37
+  glue: 1.8.0
+  testthat: 3.3.2
+git:
+  commit: 7e802a2ac3081ca67b96f5af91583a33a7aae8fe
+  uncommitted_changes: yes
+dry_run: yes
+floor_slots_mean: 16.3922
+question_ids:
+- '143395'
+- '48938'
+- '279799'
+- '83426'
+- '128499'
+- '283356'
+- '605155'
+- '49929'
+- '47492'
+- '43863'
+- '658699'
+- '549802'
+- '111781'
+- '118008'
+- '467487'
+- '53453'
+- '625408'
+- '311064'
+- '30646'
+- '421886'
+- '320024'
+- '510696'
+- '124003'
+- '631288'
+- '630078'
+- '27265'
+- '446061'
+- '484040'
+- '126075'
+- '283301'
+- '549312'
+- '37947'
+- '631775'
+- '655680'
+- '431304'
+- '618949'
+- '628705'
+- '78997'
+- '597379'
+- '510703'
+- '440154'
+- '84819'
+- '189996'
+- '380830'
+- '656608'
+- '626244'
+- '24257'
+- '338160'
+- '594752'
+- '308217'
+- '358404'
+- '499912'
+- '150170'
+- '83914'
+- '314468'
+- '183311'
+- '551472'
+- '603717'
+- '511862'
+- '86041'
+- '631626'
+- '461595'
+- '655391'
+- '82492'
+- '580015'
+- '634256'
+- '552188'
+- '542960'
+- '51516'
+- '125546'
+- '477468'
+- '552590'
+- '39045'
+- '351777'
+- '550543'
+- '640062'
+- '566779'
+- '636974'
+- '624058'
+- '113568'
+- '325178'
+- '83727'
+- '358349'
+- '350494'
+- '517550'
+- '395194'
+- '47479'
+- '401172'
+- '404901'
+- '555610'
+config:
+  preregistration_posted: no
+  osf_url: ''
+  osf_doi: ''
+  master_seed: 20261027
+  frame_version: v1.1
+  inputs:
+    primary: ../03 CareerNet Data/Datasets/v1.1/general_public_v1.1.csv
+    previous: ../03 CareerNet Data/Datasets/general_public.csv
+    previous_version: v1.0
+    documentation: ../03 CareerNet Data/Data-Details v1.1.pdf
+    anchor_exclusions: pilot/anchor_check_key.csv
+    manual_exclusions: study/config/exclusions.csv
+  paths:
+    frame_dir: study/data/01_frame
+    reserved_dir: study/data/02_reserved
+    sample_dir: study/data/03_sample
+    reports_dir: study/reports
+    logs_dir: study/logs
+  filters:
+    answer_date_min: '2021-01-01'
+    answer_date_max_exclusive: '2023-03-01'
+    answer_min_words: 40
+    answer_max_words: 600
+    question_min_words: 10
+    platform_prompt_pattern: Note:\s*(We've seen a lot of interest in this career|Given
+      the growing interest in the|this (question )?is part of (our|the) professionals
+      series)
+  expected_attrition:
+    questions:
+    - 3000
+    - 764
+    - 725
+    - 707
+    - 694
+    - 694
+    - 681
+    answers:
+    - 7984
+    - 1496
+    - 1338
+    - 1301
+    - 1275
+    - 1275
+    - 1252
+  reading_sample_n: 45
+  reserved_sets:
+  - name: pilot
+    size: 16
+    n_human: 8
+    n_ai: 8
+  - name: warmups
+    size: 6
+    n_human: 3
+    n_ai: 3
+  - name: calibration
+    size: 15
+    n_human: 8
+    n_ai: 7
+  - name: gold_candidates
+    size: 20
+    n_human: 10
+    n_ai: 10
+  study_n: 90
+  floor: 3
+  inclusion_reps: 10000
+  target_words_tolerance: 0.2
+  guaranteed_labels:
+  - Industry-Specific Knowledge and Trends
+  - Career Decision-Making, Transitioning, and Exploration Resources
+  - College Queries
+  - Job Search Strategies and Infrastructure
+  - Work-Life Balance and Personal Values Alignment
+  - Resume/CV/LinkedIn Optimization and Personal Branding
+  - Networking and Mentorship
+  - Skill Development
+  guaranteed_rule_multiplier: 10
+  scenario_labels:
+  - Industry-Specific Knowledge and Trends
+  - Career Decision-Making, Transitioning, and Exploration Resources
+  - College Queries
+  - Job Search Strategies and Infrastructure
+  - Work-Life Balance and Personal Values Alignment
+  - Resume/CV/LinkedIn Optimization and Personal Branding
+  - Skill Development
+  - Networking and Mentorship
+  - First Job Navigation
+  - Freelancing/Self-Employment/Entrepreneurship
+  - Interview Preparation
+  - Non-Degree Certifications/Credentials
+  - Workplace Dynamics
+  - International Careers
+  - Barriers, Equity, and Resource Considerations
+  - Job Offers and Negotiations
+  - Career Advancement
+  - Mid-Career Pivots
+  config_path: study/config/study_config.yml

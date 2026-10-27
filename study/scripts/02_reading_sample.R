@@ -30,10 +30,10 @@ items <- purrr::imap(ids, function(id, i) {
     glue("- **Scenario labels:** {coalesce(q$scenario_labels, '(none)')}"),
     glue("- **Goals:** {if (length(goals)) paste(paste0(names(goals), ': ', goals), collapse = ' | ') else '(none)'}"),
     glue("- **Occupation:** {if (length(occupation)) paste(occupation, collapse = ' · ') else '(none)'}"), "",
-    "**Question**", "", quote_block(q$question_text_clean), "",
-    glue("**Answer** (answer_id {a$answer_id} · {a$answer_word_count} words · {format(a$answer_added_at, '%Y-%m-%d')} · ",
+    "**Question**", "", quote_block(if (nzchar(coalesce(q$question_text_display, ""))) q$question_text_display else "(body empty after hashtag removal)"), "",
+    glue("**Answer** (answer_id {a$answer_id} · {a$answer_word_count_display} display words{if (a$has_list) ' · has list' else ''} · {format(a$answer_added_at, '%Y-%m-%d')} · ",
          "{a$careernet_correctness}, {a$careernet_completeness}, {a$careernet_coherency})"), "",
-    quote_block(a$answer_text_clean), "", "---", "")
+    quote_block(a$answer_text_display), "", "---", "")
 })
 
 report_path <- file.path(cfg$paths$reports_dir, glue("reading_sample_{seed}.md"))
@@ -43,7 +43,7 @@ writeLines(c(
        "{nrow(fq)} questions"), "",
   "Random frame questions, each with one eligible human answer (the same answer the study would use). ",
   "Read these to write exclusion rules for `study/config/exclusions.csv`. This step removes nothing.", "",
-  "URLs are removed from the text shown here.", "", "---", "",
+  "Text shown is the display text: URLs, hashtags, answer salutations and sign-offs removed.", "", "---", "",
   unlist(items)
 ), report_path)
 

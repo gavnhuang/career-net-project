@@ -2,13 +2,26 @@
 
 ATTRITION_RULES <- c(
   all = "All questions in the release",
-  a = "Answer posted in {answer_min_year} or later",
+  a = "Answer posted on or after {answer_date_min} and before {answer_date_max_exclusive} (UTC)",
   b = "Answer {answer_min_words}-{answer_max_words} words",
   c = "Question (title + body) {question_min_words}+ words",
   d = "unclear_goal missing",
-  e = "Anchor check questions removed",
-  f = "Manual exclusions (study/config/exclusions.csv) removed"
+  e = "Exclusion rule 1: platform-written prompts removed",
+  f = "Anchor check questions removed",
+  g = "Manual exclusions (study/config/exclusions.csv) removed"
 )
+ATTRITION_CHECKED_STEPS <- c("all", "a", "b", "c", "d", "e", "f")
+
+# Exclusion rule 1: TRUE where title + body (HTML stripped) matches the platform-prompt pattern.
+is_platform_prompt <- function(title, body, pattern) {
+  text <- paste(str_replace_all(coalesce(title, ""), "<[^>]*>", " "), str_replace_all(coalesce(body, ""), "<[^>]*>", " "))
+  str_detect(text, regex(pattern, ignore_case = TRUE))
+}
+
+answer_date_window <- function(filters) {
+  c(min = as.POSIXct(filters$answer_date_min, tz = "UTC"),
+    max_exclusive = as.POSIXct(filters$answer_date_max_exclusive, tz = "UTC"))
+}
 
 # Cumulative answer-level masks and the unique question count after each step.
 # Works on raw or normalized input: missing is tested with is_missing().
@@ -17,15 +30,18 @@ eligibility_attrition <- function(raw, filters, anchor_ids = character(), exclus
   answer_words <- count_words(normalize_missing(raw$answer_body))
   question_words <- count_words(paste(coalesce(normalize_missing(raw$question_title), ""),
                                       coalesce(normalize_missing(raw$question_body), "")))
-  min_dt <- lubridate::make_datetime(filters$answer_min_year, 1, 1, tz = "UTC")
+  platform_prompt <- is_platform_prompt(normalize_missing(raw$question_title), normalize_missing(raw$question_body),
+                                        filters$platform_prompt_pattern)
+  window <- answer_date_window(filters)
 
   keep <- list(all = rep(TRUE, nrow(raw)))
-  keep$a <- keep$all & !is.na(answer_dt) & answer_dt >= min_dt
+  keep$a <- keep$all & !is.na(answer_dt) & answer_dt >= window[["min"]] & answer_dt < window[["max_exclusive"]]
   keep$b <- keep$a & answer_words >= filters$answer_min_words & answer_words <= filters$answer_max_words
   keep$c <- keep$b & question_words >= filters$question_min_words
   keep$d <- keep$c & is_missing(raw$unclear_goal)
-  keep$e <- keep$d & !(raw$question_id %in% anchor_ids)
-  keep$f <- keep$e & !(raw$question_id %in% exclusion_ids)
+  keep$e <- keep$d & !platform_prompt
+  keep$f <- keep$e & !(raw$question_id %in% anchor_ids)
+  keep$g <- keep$f & !(raw$question_id %in% exclusion_ids)
 
   attrition <- tibble::tibble(
     step = names(keep),
@@ -33,18 +49,21 @@ eligibility_attrition <- function(raw, filters, anchor_ids = character(), exclus
     n_questions = unname(purrr::map_int(keep, ~ dplyr::n_distinct(raw$question_id[.x]))),
     n_answers = unname(purrr::map_int(keep, sum))
   )
-  list(keep = keep$f, attrition = attrition, answer_dt = answer_dt,
-       answer_words = answer_words, question_words = question_words)
+  list(keep = keep$g, masks = keep, attrition = attrition, answer_dt = answer_dt, answer_words = answer_words,
+       question_words = question_words, platform_prompt = platform_prompt)
 }
 
-# Stops unless steps all, a, ..., e reproduce `expected` exactly.
+# Stops unless steps all, a, ..., f reproduce the expected question and answer counts exactly.
 check_attrition <- function(attrition, expected) {
-  steps <- c("all", "a", "b", "c", "d", "e")
-  if (length(expected) != length(steps)) stop("expected_attrition needs ", length(steps), " numbers", call. = FALSE)
-  got <- attrition$n_questions[match(steps, attrition$step)]
-  if (!identical(as.integer(got), as.integer(expected))) {
-    stop("Attrition does not reproduce.\n",
-         paste0("  ", steps, ": expected ", expected, ", got ", got, collapse = "\n"), call. = FALSE)
+  steps <- ATTRITION_CHECKED_STEPS
+  for (what in c("questions", "answers")) {
+    exp <- expected[[what]]
+    if (length(exp) != length(steps)) stop("expected_attrition$", what, " needs ", length(steps), " numbers", call. = FALSE)
+    got <- attrition[[paste0("n_", what)]][match(steps, attrition$step)]
+    if (!identical(as.integer(got), as.integer(exp))) {
+      stop("Attrition (", what, ") does not reproduce.\n",
+           paste0("  ", steps, ": expected ", exp, ", got ", got, collapse = "\n"), call. = FALSE)
+    }
   }
   invisible(TRUE)
 }
@@ -56,7 +75,8 @@ build_frame <- function(raw, filters, anchor_ids, exclusion_ids, all_labels, gua
   attrition <- elig$attrition
   if (!is.null(expected_attrition)) {
     check_attrition(attrition, expected_attrition)
-    attrition$expected <- c(expected_attrition, NA_integer_)
+    attrition$expected_questions <- c(expected_attrition$questions, NA_integer_)
+    attrition$expected_answers <- c(expected_attrition$answers, NA_integer_)
   }
 
   d <- raw[elig$keep, ]
@@ -78,12 +98,17 @@ build_frame <- function(raw, filters, anchor_ids, exclusion_ids, all_labels, gua
 
   extras <- setdiff(names(raw), CAREERNET_COLUMNS)
 
+  answer_clean <- clean_text(d$answer_body)
+  answer_display <- display_answer_text(answer_clean)
   frame_answers <- tibble::tibble(
     question_id = d$question_id,
     answer_id = d$answer_id,
     answer_body_raw = d$answer_body,
-    answer_text_clean = clean_text(d$answer_body),
+    answer_text_clean = answer_clean,
+    answer_text_display = answer_display$text,
     answer_word_count = d$.answer_words,
+    answer_word_count_display = count_words(answer_display$text),
+    has_list = has_list(d$answer_body, answer_display$text),
     answer_added_at = d$.answer_dt,
     answer_score = to_integer(d$answer_score, "answer_score"),
     answerer_location = d$answerer_location,
@@ -102,6 +127,8 @@ build_frame <- function(raw, filters, anchor_ids, exclusion_ids, all_labels, gua
   frame_answers <- dplyr::bind_cols(frame_answers, d[extras])
 
   q <- d[!duplicated(d$question_id), ]
+  question_clean <- clean_text(q$question_body)
+  question_display <- display_question_text(question_clean)
   labels <- parse_scenario_labels(q$ScenarioLabels)
   indicators <- scenario_label_indicators(labels, all_labels)
   frame_questions <- dplyr::bind_cols(
@@ -109,7 +136,8 @@ build_frame <- function(raw, filters, anchor_ids, exclusion_ids, all_labels, gua
       question_id = q$question_id,
       question_title = q$question_title,
       question_body_raw = q$question_body,
-      question_text_clean = clean_text(q$question_body),
+      question_text_clean = question_clean,
+      question_text_display = question_display$text,
       question_word_count = q$.question_words,
       question_added_at = parse_careernet_date(q$question_added_at, "question_added_at"),
       question_score = to_integer(q$question_score, "question_score"),
@@ -127,7 +155,18 @@ build_frame <- function(raw, filters, anchor_ids, exclusion_ids, all_labels, gua
     tibble::tibble(n_eligible_answers = as.integer(table(d$question_id)[q$question_id]))
   )
 
-  list(frame_questions = frame_questions, frame_answers = frame_answers, attrition = attrition)
+  display_edits <- dplyr::bind_rows(
+    tibble::tibble(answer_id = d$answer_id, part = "opening", removed_text = answer_display$opening_removed),
+    tibble::tibble(answer_id = d$answer_id, part = "closing", removed_text = answer_display$closing_removed)
+  ) |>
+    dplyr::filter(!is.na(removed_text)) |>
+    dplyr::arrange(id_key(answer_id), part)
+  question_display_edits <- tibble::tibble(question_id = q$question_id, part = "hashtags",
+                                           removed_text = question_display$hashtags_removed) |>
+    dplyr::filter(!is.na(removed_text))
+
+  list(frame_questions = frame_questions, frame_answers = frame_answers, attrition = attrition,
+       display_edits = display_edits, question_display_edits = question_display_edits)
 }
 
 # "4 - Fully Correct" -> 4L

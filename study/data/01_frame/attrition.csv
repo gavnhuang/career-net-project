@@ -1,8 +1,9 @@
-step,rule,n_questions,n_answers,expected
-all,All questions in the release,3000,7984,3000
-a,Answer posted in 2021 or later,2396,5832,2396
-b,Answer 40-600 words,2352,5224,2352
-c,Question (title + body) 10+ words,2314,5141,2314
-d,unclear_goal missing,2250,4984,2250
-e,Anchor check questions removed,2214,4902,2214
-f,Manual exclusions (study/config/exclusions.csv) removed,2214,4902,
+step,rule,n_questions,n_answers,expected_questions,expected_answers
+all,All questions in the release,3000,7984,3000,7984
+a,Answer posted on or after 2021-01-01 and before 2023-03-01 (UTC),764,1496,764,1496
+b,Answer 40-600 words,725,1338,725,1338
+c,Question (title + body) 10+ words,707,1301,707,1301
+d,unclear_goal missing,694,1275,694,1275
+e,Exclusion rule 1: platform-written prompts removed,694,1275,694,1275
+f,Anchor check questions removed,681,1252,681,1252
+g,Manual exclusions (study/config/exclusions.csv) removed,681,1252,,

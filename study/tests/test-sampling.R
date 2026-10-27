@@ -8,7 +8,7 @@ test_that("reserved sets have the configured sizes and splits, and do not overla
   checks <- check_reserved_sets(res$sets, CFG$reserved_sets, real_frame()$frame_questions, anchor_ids())
   expect_true(all(checks$passed))
   expect_equal(nrow(res$sets), 57L)
-  expect_equal(length(res$remaining), 2214L - 57L)
+  expect_equal(length(res$remaining), 681L - 57L)
   expect_length(intersect(res$remaining, res$sets$question_id), 0)
 })
 

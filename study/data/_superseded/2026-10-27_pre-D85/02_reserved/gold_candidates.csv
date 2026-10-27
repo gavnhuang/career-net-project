@@ -1,0 +1,414 @@
+question_id,set,draw_order,selection_stage,floor_label,inclusion_prob,weight,planned_version,seed,run_id,frame_version,question_title,question_body_raw,question_text_clean,question_word_count,question_added_at,question_score,question_views,question_tagnames,asker_location,scenario_labels,n_labels,label_industry_specific_knowledge_and_trends,label_career_decision_making_transitioning_and_exploration_resources,label_college_queries,label_job_search_strategies_and_infrastructure,label_work_life_balance_and_personal_values_alignment,label_resume_cv_linkedin_optimization_and_personal_branding,label_skill_development,label_networking_and_mentorship,label_first_job_navigation,label_freelancing_self_employment_entrepreneurship,label_interview_preparation,label_non_degree_certifications_credentials,label_workplace_dynamics,label_international_careers,label_barriers_equity_and_resource_considerations,label_job_offers_and_negotiations,label_career_advancement,label_mid_career_pivots,n_guaranteed_labels,explore_options,take_action,understanding_purpose,validation_support,find_resources,navigate_constraints,compare_options,unclear_goal,soc_code_raw,soc_flag,soc_major_groups,n_soc_major_groups,soc_detailed_codes,answer_id,answer_body_raw,answer_text_clean,answer_word_count,answer_added_at,answer_score,answerer_location,careernet_correctness,careernet_completeness,careernet_coherency,careernet_correctness_num,careernet_completeness_num,careernet_coherency_num,Split,n_eligible_answers,careernet_reasoning_label,n_reasoning_labels,target_words,target_min_words,target_max_words
+1033287,gold_candidates,1,reserve,,0.009033423667570008,1,ai,121779716,20261027-124027-03,v1.1,Asking questions for Engineers.,"Can you tell me about the types of tasks you are responsible for on a day-to-day basis? 
+
+2. What do you enjoy most about your career? 
+
+3. What is most challenging about your career? 
+
+4. What are some skills and personality traits necessary to perform your job? 
+
+5. What are some misconceptions about your career? 
+
+6. What advice do you have for me about this career?
+
+7. How much personal interactions do you have on a day-to-day basis with this career?
+
+8. What is the work environment like in this career?
+
+9. What are the benefits of this career?
+
+10. What type of education do you need to enter this career?","Can you tell me about the types of tasks you are responsible for on a day-to-day basis?
+
+2. What do you enjoy most about your career?
+
+3. What is most challenging about your career?
+
+4. What are some skills and personality traits necessary to perform your job?
+
+5. What are some misconceptions about your career?
+
+6. What advice do you have for me about this career?
+
+7. How much personal interactions do you have on a day-to-day basis with this career?
+
+8. What is the work environment like in this career?
+
+9. What are the benefits of this career?
+
+10. What type of education do you need to enter this career?",115,2025-02-11T17:05:00Z,4,1773,career engineering job career-choice careers career-advice family,United States,Industry-Specific Knowledge and Trends; Work-Life Balance and Personal Values Alignment,2,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,Understand a Career Path,,,,,,,,"17-0000 Architecture and Engineering Occupations; 17-2000 Engineers; 17-2190 Miscellaneous Engineers; 17-2199 Engineers, All Other",,Architecture and Engineering Occupations,1,"17-2199 Engineers, All Other",1033622,"1. Types of Tasks in an Engineering Career
+Engineers handle a variety of tasks daily, depending on their specialization. Common responsibilities include:
+
+Designing, testing, and improving products or systems
+Solving technical problems
+Conducting research and analyzing data
+Collaborating with teams and clients
+Writing reports and documentation
+Ensuring safety and compliance with regulations
+2. What Engineers Enjoy Most
+Many engineers enjoy:
+
+Solving complex problems
+Seeing their designs come to life
+Innovation and creativity
+Making an impact on society
+Continuous learning and professional growth
+3. Most Challenging Aspects
+Complex problem-solving under tight deadlines
+Keeping up with new technologies and industry changes
+Managing budgets and resources
+Balancing teamwork and independent work
+Dealing with unexpected technical failures
+4. Skills and Personality Traits Required
+Strong analytical and problem-solving skills
+Creativity and innovation
+Attention to detail
+Communication and teamwork abilities
+Adaptability and resilience
+Mathematical and technical proficiency
+5. Misconceptions About Engineering
+Engineering is just about math and science (it also involves creativity and teamwork)
+Engineers work alone (most projects require collaboration)
+It’s only for men (engineering is for everyone)
+You must be a genius in math (understanding concepts is more important than being a math expert)
+6. Advice for Someone Considering Engineering
+Choose a specialization that aligns with your interests
+Gain hands-on experience through internships and projects
+Work on developing soft skills like communication and teamwork
+Stay updated with new technologies
+Be patient and persistent—engineering requires problem-solving skills and resilience
+7. Personal Interactions in Engineering
+Engineers often work in teams and collaborate with different departments
+Some roles require client meetings and presentations
+Others involve more independent work with minimal interactions
+8. Work Environment
+Office settings, labs, or manufacturing sites, depending on specialization
+Some roles involve fieldwork or travel
+Fast-paced and deadline-driven environment
+Can be physically demanding in industries like construction and manufacturing
+9. Benefits of an Engineering Career
+Good salary and job stability
+Opportunities for career advancement
+Chance to work on innovative projects
+Ability to contribute to societal development
+Global job opportunities
+10. Education Requirements
+A bachelor’s degree in engineering (specific field of interest)
+Some specializations may require a master’s or professional certification
+Licensing (e.g., Professional Engineer (PE) certification) may be required in some industries","1. Types of Tasks in an Engineering Career
+Engineers handle a variety of tasks daily, depending on their specialization. Common responsibilities include:
+
+Designing, testing, and improving products or systems
+Solving technical problems
+Conducting research and analyzing data
+Collaborating with teams and clients
+Writing reports and documentation
+Ensuring safety and compliance with regulations
+2. What Engineers Enjoy Most
+Many engineers enjoy:
+
+Solving complex problems
+Seeing their designs come to life
+Innovation and creativity
+Making an impact on society
+Continuous learning and professional growth
+3. Most Challenging Aspects
+Complex problem-solving under tight deadlines
+Keeping up with new technologies and industry changes
+Managing budgets and resources
+Balancing teamwork and independent work
+Dealing with unexpected technical failures
+4. Skills and Personality Traits Required
+Strong analytical and problem-solving skills
+Creativity and innovation
+Attention to detail
+Communication and teamwork abilities
+Adaptability and resilience
+Mathematical and technical proficiency
+5. Misconceptions About Engineering
+Engineering is just about math and science (it also involves creativity and teamwork)
+Engineers work alone (most projects require collaboration)
+It’s only for men (engineering is for everyone)
+You must be a genius in math (understanding concepts is more important than being a math expert)
+6. Advice for Someone Considering Engineering
+Choose a specialization that aligns with your interests
+Gain hands-on experience through internships and projects
+Work on developing soft skills like communication and teamwork
+Stay updated with new technologies
+Be patient and persistent—engineering requires problem-solving skills and resilience
+7. Personal Interactions in Engineering
+Engineers often work in teams and collaborate with different departments
+Some roles require client meetings and presentations
+Others involve more independent work with minimal interactions
+8. Work Environment
+Office settings, labs, or manufacturing sites, depending on specialization
+Some roles involve fieldwork or travel
+Fast-paced and deadline-driven environment
+Can be physically demanding in industries like construction and manufacturing
+9. Benefits of an Engineering Career
+Good salary and job stability
+Opportunities for career advancement
+Chance to work on innovative projects
+Ability to contribute to societal development
+Global job opportunities
+10. Education Requirements
+A bachelor’s degree in engineering (specific field of interest)
+Some specializations may require a master’s or professional certification
+Licensing (e.g., Professional Engineer (PE) certification) may be required in some industries",359,2025-02-12T11:35:00Z,0,,4 - Fully Correct,4 - Fully Complete,4 - Fully Coherent,4,4,4,Test,2,Predictive Causal Reasoning/Interventional Reasoning; Associational/Normative reasoning; Necessary Conditions,3,359,287,431
+699665,gold_candidates,2,reserve,,0.009033423667570008,1,human,121779716,20261027-124027-03,v1.1,Start up tips and advice,How to get started on my dream career?,How to get started on my dream career?,13,2023-05-12T19:33:00Z,4,346,career career-choice career-advice,,"Career Decision-Making, Transitioning, and Exploration Resources",1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,,Get Step-by-Step Advice; Plan a Career Path,,,,,,,No career mentioned in question,no_career_mentioned,,0,,705113,"Hi there! Here are five small action steps to get started on your dream career right now:
+1. Journal your ideas. 
+2. Get visual. 
+3. Get inspired – find success stories. 
+4. Get educated – find resources.
+5. Build a career-specific resume. 
+6. Create a cover letter tailored to the business you are sending it to. 
+7. Establish an online presence using your full name.","Hi there! Here are five small action steps to get started on your dream career right now:
+1. Journal your ideas.
+2. Get visual.
+3. Get inspired – find success stories.
+4. Get educated – find resources.
+5. Build a career-specific resume.
+6. Create a cover letter tailored to the business you are sending it to.
+7. Establish an online presence using your full name.",65,2023-05-22T22:44:00Z,0,United States,4 - Fully Correct,3 - Mostly Complete,4 - Fully Coherent,4,3,4,Train,2,No reasoning - explanation only,1,65,52,78
+614924,gold_candidates,3,reserve,,0.009033423667570008,1,human,121779716,20261027-124027-03,v1.1,What careers should I look into if I'm interested in chemistry especially forensic chemistry?,I've been interested in chemistry since I was a little kid because it gives me insight as to how the world really works on the molecular level. I like forensic because I get to solve challenging problems. Science and math are my best subjects at school and I enjoy tasks that require critical thinking.  I want to be challenged and my work to make a positive impact. ,I've been interested in chemistry since I was a little kid because it gives me insight as to how the world really works on the molecular level. I like forensic because I get to solve challenging problems. Science and math are my best subjects at school and I enjoy tasks that require critical thinking. I want to be challenged and my work to make a positive impact.,81,2022-09-29T04:00:00Z,5,1364,college-major science career-path career-counseling chemistry career-development forensics forensic-science,United States,"Industry-Specific Knowledge and Trends; Career Decision-Making, Transitioning, and Exploration Resources",2,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,Understand a Career Path,,Understand Intersection of Interest and Careers,,,,,,"19-0000 Life, Physical, and Social Science Occupations; 19-4000 Life, Physical, and Social Science Technicians; 19-4090 Miscellaneous Life, Physical, and Social Science Technicians; 19-4092 Forensic Science Technicians; 19-0000 Life, Physical, and Social Science Occupations; 19-4000 Life, Physical, and Social Science Technicians; 19-4030 Chemical Technicians; 19-4031 Chemical Technicians; 19-0000 Life, Physical, and Social Science Occupations; 19-2000 Physical Scientists; 19-2030 Chemists and Materials Scientists; 19-2031 Chemists",,"Life, Physical, and Social Science Occupations",1,19-4092 Forensic Science Technicians; 19-4031 Chemical Technicians; 19-2031 Chemists,626845,You could look into being a forensic toxicologist or a drug chemist at a crime lab. Those two disciplines require chemistry degree. Trace Evidence analysis also requires chemistry (mostly organic and analytical). The other disciplines in forensics such as serology and DNA usually require some kind of biology degree. ,You could look into being a forensic toxicologist or a drug chemist at a crime lab. Those two disciplines require chemistry degree. Trace Evidence analysis also requires chemistry (mostly organic and analytical). The other disciplines in forensics such as serology and DNA usually require some kind of biology degree.,49,2022-11-02T23:31:00Z,0,United States,4 - Fully Correct,3 - Mostly Complete,4 - Fully Coherent,4,3,4,Test,3,Necessary Conditions,1,49,39,59
+891891,gold_candidates,4,reserve,,0.009033423667570008,1,ai,121779716,20261027-124027-03,v1.1,how can i diversify my career in sports?,sports and career tips,sports and career tips,12,2024-04-24T20:33:00Z,3,481,career sports athletics training sports-agent,United States,"Industry-Specific Knowledge and Trends; Career Decision-Making, Transitioning, and Exploration Resources",2,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,Explore Opportunities,Get Step-by-Step Advice,,,,,Compare Roles or Paths,,"27-0000 Arts, Design, Entertainment, Sports, and Media Occupations; 27-2000 Entertainers and Performers, Sports and Related Workers; 27-2020 Athletes, Coaches, Umpires, and Related Workers; 27-2022 Coaches and Scouts; 27-0000 Arts, Design, Entertainment, Sports, and Media Occupations; 27-2000 Entertainers and Performers, Sports and Related Workers; 27-2020 Athletes, Coaches, Umpires, and Related Workers; 27-2023 Umpires, Referees, and Other Sports Officials; 13-0000 Business and Financial Operations Occupations; 13-1000 Business Operations Specialists; 13-1010 Agents and Business Managers of Artists, Performers, and Athletes; 13-1011 Agents and Business Managers of Artists, Performers, and Athletes",,"Arts, Design, Entertainment, Sports, and Media Occupations; Business and Financial Operations Occupations",2,"27-2022 Coaches and Scouts; 27-2023 Umpires, Referees, and Other Sports Officials; 13-1011 Agents and Business Managers of Artists, Performers, and Athletes",893905,"Diversifying your career in sports can involve exploring various roles and opportunities within the industry. Here are some tips to help you diversify your career in sports:
+
+1. Gain a broad skill set: Develop a diverse skill set that goes beyond just playing or coaching a specific sport. Consider acquiring skills in areas such as sports management, marketing, event planning, data analysis, sports journalism, sports psychology, or sports medicine. This will open up a wider range of career options within the sports industry.
+
+2. Pursue internships and volunteer opportunities: Seek out internships or volunteer positions with sports organizations, teams, or sports-related companies. This will provide you with valuable hands-on experience and help you explore different areas of the sports industry.
+
+3. Network: Build a strong professional network within the sports industry. Attend industry events, join sports-related organizations or associations, and connect with professionals in various roles. Networking can lead to new opportunities and provide insights into different career paths.
+
+4. Continuously learn and stay updated: Stay informed about the latest trends, technologies, and developments in the sports industry. Take advantage of online courses, workshops, conferences, and industry publications to expand your knowledge and skills.
+
+5. Consider different sectors within sports: Explore opportunities in different sectors of the sports industry, such as sports marketing, sports media, sports technology, sports analytics, sports administration, sports consulting, or sports entrepreneurship. This will allow you to diversify your experience and expertise.
+
+6. Be open to different roles and levels: Be willing to start at entry-level positions or take on roles that may not be directly related to your initial career goals. Gaining experience and building a track record in the industry can open doors to more diverse and advanced opportunities later on.
+
+7. Adaptability and flexibility: The sports industry is dynamic and ever-changing. Be adaptable and open to new challenges and opportunities. Embrace change and be willing to step out of your comfort zone to diversify your career in sports.
+
+Remember, diversifying your career in sports requires a combination of passion, perseverance, continuous learning, and a willingness to explore different paths. Stay focused, be proactive, and seize opportunities as they arise.","Diversifying your career in sports can involve exploring various roles and opportunities within the industry. Here are some tips to help you diversify your career in sports:
+
+1. Gain a broad skill set: Develop a diverse skill set that goes beyond just playing or coaching a specific sport. Consider acquiring skills in areas such as sports management, marketing, event planning, data analysis, sports journalism, sports psychology, or sports medicine. This will open up a wider range of career options within the sports industry.
+
+2. Pursue internships and volunteer opportunities: Seek out internships or volunteer positions with sports organizations, teams, or sports-related companies. This will provide you with valuable hands-on experience and help you explore different areas of the sports industry.
+
+3. Network: Build a strong professional network within the sports industry. Attend industry events, join sports-related organizations or associations, and connect with professionals in various roles. Networking can lead to new opportunities and provide insights into different career paths.
+
+4. Continuously learn and stay updated: Stay informed about the latest trends, technologies, and developments in the sports industry. Take advantage of online courses, workshops, conferences, and industry publications to expand your knowledge and skills.
+
+5. Consider different sectors within sports: Explore opportunities in different sectors of the sports industry, such as sports marketing, sports media, sports technology, sports analytics, sports administration, sports consulting, or sports entrepreneurship. This will allow you to diversify your experience and expertise.
+
+6. Be open to different roles and levels: Be willing to start at entry-level positions or take on roles that may not be directly related to your initial career goals. Gaining experience and building a track record in the industry can open doors to more diverse and advanced opportunities later on.
+
+7. Adaptability and flexibility: The sports industry is dynamic and ever-changing. Be adaptable and open to new challenges and opportunities. Embrace change and be willing to step out of your comfort zone to diversify your career in sports.
+
+Remember, diversifying your career in sports requires a combination of passion, perseverance, continuous learning, and a willingness to explore different paths. Stay focused, be proactive, and seize opportunities as they arise.",356,2024-04-26T12:59:00Z,0,United States,4 - Fully Correct,4 - Fully Complete,4 - Fully Coherent,4,4,4,Train,3,Predictive Causal Reasoning/Interventional Reasoning,1,356,285,427
+23573,gold_candidates,5,reserve,,0.009033423667570008,1,human,121779716,20261027-124027-03,v1.1,What does it take to be an expert eye doctor? What do you need ?  What can you do to get there?,"My name is Isela, and I am interested in becoming an eye doctor  #doctor #medicine #healthcare #optometry #eye-care #eye-doctor #career #career-counseling #science #optometrist ","My name is Isela, and I am interested in becoming an eye doctor #doctor #medicine #healthcare #optometry #eye-care #eye-doctor #career #career-counseling #science #optometrist",45,2016-05-11T23:59:00Z,3,1473,science career-counseling optometry optometrist eye-care eye-doctor,United States,Industry-Specific Knowledge and Trends,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,Understand a Career Path; Understand Education Options,Plan a Career Path,,,,,,,29-0000 Healthcare Practitioners and Technical Occupations; 29-1000 Healthcare Diagnosing or Treating Practitioners; 29-1040 Optometrists; 29-1041 Optometrists,,Healthcare Practitioners and Technical Occupations,1,29-1041 Optometrists,640739,I'm a student but there's a big different between an eye doctor and an optometrist.  For an eye doctor- ophthalmologist- you need to have a medical degree before you can specialise in the eyes. However to be an optometrist (not a doctor) you just need to do an optometry degree and training after that!! So make sure you know which type you want to do ,I'm a student but there's a big different between an eye doctor and an optometrist. For an eye doctor- ophthalmologist- you need to have a medical degree before you can specialise in the eyes. However to be an optometrist (not a doctor) you just need to do an optometry degree and training after that!! So make sure you know which type you want to do,65,2022-12-10T10:40:00Z,0,United Kingdom,4 - Fully Correct,2 - Somewhat Incomplete,4 - Fully Coherent,4,2,4,Train,1,Necessary Conditions,1,65,52,78
+34868,gold_candidates,6,reserve,,0.009033423667570008,1,human,121779716,20261027-124027-03,v1.1,How would I engage someone to start networking?,"I want to build relationships within my future career field so that I can aid my career progression and skill set. I know that it is important for specific situations or programs to have that one person within your close network but how would you go about engaging them in conversation. LinkedIn is a big networking tool for students and professionals but when it comes to creating a connection, I am unsure about how to go about it exectly. How would you reach out to someone that is a big motivation within your field? #college #medicine #professional #networking #dental #personal-development #job-application","I want to build relationships within my future career field so that I can aid my career progression and skill set. I know that it is important for specific situations or programs to have that one person within your close network but how would you go about engaging them in conversation. LinkedIn is a big networking tool for students and professionals but when it comes to creating a connection, I am unsure about how to go about it exectly. How would you reach out to someone that is a big motivation within your field? #college #medicine #professional #networking #dental #personal-development #job-application",109,2016-06-27T23:25:00Z,6,2026,job-application personal-development networking dental,Canada,Networking and Mentorship,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,,,,,Find Opportunities or Programs; Mentors; Community,,,,No career mentioned in question,no_career_mentioned,,0,,981241,"All good info in the earlier response. In addition, i would underpin the importance of making connections in person where/when possible. Following the pandemic, this can be more difficult, but don't be shy about asking people in your circle for introductions. As well, getting really crisp on what you're looking for out of networking will aid in getting landing more meaningful interactions. Think about what outcomes you're after and work to put concise narrative around those to funnel through channels already recommended as well as to help others help you better.","All good info in the earlier response. In addition, i would underpin the importance of making connections in person where/when possible. Following the pandemic, this can be more difficult, but don't be shy about asking people in your circle for introductions. As well, getting really crisp on what you're looking for out of networking will aid in getting landing more meaningful interactions. Think about what outcomes you're after and work to put concise narrative around those to funnel through channels already recommended as well as to help others help you better.",91,2024-10-17T19:34:00Z,0,United States,4 - Fully Correct,4 - Fully Complete,4 - Fully Coherent,4,4,4,Train,1,Predictive Causal Reasoning/Interventional Reasoning,1,91,73,109
+909496,gold_candidates,7,reserve,,0.009033423667570008,1,human,121779716,20261027-124027-03,v1.1,How can I decide or choose a career if I have many interests and hobbies?,I have an interest in writing and enjoy literature but I also want to dive into the sciences. This is making the decision quite tough for me right now,I have an interest in writing and enjoy literature but I also want to dive into the sciences. This is making the decision quite tough for me right now,44,2024-05-15T20:26:00Z,10,759,career-counseling career-choice,,"Career Decision-Making, Transitioning, and Exploration Resources",1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,,Plan a Career Path,Understand Intersection of Interest and Careers,,,,,,No career mentioned in question,no_career_mentioned,,0,,915163,"All good answers above, Odunayo. My take on this for you is simple. 
+What are you most passionate about and interested in doing?  
+Objectively, how good are you at performing/doing what you are most passionate about?  
+Is your degree of proficiency such that you can be hired to perform/do what you are passionate about and make a living?  
+That's always the bottom line. Can I make a living doing what I most like to do? If so, go for it. If not, then shift gears and find another way that you can support yourself.  At 74 I have  held many, many jobs and one employer questioned me about my decisions, because I'd begun and then left many different professions.  He couldn't know what led to my decisions, but they were clear to me.  Point is you've no idea what life events and technical advances will impact you.  Excellent way to advance your hopes and dreams? Gain skills in two languages.","All good answers above, Odunayo. My take on this for you is simple.
+What are you most passionate about and interested in doing?
+Objectively, how good are you at performing/doing what you are most passionate about?
+Is your degree of proficiency such that you can be hired to perform/do what you are passionate about and make a living?
+That's always the bottom line. Can I make a living doing what I most like to do? If so, go for it. If not, then shift gears and find another way that you can support yourself. At 74 I have held many, many jobs and one employer questioned me about my decisions, because I'd begun and then left many different professions. He couldn't know what led to my decisions, but they were clear to me. Point is you've no idea what life events and technical advances will impact you. Excellent way to advance your hopes and dreams? Gain skills in two languages.",160,2024-05-23T21:11:00Z,0,United States,3 - Mostly Correct,2 - Somewhat Incomplete,3 - Mostly Coherent,3,2,3,Train,3,Analogy about next steps,1,160,128,192
+484040,gold_candidates,8,reserve,,0.009033423667570008,1,ai,121779716,20261027-124027-03,v1.1,Why is it important to set a career goal?,I think it’s important to set a career goal because it keeps you on a path instead of just being lost and confused in your college and adult years. #career #career-path,I think it’s important to set a career goal because it keeps you on a path instead of just being lost and confused in your college and adult years. #career #career-path,40,2021-07-26T21:22:00Z,9,1348,career-path,United States,"Career Decision-Making, Transitioning, and Exploration Resources",1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,,,,Get Feedback or Reassurance; Seek Motivation or Encouragement,,,,,No career mentioned in question,no_career_mentioned,,0,,484056,"Setting a career goal is a great way to create ambition within your career and have a future aspiration. This main goal can then contribute to smaller, baby steps that focus on the now. Just remember, when thinking of this career goal, don't look at the entire staircase. Look at each individual step to get there and keep climbing. Learning and growing is all part of the journey! 
+
+Another great reason to have an ultimate career goal is to take the opportunity and reach out to professionals who sit in that role or industry you aspire to be in. Talk with them about their day-to-day and key skillsets. You may either walk away with a solid todo list of acute goals or realize it's not what you want to do at all!
+
+And I do want to note that being ""lost and confused"" is what college is all about. Try new things and figure out what you're truly passionate towards. Maybe there is a class or club that you are continuously drawn to - listen to that! Work takes up a large amount of our lives, you should be doing what you love! And sometimes that means a lot of trial and error.","Setting a career goal is a great way to create ambition within your career and have a future aspiration. This main goal can then contribute to smaller, baby steps that focus on the now. Just remember, when thinking of this career goal, don't look at the entire staircase. Look at each individual step to get there and keep climbing. Learning and growing is all part of the journey!
+
+Another great reason to have an ultimate career goal is to take the opportunity and reach out to professionals who sit in that role or industry you aspire to be in. Talk with them about their day-to-day and key skillsets. You may either walk away with a solid todo list of acute goals or realize it's not what you want to do at all!
+
+And I do want to note that being ""lost and confused"" is what college is all about. Try new things and figure out what you're truly passionate towards. Maybe there is a class or club that you are continuously drawn to - listen to that! Work takes up a large amount of our lives, you should be doing what you love! And sometimes that means a lot of trial and error.",203,2021-07-26T22:02:00Z,3,United States,4 - Fully Correct,4 - Fully Complete,4 - Fully Coherent,4,4,4,Train,2,Predictive Causal Reasoning/Interventional Reasoning; Counterfactual Reasoning,2,203,162,244
+945628,gold_candidates,9,reserve,,0.009033423667570008,1,human,121779716,20261027-124027-03,v1.1,Why is it hard to get a Job in the Central Valley?,Its so hard to get a job in the Central Valley. I get to the part of the interview but they never call back. I'm looking for a Factory Job,Its so hard to get a job in the Central Valley. I get to the part of the interview but they never call back. I'm looking for a Factory Job,42,2024-07-24T15:44:00Z,3,1189,job job-search jobs job-application,United States,Industry-Specific Knowledge and Trends; Interview Preparation,2,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,2,,,,Get Feedback or Reassurance,,,,,No career mentioned in question,no_career_mentioned,,0,,945813,"Hello Jacob!
+
+Decoding the Job Market in California’s Central Valley
+
+The Central Valley in California, a region celebrated for its agricultural prowess and diverse economy, poses distinct hurdles for job hunters, especially in areas like manufacturing and factory work. Here’s an easy-to-understand guide on why landing a job in this region might be challenging.
+
+1. Economic Structure
+
+The Central Valley has traditionally been a farming hotspot, leading to a concentration of jobs in agriculture and related fields. Factories and manufacturing facilities exist, but they don't outnumber the farming jobs. This disparity can intensify competition for factory roles.
+
+2. Job Competition
+
+Reaching the interview stage is a good sign, but it also suggests that there are probably several other applicants competing for the same job. The Central Valley has attracted a surge of job seekers due to economic factors or relocation from other regions. This heightened competition can make standing out from the crowd more difficult.
+
+3. Skills Shortage
+
+Many factory jobs call for specific skills or certifications that not all applicants possess. If you're seeking roles that demand technical expertise or familiarity with certain machines, lacking these skills can hamper your chances of getting hired. Employers often prefer candidates who are ready to start work without needing extensive training.
+
+4. Economic Changes
+
+The job market is often swayed by economic trends. In times of economic downturn or uncertainty (triggered by global events), companies might halt hiring or downsize their staff, making it harder to find job openings.
+
+5. Local Networking
+
+Sometimes, getting a job is more about your connections than your qualifications. In smaller Central Valley communities, local networks can significantly influence hiring decisions. If you don't have local contacts or networking opportunities, breaking into the job market could be tough.
+
+6. Employer Expectations
+
+Employers typically expect high standards of reliability and work ethic, particularly in factory environments where teamwork and timeliness are key. If you have negative references from past employers or employment gaps, this could impact your chances of getting callbacks after interviews.
+
+7. Transportation Challenges
+
+The Central Valley covers a vast area with scarce public transport options outside big cities like Fresno and Bakersfield. If you lack dependable transportation to reach potential employers in rural areas or industrial zones, this could restrict your job opportunities.
+
+8. Seasonal Job Trends
+
+Many factory jobs might be seasonal, linked to agricultural cycles or holiday demands (like food processing plants). This seasonality can cause job availability to vary throughout the year.
+
+9. Interview Performance
+
+Even if you consistently reach the interview stage, aspects like how well you present yourself, respond to questions, and fit with the company culture can influence whether you receive a job offer after each interview.
+
+10. Post-Interview Follow-Up
+
+Following up after interviews is vital but often neglected by candidates. A courteous follow-up email thanking the interviewer can reaffirm your interest in the job and keep you in their thoughts as they decide.
+
+In conclusion, numerous factors—from economic conditions and competition to personal qualifications and networking—can complicate the job hunt in the Central Valley. However, understanding these factors can help you adapt your job search strategy effectively.
+
+Top 3 Reliable Sources Used:
+
+California Employment Development Department (EDD): Offers region-specific labor market details for California.
+Bureau of Labor Statistics (BLS): Provides data on employment trends across different sectors.
+Pew Research Center: Conducts research on workforce dynamics and economic mobility trends affecting job seekers nationwide.
+
+God Bless You,
+JC.","Hello Jacob!
+
+Decoding the Job Market in California’s Central Valley
+
+The Central Valley in California, a region celebrated for its agricultural prowess and diverse economy, poses distinct hurdles for job hunters, especially in areas like manufacturing and factory work. Here’s an easy-to-understand guide on why landing a job in this region might be challenging.
+
+1. Economic Structure
+
+The Central Valley has traditionally been a farming hotspot, leading to a concentration of jobs in agriculture and related fields. Factories and manufacturing facilities exist, but they don't outnumber the farming jobs. This disparity can intensify competition for factory roles.
+
+2. Job Competition
+
+Reaching the interview stage is a good sign, but it also suggests that there are probably several other applicants competing for the same job. The Central Valley has attracted a surge of job seekers due to economic factors or relocation from other regions. This heightened competition can make standing out from the crowd more difficult.
+
+3. Skills Shortage
+
+Many factory jobs call for specific skills or certifications that not all applicants possess. If you're seeking roles that demand technical expertise or familiarity with certain machines, lacking these skills can hamper your chances of getting hired. Employers often prefer candidates who are ready to start work without needing extensive training.
+
+4. Economic Changes
+
+The job market is often swayed by economic trends. In times of economic downturn or uncertainty (triggered by global events), companies might halt hiring or downsize their staff, making it harder to find job openings.
+
+5. Local Networking
+
+Sometimes, getting a job is more about your connections than your qualifications. In smaller Central Valley communities, local networks can significantly influence hiring decisions. If you don't have local contacts or networking opportunities, breaking into the job market could be tough.
+
+6. Employer Expectations
+
+Employers typically expect high standards of reliability and work ethic, particularly in factory environments where teamwork and timeliness are key. If you have negative references from past employers or employment gaps, this could impact your chances of getting callbacks after interviews.
+
+7. Transportation Challenges
+
+The Central Valley covers a vast area with scarce public transport options outside big cities like Fresno and Bakersfield. If you lack dependable transportation to reach potential employers in rural areas or industrial zones, this could restrict your job opportunities.
+
+8. Seasonal Job Trends
+
+Many factory jobs might be seasonal, linked to agricultural cycles or holiday demands (like food processing plants). This seasonality can cause job availability to vary throughout the year.
+
+9. Interview Performance
+
+Even if you consistently reach the interview stage, aspects like how well you present yourself, respond to questions, and fit with the company culture can influence whether you receive a job offer after each interview.
+
+10. Post-Interview Follow-Up
+
+Following up after interviews is vital but often neglected by candidates. A courteous follow-up email thanking the interviewer can reaffirm your interest in the job and keep you in their thoughts as they decide.
+
+In conclusion, numerous factors—from economic conditions and competition to personal qualifications and networking—can complicate the job hunt in the Central Valley. However, understanding these factors can help you adapt your job search strategy effectively.
+
+Top 3 Reliable Sources Used:
+
+California Employment Development Department (EDD): Offers region-specific labor market details for California.
+Bureau of Labor Statistics (BLS): Provides data on employment trends across different sectors.
+Pew Research Center: Conducts research on workforce dynamics and economic mobility trends affecting job seekers nationwide.
+
+God Bless You,
+JC.",569,2024-07-25T03:25:00Z,0,,4 - Fully Correct,4 - Fully Complete,4 - Fully Coherent,4,4,4,Train,3,Predictive Causal Reasoning/Interventional Reasoning; Associational/Normative reasoning; Necessary Conditions,3,569,455,683
+822610,gold_candidates,10,reserve,,0.009033423667570008,1,human,121779716,20261027-124027-03,v1.1,How important is GPA in finding consulting jobs?,"My GPA is not very high, and it makes me anxious since I am going to be in a competitive field. What can I do if I do not have a high GPA and perfect extracurriculars?","My GPA is not very high, and it makes me anxious since I am going to be in a competitive field. What can I do if I do not have a high GPA and perfect extracurriculars?",44,2023-12-12T21:45:00Z,12,2143,career college business career-path career-counseling gpa,United States,Industry-Specific Knowledge and Trends; First Job Navigation; Resume/CV/LinkedIn Optimization and Personal Branding,3,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,3,,,,Get Feedback or Reassurance; Validate a Choice or Path; Overcome Doubt or Fear,,,,,13-0000 Business and Financial Operations Occupations; 13-1000 Business Operations Specialists; 13-1110 Management Analysts; 13-1111 Management Analysts,,Business and Financial Operations Occupations,1,13-1111 Management Analysts,832507,"The importance of GPA in finding consulting jobs varies depending on the company and the position. For example, at McKinsey, BCG, or Bain, a candidate must have at least a 3.6 GPA to be considered for a job 1. However, lower GPAs don’t necessarily mean that a person is disqualified; a resume with a 3- or 2-GPA can still make it to the next round if it shows outstanding achievements in other areas 1. Other factors that can influence the GPA requirement include your specialty, the school you attended, your ethnicity, your work experience, etc1.
+
+It’s important to note that while a high GPA can be an advantage, it’s not the only factor that consulting firms consider when hiring. Other factors such as your work experience, leadership skills, and problem-solving abilities are also important 2. Therefore, it’s important to focus on developing a well-rounded skill set and gaining relevant experience in your field of interest.
+
+I hope this helps!","The importance of GPA in finding consulting jobs varies depending on the company and the position. For example, at McKinsey, BCG, or Bain, a candidate must have at least a 3.6 GPA to be considered for a job 1. However, lower GPAs don’t necessarily mean that a person is disqualified; a resume with a 3- or 2-GPA can still make it to the next round if it shows outstanding achievements in other areas 1. Other factors that can influence the GPA requirement include your specialty, the school you attended, your ethnicity, your work experience, etc1.
+
+It’s important to note that while a high GPA can be an advantage, it’s not the only factor that consulting firms consider when hiring. Other factors such as your work experience, leadership skills, and problem-solving abilities are also important 2. Therefore, it’s important to focus on developing a well-rounded skill set and gaining relevant experience in your field of interest.
+
+I hope this helps!",159,2024-01-11T15:31:00Z,0,United States,3 - Mostly Correct,3 - Mostly Complete,4 - Fully Coherent,3,3,4,Train,3,Predictive Causal Reasoning/Interventional Reasoning; Necessary Conditions,2,159,127,191
+663131,gold_candidates,11,reserve,,0.009033423667570008,1,ai,121779716,20261027-124027-03,v1.1,How many years of education do you need to get your masters in business ?,I want to know about this because I feel as if it's an important aspect to think about. I want to make a timestamp from me starting college and moving on forward after that.,I want to know about this because I feel as if it's an important aspect to think about. I want to make a timestamp from me starting college and moving on forward after that.,49,2023-02-23T23:30:00Z,8,4164,college education,United States,College Queries,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,Understand Education Options,,,,,,,,11-0000 Management Occupations; 11-1000 Top Executives; 11-1020 General and Operations Managers; 11-1021 General and Operations Managers,,Management Occupations,1,11-1021 General and Operations Managers,663243,"Most full-time MBA programs require 1-2 years of study, while part-time or online programs may take longer to complete due to a more flexible schedule. Additionally, some MBA programs may require prerequisite courses, which can add to the total length of time required for completion. It is important to research specific programs to determine the exact length of time required for completion.","Most full-time MBA programs require 1-2 years of study, while part-time or online programs may take longer to complete due to a more flexible schedule. Additionally, some MBA programs may require prerequisite courses, which can add to the total length of time required for completion. It is important to research specific programs to determine the exact length of time required for completion.",62,2023-02-24T07:10:00Z,0,India,3 - Mostly Correct,3 - Mostly Complete,4 - Fully Coherent,3,3,4,Train,3,Necessary Conditions,1,62,50,74
+853440,gold_candidates,12,reserve,,0.009033423667570008,1,ai,121779716,20261027-124027-03,v1.1,How can being more caring help me become a nurse?,Being more caring wont make me become a bad or mean nurse.,Being more caring wont make me become a bad or mean nurse.,22,2024-02-28T00:05:00Z,6,1388,career nursing career-counseling jobs,United States,Industry-Specific Knowledge and Trends; Work-Life Balance and Personal Values Alignment,2,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,,Get Step-by-Step Advice,,Get Feedback or Reassurance,,,,,29-0000 Healthcare Practitioners and Technical Occupations; 29-1000 Healthcare Diagnosing or Treating Practitioners; 29-1140 Registered Nurses; 29-1141 Registered Nurses,,Healthcare Practitioners and Technical Occupations,1,29-1141 Registered Nurses,853811,"Sylvanna, your question is fantastic!
+
+In all medical professions, showing compassion is absolutely crucial. However, the way it manifests can vary based on your workplace. Nurses play a critical role in various places like hospitals, care centers, clinics, schools, and many more. The possibilities are endless!
+
+Let me illustrate the diverse ways of showing care with an example: a nurse in a neonatal intensive care unit (NICU) exhibits care differently than one in a burn ward or an emergency department (ED/ER). I once worked with a nurse who earned the nickname ""the mean nurse"". She would push her patients to rise, move, and strive to improve while recovering from severe burns. She was firm and relentless, which could sometimes come off as harsh. However, her patients experienced better recovery outcomes. They endured less pain in the long run and regained their normal functions more quickly. She was ""mean"" because she cared deeply.
+
+Likewise, an emergency room nurse might carry out procedures without explaining them to the patient or might seem to overlook a patient's pain. This is often because they are prioritizing the treatment of potentially life-threatening injuries over the patient's immediate comfort. Their focus is on caring for the patient, even if it doesn't always appear that way.
+
+Caring is the heart of healthcare, even though it might take on different forms in different settings.
+
+Remember, while it's vital to care for patients, it's equally important to care for yourself. The healthcare field can be challenging, so make sure to look after your own well-being, too.
+
+Best of luck!","Sylvanna, your question is fantastic!
+
+In all medical professions, showing compassion is absolutely crucial. However, the way it manifests can vary based on your workplace. Nurses play a critical role in various places like hospitals, care centers, clinics, schools, and many more. The possibilities are endless!
+
+Let me illustrate the diverse ways of showing care with an example: a nurse in a neonatal intensive care unit (NICU) exhibits care differently than one in a burn ward or an emergency department (ED/ER). I once worked with a nurse who earned the nickname ""the mean nurse"". She would push her patients to rise, move, and strive to improve while recovering from severe burns. She was firm and relentless, which could sometimes come off as harsh. However, her patients experienced better recovery outcomes. They endured less pain in the long run and regained their normal functions more quickly. She was ""mean"" because she cared deeply.
+
+Likewise, an emergency room nurse might carry out procedures without explaining them to the patient or might seem to overlook a patient's pain. This is often because they are prioritizing the treatment of potentially life-threatening injuries over the patient's immediate comfort. Their focus is on caring for the patient, even if it doesn't always appear that way.
+
+Caring is the heart of healthcare, even though it might take on different forms in different settings.
+
+Remember, while it's vital to care for patients, it's equally important to care for yourself. The healthcare field can be challenging, so make sure to look after your own well-being, too.
+
+Best of luck!",260,2024-02-28T18:37:00Z,0,,4 - Fully Correct,4 - Fully Complete,4 - Fully Coherent,4,4,4,Train,3,Analogy about next steps; Predictive Causal Reasoning/Interventional Reasoning,2,260,208,312
+828166,gold_candidates,13,reserve,,0.009033423667570008,1,human,121779716,20261027-124027-03,v1.1,I want to be a buisness marketer how should I start?,I’m in high school and I don’t know how or where to start,I’m in high school and I don’t know how or where to start,24,2023-12-29T17:35:00Z,7,1397,career marketing career-advice career-paths buisness marketing-and-advertising digital-marketing,United States,Industry-Specific Knowledge and Trends; First Job Navigation,2,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,2,,Get Step-by-Step Advice,,,Find Opportunities or Programs; Get Learning Resources,,,,"11-0000 Management Occupations; 11-2000 Advertising, Marketing, Promotions, Public Relations, and Sales Managers; 11-2020 Marketing and Sales Managers; 11-2021 Marketing Managers; 11-0000 Management Occupations; 11-2000 Advertising, Marketing, Promotions, Public Relations, and Sales Managers; 11-2020 Marketing and Sales Managers; 11-2022 Sales Managers; 13-0000 Business and Financial Operations Occupations; 13-1000 Business Operations Specialists; 13-1160 Market Research Analysts and Marketing Specialists; 13-1161 Market Research Analysts and Marketing Specialists",,Management Occupations; Business and Financial Operations Occupations,2,11-2021 Marketing Managers; 11-2022 Sales Managers; 13-1161 Market Research Analysts and Marketing Specialists,832525,"Hi! This is an awesome question! 
+
+I think the best experience you could ever have is real work. Try to find a local business in your area, that does not have a website, social media presence, Adverising, or any other form of marketing! Learn the skills (so many resources out there - start with long form YT videos that are highly rated) and apply them!
+
+Some companies may laugh in your face, and sometimes you'll need to work for free. But do it! Make them a website, make them flier they can decide to print or not, show them material evidence of foot traffic you've gained for them without them paying you! This will be great experience to continue to pursue a career or build a business! The hardest step will always be the next one.","Hi! This is an awesome question!
+
+I think the best experience you could ever have is real work. Try to find a local business in your area, that does not have a website, social media presence, Adverising, or any other form of marketing! Learn the skills (so many resources out there - start with long form YT videos that are highly rated) and apply them!
+
+Some companies may laugh in your face, and sometimes you'll need to work for free. But do it! Make them a website, make them flier they can decide to print or not, show them material evidence of foot traffic you've gained for them without them paying you! This will be great experience to continue to pursue a career or build a business! The hardest step will always be the next one.",136,2024-01-11T15:33:00Z,0,United States,3 - Mostly Correct,3 - Mostly Complete,3 - Mostly Coherent,3,3,3,Train,3,Predictive Causal Reasoning/Interventional Reasoning,1,136,109,163
+52683,gold_candidates,14,reserve,,0.009033423667570008,1,human,121779716,20261027-124027-03,v1.1,I have two jobs and I don't know witch one to pick,Hi i'm Caleb and my dad has a job that I wont to do but I also wont to develop soft ware how can I pick witch one #software-development #jobs #career-counseling #career-development ,Hi i'm Caleb and my dad has a job that I wont to do but I also wont to develop soft ware how can I pick witch one #software-development #jobs #career-counseling #career-development,44,2017-02-23T16:00:00Z,4,1318,career-counseling career-development software-development,United States,"Career Decision-Making, Transitioning, and Exploration Resources; Industry-Specific Knowledge and Trends",2,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,,Make a Decision,,Get Feedback or Reassurance,,,Compare Educational Paths,,"15-0000 Computer and Mathematical Occupations; 15-1200 Computer Occupations; 15-1250 Software and Web Developers, Programmers, and Testers; 15-1252 Software Developers",,Computer and Mathematical Occupations,1,15-1252 Software Developers,454353,"You should start by evaluating which of your two jobs make you happy and give you satisfaction but also determining which position will provide you opportunity for growth, continued ability to learn and be challenged. Do some research on the company you choose--places like Glassdoor can provide really good insight on the culture and internal mobility opportunities. Joining a company that doesn't allow you to be bored will likely be a lot more satisfying over the long run.
+","You should start by evaluating which of your two jobs make you happy and give you satisfaction but also determining which position will provide you opportunity for growth, continued ability to learn and be challenged. Do some research on the company you choose--places like Glassdoor can provide really good insight on the culture and internal mobility opportunities. Joining a company that doesn't allow you to be bored will likely be a lot more satisfying over the long run.",78,2021-06-16T13:01:00Z,0,United States,4 - Fully Correct,3 - Mostly Complete,4 - Fully Coherent,4,3,4,Test,1,No reasoning - explanation only,1,78,62,94
+708614,gold_candidates,15,reserve,,0.009033423667570008,1,human,121779716,20261027-124027-03,v1.1,Are there any tips on getting your first internship? Are there any career recommendations based on my major and certifications?,"I am a business management student in my junior year at college, and I am finding it extremely difficult to find any job opportunities. I am completing certifications on Udemy. Some are in marketing analytics and business analysis. I have no job experience besides being a former student assistant and secretary at my college on work-study. Also, are there any career recommendations based on my major and certifications?
+
+Thank you!","I am a business management student in my junior year at college, and I am finding it extremely difficult to find any job opportunities. I am completing certifications on Udemy. Some are in marketing analytics and business analysis. I have no job experience besides being a former student assistant and secretary at my college on work-study. Also, are there any career recommendations based on my major and certifications?
+
+Thank you!",90,2023-05-27T07:34:00Z,7,1157,business internship internships networking,United States,"First Job Navigation; Job Search Strategies and Infrastructure; Non-Degree Certifications/Credentials; Career Decision-Making, Transitioning, and Exploration Resources",4,0,1,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,4,Explore Opportunities,Get Step-by-Step Advice,,,,,Compare Roles or Paths,,No career mentioned in question,no_career_mentioned,,0,,715316,"Certainly! When it comes to securing your first internship, there are several tips that can help you along the way. First, research and identify companies or organizations that offer internship opportunities in the field of business management. Look for companies in various industries that align with your interests and career goals. Networking is also crucial—reach out to professionals in your desired field, attend career fairs, and join industry-related events or organizations. Building connections and expressing your enthusiasm can lead to internship opportunities. Additionally, make sure to polish your resume and tailor it to highlight relevant skills such as leadership, communication, problem-solving, and project management. Highlight any coursework or projects related to business management. Utilize your college's career services office for resume reviews, interview practice, and internship search assistance. 
+
+When it comes to career recommendations, with a major in business management, you have a wide range of potential career paths available to you. Some popular options include roles in marketing, human resources, consulting, operations management, and entrepreneurship. Consider exploring internships or entry-level positions in these areas to gain practical experience and further refine your career goals. Additionally, certifications such as Project Management Professional (PMP) or Six Sigma can enhance your credentials and open up opportunities in project management or process improvement roles. Stay proactive in seeking internships and career guidance, and don't hesitate to leverage resources and networks available to you.","Certainly! When it comes to securing your first internship, there are several tips that can help you along the way. First, research and identify companies or organizations that offer internship opportunities in the field of business management. Look for companies in various industries that align with your interests and career goals. Networking is also crucial—reach out to professionals in your desired field, attend career fairs, and join industry-related events or organizations. Building connections and expressing your enthusiasm can lead to internship opportunities. Additionally, make sure to polish your resume and tailor it to highlight relevant skills such as leadership, communication, problem-solving, and project management. Highlight any coursework or projects related to business management. Utilize your college's career services office for resume reviews, interview practice, and internship search assistance.
+
+When it comes to career recommendations, with a major in business management, you have a wide range of potential career paths available to you. Some popular options include roles in marketing, human resources, consulting, operations management, and entrepreneurship. Consider exploring internships or entry-level positions in these areas to gain practical experience and further refine your career goals. Additionally, certifications such as Project Management Professional (PMP) or Six Sigma can enhance your credentials and open up opportunities in project management or process improvement roles. Stay proactive in seeking internships and career guidance, and don't hesitate to leverage resources and networks available to you.",230,2023-06-08T12:29:00Z,0,United States,4 - Fully Correct,4 - Fully Complete,4 - Fully Coherent,4,4,4,Test,2,Predictive Causal Reasoning/Interventional Reasoning,1,230,184,276
+857617,gold_candidates,16,reserve,,0.009033423667570008,1,ai,121779716,20261027-124027-03,v1.1,"Hello, I am an 18-year-old college student, and I am learning to be a RN. does the work get harder or easier the closer you get to graduating?",I am in my fourth month in  college,I am in my fourth month in college,36,2024-03-06T00:08:00Z,7,1001,nursing college-major career-path,United States,Industry-Specific Knowledge and Trends,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,,,,Get Feedback or Reassurance; Overcome Doubt or Fear,,,,,29-0000 Healthcare Practitioners and Technical Occupations; 29-1000 Healthcare Diagnosing or Treating Practitioners; 29-1140 Registered Nurses; 29-1141 Registered Nurses,,Healthcare Practitioners and Technical Occupations,1,29-1141 Registered Nurses,867343,"The material gets more challenging as you get into your core nursing classes. Time management will be your best friend. I have no regrets about nursing school.  Knowledge is empowering when learning to care for your patients through your clinicals. You will relate the chapters you were assigned to read in that very thick med/surge book to your clinical. The test you will take is to prepare you for Nursing Boards/NCLEX. If you do not have an NCLEX review book get one and look at the chapter you are learning and just look over the questions, once you have finished studying. You will see some of these questions again taking your boards.  Each rotation med/surg, OBgyn, Peds, Pysch, etc you will learn something new and be in different clinical settings.  Some rotations will be more hands-on than others. At the end of your clinical day, you have more reading and more tests to prepare for. I worked as an ER Tech in a teaching hospital, while going to nursing school. I got hands-on experience with nursing supervision and could relate to what I was learning in nursing school.  Your life will be a nursing school where you will be around like-minded students. The friendships you make are invaluable, the study sessions help and before you know it you have graduated and are preparing to pass your boards, which you will do!! I wish you the best of success in nursing. It truly is rewarding and so many different avenues to work in. The friendships you will make in the hospitals with other medical professionals will be lifelong!!","The material gets more challenging as you get into your core nursing classes. Time management will be your best friend. I have no regrets about nursing school. Knowledge is empowering when learning to care for your patients through your clinicals. You will relate the chapters you were assigned to read in that very thick med/surge book to your clinical. The test you will take is to prepare you for Nursing Boards/NCLEX. If you do not have an NCLEX review book get one and look at the chapter you are learning and just look over the questions, once you have finished studying. You will see some of these questions again taking your boards. Each rotation med/surg, OBgyn, Peds, Pysch, etc you will learn something new and be in different clinical settings. Some rotations will be more hands-on than others. At the end of your clinical day, you have more reading and more tests to prepare for. I worked as an ER Tech in a teaching hospital, while going to nursing school. I got hands-on experience with nursing supervision and could relate to what I was learning in nursing school. Your life will be a nursing school where you will be around like-minded students. The friendships you make are invaluable, the study sessions help and before you know it you have graduated and are preparing to pass your boards, which you will do!! I wish you the best of success in nursing. It truly is rewarding and so many different avenues to work in. The friendships you will make in the hospitals with other medical professionals will be lifelong!!",267,2024-03-22T18:56:00Z,0,United States,4 - Fully Correct,4 - Fully Complete,4 - Fully Coherent,4,4,4,Train,3,Analogy about next steps; Predictive Causal Reasoning/Interventional Reasoning,2,267,214,320
+735915,gold_candidates,17,reserve,,0.009033423667570008,1,ai,121779716,20261027-124027-03,v1.1,What do i need to do to start my career?,I can look it up and I can like search up what's the jobs to do and I need to get my credits and everything and stuff like that that's what I think,I can look it up and I can like search up what's the jobs to do and I need to get my credits and everything and stuff like that that's what I think,43,2023-07-04T17:28:00Z,8,443,college career-counseling,United States,"Career Decision-Making, Transitioning, and Exploration Resources; College Queries",2,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,Explore Opportunities,Plan a Career Path,,Get Feedback or Reassurance,,,,,No career mentioned in question,no_career_mentioned,,0,,735924,"From what you wrote, I believe you already have a good start. You need to maintain good grades in what you're studying, need to expose yourself to a variety of career possibilities, and narrow the possibilities a little, not a lot, and the pursue further education in a general area that can be later narrowed as you focus on your career. That is, you should not attempt to figure your career destination early. All the best to you.","From what you wrote, I believe you already have a good start. You need to maintain good grades in what you're studying, need to expose yourself to a variety of career possibilities, and narrow the possibilities a little, not a lot, and the pursue further education in a general area that can be later narrowed as you focus on your career. That is, you should not attempt to figure your career destination early. All the best to you.",78,2023-07-04T17:52:00Z,1,United States,3 - Mostly Correct,3 - Mostly Complete,3 - Mostly Coherent,3,3,3,Train,2,Necessary Conditions,1,78,62,94
+863088,gold_candidates,18,reserve,,0.009033423667570008,1,ai,121779716,20261027-124027-03,v1.1,How to become a wedding planner?,"Share your journey & guide aspiring Wedding Planners on their path!
+
+Note: Given the growing interest in the wedding planning field, we're inviting our experienced professionals to share their knowledge.","Share your journey & guide aspiring Wedding Planners on their path!
+
+Note: Given the growing interest in the wedding planning field, we're inviting our experienced professionals to share their knowledge.",36,2024-03-15T15:42:00Z,5,833,career-advice event-planning events wedding-planner weddingcoordinator bridal,United States,Industry-Specific Knowledge and Trends,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,Understand a Career Path; Understand Education Options,,,Get Feedback or Reassurance,,,,,"13-0000 Business and Financial Operations Occupations; 13-1000 Business Operations Specialists; 13-1120 Meeting, Convention, and Event Planners; 13-1121 Meeting, Convention, and Event Planners",,Business and Financial Operations Occupations,1,"13-1121 Meeting, Convention, and Event Planners",868143,"Degrees and certifications related to Event Planning and Hospitality are widely available. My wife, who is an active player in this industry, frequently collaborates with numerous Wedding Planners. During the bustling ""wedding season,"" they often recruit extra help to ensure smooth operations. My advice to you is to reach out to the top venues in your vicinity, inquire about the planners they associate with, and then contact these planners. Ask them if they require help for the season, or if they could suggest a suitable path for you. Make it clear that your aim is to work under an experienced planner, and that their name was recommended by the venue.
+
+Consider volunteering at places like schools, churches, retirement communities, or residential facilities where event organization is a regular activity. Be it bars and restaurants, retirement homes and hospitals, or businesses and hotels, event planning has become an integral component of their business and marketing plans. As a brewpub owner, I've seen the impact of event planning firsthand. Through hosting monthly events and other special occasions, we've established our reputation as a preferred venue for parties and social gatherings. We've hosted a variety of events, from retirement parties and birthdays to wedding receptions, tasting events, pairing dinners, and meet-up groups. Event planning is a thriving industry, offering ample opportunities for those who wish to freelance or become part of a team.
+
+Best of luck to you!","Degrees and certifications related to Event Planning and Hospitality are widely available. My wife, who is an active player in this industry, frequently collaborates with numerous Wedding Planners. During the bustling ""wedding season,"" they often recruit extra help to ensure smooth operations. My advice to you is to reach out to the top venues in your vicinity, inquire about the planners they associate with, and then contact these planners. Ask them if they require help for the season, or if they could suggest a suitable path for you. Make it clear that your aim is to work under an experienced planner, and that their name was recommended by the venue.
+
+Consider volunteering at places like schools, churches, retirement communities, or residential facilities where event organization is a regular activity. Be it bars and restaurants, retirement homes and hospitals, or businesses and hotels, event planning has become an integral component of their business and marketing plans. As a brewpub owner, I've seen the impact of event planning firsthand. Through hosting monthly events and other special occasions, we've established our reputation as a preferred venue for parties and social gatherings. We've hosted a variety of events, from retirement parties and birthdays to wedding receptions, tasting events, pairing dinners, and meet-up groups. Event planning is a thriving industry, offering ample opportunities for those who wish to freelance or become part of a team.
+
+Best of luck to you!",235,2024-03-24T16:33:00Z,0,United States,4 - Fully Correct,3 - Mostly Complete,4 - Fully Coherent,4,3,4,Test,3,Analogy about next steps,1,235,188,282
+47690,gold_candidates,19,reserve,,0.009033423667570008,1,ai,121779716,20261027-124027-03,v1.1,Interships which ones are right for you?,"Hi , my name is Demetrio  i'm a current undergad student at devry university im majoring in Network systems Administrator and would like to express some useful thought to those who dont have a clue about how to gain experience in your field that will be suitable in the future so, 
+If you're a college student and wish to pursue your career further what are some places you might attend to gain experience? Well Basically if you're looking for experience a good way is to look for specific intern ships that are relevant to your field, such as it is always a good idea to get entry level jobs that post to your career as a stepping stone. So to add to that i would also like to mention that getting certified in things that are relevant to your field helps a lot to get your foot in the door, from what i heard most companies only care if you posses such certification without always asking what you know about it. So some things to look at are , in indeed for internships or even events that could allow you to network with people in your field.  #college #internships #network #entrylevel #engineering #administrators #networking ","Hi , my name is Demetrio i'm a current undergad student at devry university im majoring in Network systems Administrator and would like to express some useful thought to those who dont have a clue about how to gain experience in your field that will be suitable in the future so,
+If you're a college student and wish to pursue your career further what are some places you might attend to gain experience? Well Basically if you're looking for experience a good way is to look for specific intern ships that are relevant to your field, such as it is always a good idea to get entry level jobs that post to your career as a stepping stone. So to add to that i would also like to mention that getting certified in things that are relevant to your field helps a lot to get your foot in the door, from what i heard most companies only care if you posses such certification without always asking what you know about it. So some things to look at are , in indeed for internships or even events that could allow you to network with people in your field. #college #internships #network #entrylevel #engineering #administrators #networking",211,2016-12-11T22:07:00Z,8,1359,engineering internships networking network entrylevel administrators,United States,Resume/CV/LinkedIn Optimization and Personal Branding; Non-Degree Certifications/Credentials; Job Search Strategies and Infrastructure; Networking and Mentorship,4,0,0,0,1,0,1,0,1,0,0,0,1,0,0,0,0,0,0,4,,,,,Find Opportunities or Programs; Mentors; Community,,,,15-0000 Computer and Mathematical Occupations; 15-1200 Computer Occupations; 15-1230 Computer Support Specialists; 15-1231 Computer Network Support Specialists; 15-0000 Computer and Mathematical Occupations; 15-1200 Computer Occupations; 15-1240 Database and Network Administrators and Architects; 15-1244 Network and Computer Systems Administrators,,Computer and Mathematical Occupations,1,15-1231 Computer Network Support Specialists; 15-1244 Network and Computer Systems Administrators,481296,"Demetrio, I agree internships are terrific opportunities offered by companies and organizations for prospective students. It is really a two-way street, the company gets to see what kind of an employee you are and can benefit from having ""fresh eyes"" -as a leader at my current internship put it. As for the intern, they get a chance to see first hand what the day to days are like for their given career and it is a chance for them to see if it is truly what they want, as sometimes there is a major difference between hearing and seeing. 
+
+I agree it is important to find internships related to your career, but I would not let that limit you too much. It is ok to intern in a position that may be different than your exact career choice as this can give your experiences variety and may help you see things more dynamically than your peers in the future. Internships are the time to explore and find yourself without 100% commitment that would come with a full-time job offer. ","Demetrio, I agree internships are terrific opportunities offered by companies and organizations for prospective students. It is really a two-way street, the company gets to see what kind of an employee you are and can benefit from having ""fresh eyes"" -as a leader at my current internship put it. As for the intern, they get a chance to see first hand what the day to days are like for their given career and it is a chance for them to see if it is truly what they want, as sometimes there is a major difference between hearing and seeing.
+
+I agree it is important to find internships related to your career, but I would not let that limit you too much. It is ok to intern in a position that may be different than your exact career choice as this can give your experiences variety and may help you see things more dynamically than your peers in the future. Internships are the time to explore and find yourself without 100% commitment that would come with a full-time job offer.",179,2021-07-14T14:54:00Z,0,United States,4 - Fully Correct,3 - Mostly Complete,4 - Fully Coherent,4,3,4,Train,2,Predictive Causal Reasoning/Interventional Reasoning; Counterfactual Reasoning,2,179,143,215
+791492,gold_candidates,20,reserve,,0.009033423667570008,1,ai,121779716,20261027-124027-03,v1.1,What skills are most beneficial to graduate college?,Social skills and work skills,Social skills and work skills,13,2023-10-03T01:54:00Z,14,2148,college business graduate skills interviewing-skills,United States,Skill Development,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,Explore Skills,,,,,,,,No career mentioned in question,no_career_mentioned,,0,,857982,"Hello! Over time, I've come to understand the importance of nurturing your versatile abilities. This can be achieved by learning fresh skills, building connections, and keeping up-to-date with the latest advancements in your area of expertise. Embrace change and don't hesitate to venture beyond your comfort zone. Remember, your career journey is a continuous learning process, and each step you take is a new opportunity for growth.","Hello! Over time, I've come to understand the importance of nurturing your versatile abilities. This can be achieved by learning fresh skills, building connections, and keeping up-to-date with the latest advancements in your area of expertise. Embrace change and don't hesitate to venture beyond your comfort zone. Remember, your career journey is a continuous learning process, and each step you take is a new opportunity for growth.",67,2024-03-06T14:51:00Z,0,United Kingdom,4 - Fully Correct,2 - Somewhat Incomplete,4 - Fully Coherent,4,2,4,Test,2,Predictive Causal Reasoning/Interventional Reasoning,1,67,54,80

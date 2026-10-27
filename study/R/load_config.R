@@ -14,10 +14,22 @@ load_config <- function(path) {
   if (!is.logical(cfg$preregistration_posted) || length(cfg$preregistration_posted) != 1 || is.na(cfg$preregistration_posted))
     stop("preregistration_posted must be true or false", call. = FALSE)
   cfg$osf_url <- cfg$osf_url %||% ""
+  cfg$osf_doi <- cfg$osf_doi %||% ""
+
+  f <- cfg$filters
+  needed <- c("answer_date_min", "answer_date_max_exclusive", "answer_min_words", "answer_max_words",
+              "question_min_words", "platform_prompt_pattern")
+  if (length(setdiff(needed, names(f)))) stop("filters is missing: ", paste(setdiff(needed, names(f)), collapse = ", "), call. = FALSE)
+  for (d in c("answer_date_min", "answer_date_max_exclusive")) {
+    if (is.na(as.Date(f[[d]], format = "%Y-%m-%d"))) stop("filters$", d, " must be YYYY-MM-DD", call. = FALSE)
+  }
+  if (as.Date(f$answer_date_min) >= as.Date(f$answer_date_max_exclusive)) stop("Empty answer date window", call. = FALSE)
+
+  cfg$expected_attrition <- list(questions = as.integer(unlist(cfg$expected_attrition$questions)),
+                                 answers = as.integer(unlist(cfg$expected_attrition$answers)))
 
   cfg$guaranteed_labels <- unlist(cfg$guaranteed_labels)
   cfg$scenario_labels <- unlist(cfg$scenario_labels)
-  cfg$expected_attrition <- as.integer(unlist(cfg$expected_attrition))
   unknown <- setdiff(cfg$guaranteed_labels, cfg$scenario_labels)
   if (length(unknown)) stop("guaranteed_labels not in scenario_labels: ", paste(unknown, collapse = "; "), call. = FALSE)
   if (anyDuplicated(cfg$scenario_labels)) stop("scenario_labels has duplicates", call. = FALSE)
@@ -38,13 +50,22 @@ is_preregistered <- function(cfg) {
     !is.na(cfg$osf_url) && nzchar(str_trim(cfg$osf_url))
 }
 
-# Where and how 04 writes. Unless pre-registered: DRY-RUN, in <sample_dir>/_dry_run/,
-# "DRY_RUN" in every filename, and a separate draw seed so a dry run never previews
-# the real sample.
+# Where and how 04/05 write, and which master seed the draw stages use.
+# Dry run (guard off): <sample_dir>/_dry_run/, "DRY_RUN" in every filename, master_seed with a
+# separate draw stage name. The DOI-derived seed is never used.
+# Real run (guard on): <sample_dir>/, seed_base = doi_seed(osf_doi); refuses if osf_doi is empty.
 sample_output_plan <- function(cfg) {
   dry_run <- !is_preregistered(cfg)
-  list(dry_run = dry_run,
-       dir = if (dry_run) file.path(cfg$paths$sample_dir, "_dry_run") else cfg$paths$sample_dir,
-       tag = if (dry_run) "_DRY_RUN" else "",
-       draw_stage = if (dry_run) "study_draw_DRY_RUN" else "study_draw")
+  if (dry_run) {
+    return(list(dry_run = TRUE, dir = file.path(cfg$paths$sample_dir, "_dry_run"), tag = "_DRY_RUN",
+                draw_stage = "study_draw_DRY_RUN", seed_base = cfg$master_seed,
+                seed_rule = "master_seed (dry run; the DOI seed is never used)"))
+  }
+  doi <- cfg$osf_doi
+  if (!is.character(doi) || length(doi) != 1 || is.na(doi) || !nzchar(str_trim(doi))) {
+    stop("The guard is on but osf_doi is empty. The real draw's seed comes from the OSF DOI; ",
+         "set osf_doi to the registered DOI first.", call. = FALSE)
+  }
+  list(dry_run = FALSE, dir = cfg$paths$sample_dir, tag = "", draw_stage = "study_draw",
+       seed_base = doi_seed(doi), seed_rule = glue::glue("strtoi(substr(md5(\"{doi}\"), 1, 7), 16)"))
 }

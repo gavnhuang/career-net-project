@@ -16,7 +16,7 @@ estimate_inclusion_probs <- function(frame, guaranteed_labels, floor, n, reps, m
   })
   list(probs = tibble::tibble(question_id = design$ids, n_selected = hits, inclusion_prob = hits / reps),
        floor_slots = floor_slots, reps = reps,
-       seed_rule = glue::glue("derive_seed(master_seed, \"{stage}_<r>\") for r = 1..{reps}"))
+       seed_rule = glue::glue("derive_seed({master_seed}, \"{stage}_<r>\") for r = 1..{reps}"))
 }
 
 # weight = 1 / inclusion_prob, normalized to mean 1 over the units given.

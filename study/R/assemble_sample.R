@@ -24,14 +24,16 @@ assemble_sample <- function(selection, frame_questions, chosen_answers, seed, ru
   q <- dplyr::select(frame_questions[qi, ], -question_id, -n_eligible_answers)
   a <- dplyr::select(chosen_answers[ai, ], -question_id)
   label_cols <- grep("^label_", names(q), value = TRUE)
-  answer_cols <- c("answer_id", "answer_body_raw", "answer_text_clean", "answer_word_count", "answer_added_at",
+  answer_cols <- c("answer_id", "answer_body_raw", "answer_text_clean", "answer_text_display", "answer_word_count",
+                   "answer_word_count_display", "has_list", "answer_added_at",
                    "answer_score", "answerer_location", "careernet_correctness", "careernet_completeness",
                    "careernet_coherency", "careernet_correctness_num", "careernet_completeness_num",
                    "careernet_coherency_num", "Split", "n_eligible_answers")
   reasoning_cols <- c("careernet_reasoning_label", "n_reasoning_labels")
   extras <- setdiff(names(a), c(answer_cols, reasoning_cols))
 
-  target <- a$answer_word_count
+  # Generation targets follow the length raters will actually see.
+  target <- a$answer_word_count_display
   targets <- tibble::tibble(
     target_words = target,
     target_min_words = as.integer(floor(target * (1 - tolerance) + 0.5)),
@@ -40,7 +42,8 @@ assemble_sample <- function(selection, frame_questions, chosen_answers, seed, ru
 
   out <- dplyr::bind_cols(
     draw,
-    q[c("question_title", "question_body_raw", "question_text_clean", "question_word_count", "question_added_at",
+    q[c("question_title", "question_body_raw", "question_text_clean", "question_text_display", "question_word_count",
+        "question_added_at",
         "question_score", "question_views", "question_tagnames", "asker_location",
         "scenario_labels", "n_labels", label_cols, "n_guaranteed_labels",
         GOAL_COLUMNS, "unclear_goal",
@@ -53,5 +56,5 @@ assemble_sample <- function(selection, frame_questions, chosen_answers, seed, ru
   out
 }
 
-GENERATION_COLUMNS <- c("question_id", "question_title", "question_text_clean", "target_words",
+GENERATION_COLUMNS <- c("question_id", "question_title", "question_text_display", "target_words",
                         "target_min_words", "target_max_words")

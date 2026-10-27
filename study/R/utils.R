@@ -55,6 +55,13 @@ derive_seed <- function(master_seed, stage) {
   strtoi(substr(h, 1, 7), base = 16L)
 }
 
+# The real study draw's master seed: first 7 hex digits of md5 of the OSF DOI string, exactly
+# as written in the config (no case or whitespace normalization).
+doi_seed <- function(doi) {
+  if (!is.character(doi) || length(doi) != 1 || is.na(doi) || !nzchar(doi)) stop("doi_seed() needs a non-empty DOI", call. = FALSE)
+  strtoi(substr(digest::digest(doi, algo = "md5", serialize = FALSE), 1, 7), base = 16L)
+}
+
 # Evaluate `expr` under a fixed seed and the study RNG kinds, then restore the
 # caller's RNG state, so sampling functions have no side effect on global RNG.
 with_seed <- function(seed, expr) {
