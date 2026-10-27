@@ -3,10 +3,13 @@
 LOGGED_PACKAGES <- c("readr", "dplyr", "tidyr", "stringr", "purrr", "lubridate", "yaml", "xml2", "digest",
                      "glue", "testthat")
 
-git_info <- function() {
+# uncommitted_changes covers study/ only (the rest of the repository is not part of the pipeline).
+git_info <- function(scope = "study") {
   commit <- tryCatch(system2("git", c("rev-parse", "HEAD"), stdout = TRUE, stderr = FALSE), error = function(e) NA_character_)
-  status <- tryCatch(system2("git", c("status", "--porcelain"), stdout = TRUE, stderr = FALSE), error = function(e) character())
-  list(commit = if (length(commit)) commit[1] else NA_character_, uncommitted_changes = length(status) > 0)
+  status <- tryCatch(system2("git", c("status", "--porcelain", "--", scope), stdout = TRUE, stderr = FALSE),
+                     error = function(e) character())
+  list(commit = if (length(commit)) commit[1] else NA_character_, uncommitted_changes = length(status) > 0,
+       scope = scope)
 }
 
 file_md5 <- function(paths) {
