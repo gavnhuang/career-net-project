@@ -2,17 +2,13 @@
 # SCENARIO INTENT ANALYSIS — SHARED HELPERS
 # ============================================================
 
+source("analysis/00_data_helpers.R")
+
 library(tidyverse)
 library(tidytext)
 library(stringr)
 
-load_all_data <- function() {
-  bind_rows(
-    read_csv("data/general.csv",    show_col_types = FALSE) %>% mutate(domain = "General"),
-    read_csv("data/health.csv",     show_col_types = FALSE) %>% mutate(domain = "Healthcare"),
-    read_csv("data/technology.csv", show_col_types = FALSE) %>% mutate(domain = "Technology")
-  )
-}
+load_all_data <- load_all_domains
 
 parse_quality_scores <- function(data) {
   data %>%

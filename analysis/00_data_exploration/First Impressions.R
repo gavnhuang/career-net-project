@@ -14,6 +14,8 @@
 # 1. LOAD LIBRARIES
 # ============================================================
 
+source("analysis/00_data_helpers.R")
+
 library(tidyverse)
 library(tidytext)
 library(stringr)
@@ -22,20 +24,9 @@ library(stringr)
 # 2. LOAD DATASETS
 # ============================================================
 
-general <- read_csv(
-  "data/general.csv",
-  show_col_types = FALSE
-)
-
-health <- read_csv(
-  "data/health.csv",
-  show_col_types = FALSE
-)
-
-technology <- read_csv(
-  "data/technology.csv",
-  show_col_types = FALSE
-)
+general    <- load_domain("General")
+health     <- load_domain("Healthcare")
+technology <- load_domain("Technology")
 
 # ============================================================
 # 3. CLEAN TEXT

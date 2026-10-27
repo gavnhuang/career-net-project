@@ -1,7 +1,7 @@
-source("analysis/04_response_length/00_response_length_helpers.R")
+source("analysis/00_data_helpers.R")
+source("analysis/03_response_length/00_response_length_helpers.R")
 
-health <- read_csv("data/health.csv", show_col_types = FALSE) %>%
-  mutate(domain = "Healthcare")
+health <- load_domain("Healthcare")
 
 run_response_length_analysis(
   data = health,

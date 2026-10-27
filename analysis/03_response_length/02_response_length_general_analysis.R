@@ -1,7 +1,7 @@
-source("analysis/04_response_length/00_response_length_helpers.R")
+source("analysis/00_data_helpers.R")
+source("analysis/03_response_length/00_response_length_helpers.R")
 
-general <- read_csv("data/general.csv", show_col_types = FALSE) %>%
-  mutate(domain = "General")
+general <- load_domain("General")
 
 run_response_length_analysis(
   data = general,

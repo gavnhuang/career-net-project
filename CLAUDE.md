@@ -10,10 +10,16 @@ Always run R scripts from the project root (`Project/`), not from subdirectories
 ```
 Project/
 ├── data/
-│   ├── general.csv
-│   ├── health.csv
-│   └── technology.csv
+│   ├── v1.0/                      # original release
+│   │   ├── general.csv
+│   │   ├── health.csv
+│   │   └── technology.csv
+│   └── v1.1/                      # public release: v1.0 + soc_code, reasoning_label
+│       ├── general_public_v1.1.csv
+│       ├── health_public_v1.1.csv
+│       └── technology_public_v1.1.csv
 ├── analysis/
+│   ├── 00_data_helpers.R          # shared loader; DATA_VERSION selects the release
 │   ├── 00_data_exploration/
 │   ├── 01_score_distribution/
 │   ├── 02_question_length/
@@ -47,5 +53,6 @@ R --no-save --no-restore
 
 ## Conventions
 - Helper/shared functions go in `00_*_helpers.R` files and are sourced by other scripts
+- Load data only via `analysis/00_data_helpers.R` (`load_domain()`, `load_all_domains()`); never hard-code CSV paths in scripts
 - Plots saved to `plots/`, tabular outputs saved to `outputs/`
 - Data files in `data/` are read-only source files — do not modify them

@@ -1,11 +1,9 @@
+source("analysis/00_data_helpers.R")
+
 library(tidyverse)
 library(stringr)
 
-all_data <- bind_rows(
-  read_csv("data/general.csv",    show_col_types = FALSE) %>% mutate(domain = "General"),
-  read_csv("data/health.csv",     show_col_types = FALSE) %>% mutate(domain = "Healthcare"),
-  read_csv("data/technology.csv", show_col_types = FALSE) %>% mutate(domain = "Technology")
-) %>%
+all_data <- load_all_domains() %>%
   mutate(
     Correctness  = as.numeric(str_extract(correctness,  "^[1-4]")),
     Completeness = as.numeric(str_extract(completeness, "^[1-4]")),

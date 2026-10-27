@@ -4,7 +4,7 @@
 # For each (scenario type × intent type) combination, what is the
 # average quality of responses? This is the thesis centrepiece figure.
 
-source("analysis/05_scenario_intent/00_scenario_intent_helpers.R")
+source("analysis/04_scenario_intent/00_scenario_intent_helpers.R")
 
 dir.create("plots/scenario_intent",   recursive = TRUE, showWarnings = FALSE)
 dir.create("outputs/scenario_intent", recursive = TRUE, showWarnings = FALSE)

@@ -8,9 +8,16 @@ Exploratory analysis of a CareerNet dataset containing career-advice Q&A pairs, 
 
 | File | Domain | Answers | Unique questions |
 |------|--------|---------|-----------------|
-| `data/general.csv` | General career advice | 7,984 | 3,000 |
-| `data/health.csv` | Healthcare careers | 4,069 | 1,500 |
-| `data/technology.csv` | Technology careers | 4,077 | 1,500 |
+| `data/v1.1/general_public_v1.1.csv` | General career advice | 7,984 | 3,000 |
+| `data/v1.1/health_public_v1.1.csv` | Healthcare careers | 4,069 | 1,500 |
+| `data/v1.1/technology_public_v1.1.csv` | Technology careers | 4,077 | 1,500 |
+
+**Versions.** `data/v1.0/` holds the original release; `data/v1.1/` holds the public v1.1 release, which is row-for-row identical to v1.0 plus two new columns:
+
+- **`soc_code`** — semicolon-separated SOC occupation hierarchy (major → minor → broad → detailed group) for each career mentioned in the question, or `No career mentioned in question` / `Career in question not aligned with a label`.
+- **`reasoning_label`** — semicolon-separated reasoning type(s) used in the answer (e.g. `Predictive Causal Reasoning/Interventional Reasoning`, `Necessary Conditions`, `No reasoning - explanation only`).
+
+All scripts load data through `analysis/00_data_helpers.R`; change `DATA_VERSION` there to switch every analysis between releases (default: `v1.1`).
 
 Each question may have multiple answers (annotators rated each answer independently). Each file also includes a `Split` column marking rows as `Train` or `Test`. The current analyses use all rows — if a predictive model is built later, exploration should be repeated using only the `Train` rows.
 
@@ -42,7 +49,8 @@ Rscript "analysis/03_response_length/01_response_length_all_analysis.R"
 
 ```
 analysis/          R scripts, grouped by analysis type
-data/              Source CSV files (read-only)
+data/v1.0/         Original source CSVs (read-only)
+data/v1.1/         Public v1.1 source CSVs with soc_code + reasoning_label (read-only)
 outputs/           CSV summaries produced by the scripts
 plots/             PDF plots produced by the scripts
 ```

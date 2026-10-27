@@ -15,15 +15,17 @@
 # 1. LOAD LIBRARIES
 # ============================================================
 
+source("analysis/00_data_helpers.R")
+
 library(tidyverse)
 
 # ============================================================
 # 2. LOAD DATASETS
 # ============================================================
 
-general <- read_csv("data/general.csv", show_col_types = FALSE)
-health <- read_csv("data/health.csv", show_col_types = FALSE)
-technology <- read_csv("data/technology.csv", show_col_types = FALSE)
+general    <- load_domain("General")
+health     <- load_domain("Healthcare")
+technology <- load_domain("Technology")
 
 # ============================================================
 # 3. HELPER FUNCTIONS
@@ -53,23 +55,19 @@ select_dataset <- function() {
 
   switch(trimws(choice),
     "1" = list(
-      data = general %>% mutate(domain = "General"),
+      data = general,
       name = "General"
     ),
     "2" = list(
-      data = health %>% mutate(domain = "Healthcare"),
+      data = health,
       name = "Healthcare"
     ),
     "3" = list(
-      data = technology %>% mutate(domain = "Technology"),
+      data = technology,
       name = "Technology"
     ),
     "4" = list(
-      data = bind_rows(
-        general    %>% mutate(domain = "General"),
-        health     %>% mutate(domain = "Healthcare"),
-        technology %>% mutate(domain = "Technology")
-      ),
+      data = bind_rows(general, health, technology),
       name = "All Datasets Combined"
     )
   )
