@@ -157,3 +157,22 @@ frozen_checksums:
   "study/data/02_reserved/frame_remaining.csv": "7aac8faa02f300a5563419321f877c2f"
   "study/data/02_reserved/frame_remaining.rds": "6317efddff82029ad58c9c75e8fcaf5f"
   "study/data/02_reserved/reserved_exclusions_log.csv": "bcbc470ffd307ccdb22fa70fbb6b0211"
+
+# ---- AI answer generation (B02) ----------------------------------------------
+# D100 (1 Nov): GPT-6 Luna, reasoning off; no claimed personal experience. D101: failure rule.
+# While generation_frozen is false the settings can change (draft runs for the pilot).
+# freeze_generation.R sets it to true and records the prompt's md5; from then on
+# 07 refuses to run if the prompt file or any setting below differs.
+generation:
+  provider: "openai"
+  endpoint: "https://api.openai.com/v1/responses"
+  model: "gpt-6-luna"
+  reasoning_effort: "none"     # the API default is "medium"; "none" must be sent explicitly
+  prompt_file: "study/config/generation_prompt.txt"
+  max_tries: 5                 # D101: then keep the closest-length attempt that passes the format checks, flagged
+  length_tolerance: 0.20       # D10: within +/-20% of the paired human answer
+  length_request_factor: 0.83  # D103: ask for round(target * 0.83) words, at most the window's upper bound
+  output_dir: "study/data/04_generated"
+  pause_seconds: 0.5
+  generation_frozen: false
+  frozen_prompt_md5: ""

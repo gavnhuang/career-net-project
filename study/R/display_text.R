@@ -112,6 +112,17 @@ display_question_text <- function(clean) {
   tibble::tibble(text = text, hashtags_removed = purrr::map_chr(tags, ~ if (length(.x)) paste(.x, collapse = " ") else NA_character_))
 }
 
+# D102: plain typography for display, so the AI and human answers do not differ in punctuation style.
+# Curly quotes -> straight, em/en dash -> " - ", doubled spaces collapsed; nothing else changes.
+# Applied to AI answers at generation (07). The frozen human answer files are not changed; the same
+# function is applied to human answers when the surveys are built (B16).
+normalize_typography <- function(x) {
+  x <- str_replace_all(x, "[‘’]", "'")
+  x <- str_replace_all(x, "[“”]", "\"")
+  x <- str_replace_all(x, "[–—]", " - ")
+  str_replace_all(x, " {2,}", " ")
+}
+
 has_list <- function(raw_html, text) {
   coalesce(str_detect(raw_html, "(?i)<(?:ul|ol|li)\\b"), FALSE) | coalesce(str_detect(text, LIST_TEXT_PATTERN), FALSE)
 }

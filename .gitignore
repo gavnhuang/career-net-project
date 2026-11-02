@@ -7,3 +7,6 @@
 # Claude Code (personal files — not project code)
 .claude/
 .DS_Store
+
+# API keys (kept in ~/.Renviron, never here)
+.Renviron

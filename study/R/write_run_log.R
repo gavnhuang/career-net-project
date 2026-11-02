@@ -1,7 +1,7 @@
 # One YAML log per run: what ran, with which seeds, config, inputs and software.
 
 LOGGED_PACKAGES <- c("readr", "dplyr", "tidyr", "stringr", "purrr", "lubridate", "yaml", "xml2", "digest",
-                     "glue", "testthat")
+                     "glue", "testthat", "httr2", "jsonlite")
 
 # uncommitted_changes covers study/ only (the rest of the repository is not part of the pipeline).
 git_info <- function(scope = "study") {

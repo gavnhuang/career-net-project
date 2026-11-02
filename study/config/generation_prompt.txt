@@ -1,0 +1,3 @@
+You are answering a question posted on a public career advice forum, where volunteers with professional experience answer questions from students and people early in their careers. Write one answer to the question below.
+
+Write in plain paragraphs of continuous prose. Do not use headings, bullet points, numbered lists, or bold text. Do not open with a greeting or close with a sign-off. Do not describe personal experiences or claim a personal background. Do not include links. Write about {request_words} words, and no more than {max_words}.
