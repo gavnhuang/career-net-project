@@ -170,3 +170,27 @@ In dry-run mode the `data/03_sample/` files sit in `_dry_run/` with `_DRY_RUN` i
 ### Reasoning labels
 
 `careernet_reasoning_label` is CareerNet's label for the chosen human answer, assigned by a fine-tuned GPT-4.1-mini with limited reliability. It is carried for description only. Labeling both human and AI answers with the study's own reasoning scheme is an optional later stage. It would join on `answer_id` or `question_id`, and the `careernet_` prefix keeps the names from colliding.
+
+## AI answer generation (07, B02)
+
+Decisions D100–D103 (vault `04 Decisions`). Settings live in `config/study_config.yml` under `generation`, and the prompt in `config/generation_prompt.txt`.
+
+```bash
+Rscript study/scripts/07_generate_answers.R --set gold_candidates --preview   # what the model will be sent; no API calls
+Rscript study/scripts/07_generate_answers.R --set gold_candidates --limit 3   # test run
+Rscript study/scripts/07_generate_answers.R --set gold_candidates             # full set (warmups, calibration, or study_sample after the OSF draw)
+Rscript study/scripts/freeze_generation.R                                     # after the pilot: locks the prompt (md5) and settings
+```
+
+- **Model:** `gpt-6-luna`, reasoning `none`, other settings at their defaults. Needs `OPENAI_API_KEY` in `~/.Renviron`, never in this repo.
+- **Length:** the prompt asks for `round(target × 0.83)` words, "and no more than" the top of the ±20% window. Acceptance is checked against the real target. Up to 5 tries. If none fit, the closest-length attempt that passes the format checks is kept and flagged `closest_length`. No question is dropped (D101).
+- **Display:** URLs are stripped and typography normalized (`normalize_typography()`: straight quotes and apostrophes, dashes become " - "). The raw model text is kept in `response_text_raw`. Word counts are taken before normalization. The same function is applied to human answers when surveys are built (B16).
+- **Outputs:** `data/04_generated/<set>/answers_<run>.csv` (one row per question), `raw_<run>.jsonl` (every attempt, with the full API response), `reports/07_generate_<set>_<run>.md`, and `logs/<run>.yml`. Earlier runs are never overwritten.
+- **Pilot answers:** `gold_candidates` run `20261101-180642-07` (commit 9548670).
+
+## Pilot materials
+
+`data/05_assignments/pilot_items_key.csv` maps the 20 shuffled pilot items (order seed 20261101) to question_id, version (human/AI), answer_id or AI run, and word counts. **This is the unblinding key**: it stays here and is never sent to coders or pilot raters. The blind materials built from it are in `07 Study Materials/06 Pilot/`.
+
+**Warm-ups (D116):** after `Rscript study/scripts/07_generate_answers.R --set warmups`, run `python3 study/scripts/make_warmup_sheet.py` from `04 R Project`. It writes the blind scoring sheet to `07 Study Materials/02 Training/Warm-ups/` and the key to `data/05_assignments/warmup_items_key.csv` (never shared). Order seed 20261107; items 1–3 are the pilot training's practice items.
+Needs openpyxl; on Gavin's Mac run it with /opt/anaconda3/bin/python3 (the default python3 lacks it).
