@@ -10,3 +10,10 @@
 
 # API keys (kept in ~/.Renviron, never here)
 .Renviron
+
+# Human/AI keys for coders (kept out of git so they never travel with the code)
+study/data/05_assignments/*_key.csv
+
+# Superseded pilot outputs and stray R graphics device output
+**/_old/
+Rplots.pdf
